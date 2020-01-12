@@ -1,11 +1,14 @@
 
 # Nice to know Unraid commands
+
 ## Docker service
+
 &nbsp;&nbsp;&nbsp;&nbsp;==start== ==stop== ==restart== ==status==
 
 &nbsp;&nbsp;&nbsp;&nbsp;`/etc/rc.d/rc.docker <command>`
 
 ## Docker containers
+
 &nbsp;&nbsp;&nbsp;&nbsp;==start== ==stop== ==restart== ==pause== ==logs==
 
 &nbsp;&nbsp;&nbsp;&nbsp;`docker <command> <containername>`
@@ -13,34 +16,41 @@
 &nbsp;&nbsp;&nbsp;&nbsp;**Print all container names:** `run docker ps --format ‘{{.Names}}’`
 
 ## Nginx
+
 &nbsp;&nbsp;&nbsp;&nbsp;==start== ==stop== ==restart== ==status==
 
 &nbsp;&nbsp;&nbsp;&nbsp;`/etc/rc.d/rc.nginx <command>`
 
 ## PHP
+
 &nbsp;&nbsp;&nbsp;&nbsp;==start== ==stop== ==restart== ==status==
 
 &nbsp;&nbsp;&nbsp;&nbsp; `/etc/rc.d/rc.php-fpm <command>`
 
 ## VM Service
+
 &nbsp;&nbsp;&nbsp;&nbsp;==start== ==stop==
 
 &nbsp;&nbsp;&nbsp;&nbsp;`/etc/rc.d/rc.libvirt <command>`
 
 &nbsp;&nbsp;&nbsp;&nbsp;**List all domains:** `virsh list --all`
 
-###&nbsp;&nbsp;&nbsp;&nbsp;Domains
+### &nbsp;&nbsp;&nbsp;&nbsp;Domains
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;==start== ==shutdown== ==reboot== ==suspend==
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`virsh <command> <domain>`
 
 ## Samba
+
 &nbsp;&nbsp;&nbsp;&nbsp;==start== ==stop==
 
 &nbsp;&nbsp;&nbsp;&nbsp;`/etc/rd.d/rc.samba <command>`
 
 ## Unraid
+
 #### Shutdown/Reboot
+
 &nbsp;&nbsp;&nbsp;&nbsp;==reboot== ==poweroff== ==shutdown==
 
 &nbsp;&nbsp;&nbsp;&nbsp;`/sbin/<command>`
