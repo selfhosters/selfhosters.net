@@ -6,7 +6,22 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://selfhosters.net/Shorties/test/</loc>
+     <loc>https://selfhosters.net/commands/</loc>
+     <lastmod>2020-01-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://selfhosters.net/guides/placeholder/</loc>
+     <lastmod>2020-01-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://selfhosters.net/guides/placeholder/</loc>
+     <lastmod>2020-01-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://selfhosters.net/guides/placeholder/</loc>
      <lastmod>2020-01-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
