@@ -75,29 +75,3 @@
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
         nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
         massa, nec semper lorem quam in massa.
-
-
-??? info "CodeHilite"
-    Bash
-    C
-    C++
-    C#
-    Clojure
-    Diff
-    Docker
-    Elixir
-    Erlang
-    F#
-    Go
-    HTML
-    Java
-    JavaScript
-    JSON
-    Julia
-    Lua
-    MySQL
-    PHP
-    Protocol Buffers
-    Python
-    Ruby
-    XML
