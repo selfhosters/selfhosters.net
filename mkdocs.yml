@@ -8,6 +8,7 @@ repo_url: "https://github.com/selfhosters/selfhosters.net"
 edit_uri: "https://github.com/selfhosters/selfhosters.net/edit/master/docs/"
 
 # Configuration
+
 # https://squidfunk.github.io/mkdocs-material/getting-started/#configuration
 # https://squidfunk.github.io/mkdocs-material/extensions/pymdown/
 
