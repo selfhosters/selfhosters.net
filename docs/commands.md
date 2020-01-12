@@ -49,7 +49,7 @@
 
 ## Unraid
 
-#### Shutdown/Reboot
+### Shutdown/Reboot
 
 &nbsp;&nbsp;&nbsp;&nbsp;==reboot== ==poweroff== ==shutdown==
 
@@ -61,22 +61,22 @@
     which could cause the system to power off before the Flash is updated indicating 'clean shutdown'.
     This can't cause data loss, but will cause parity-check to automatically start upon next reboot.
 
-#### Run diagnostics
+### Run diagnostics
 
 `diagnostics`
 
-#### Tail the syslog
+### Tail the syslog
 
 `tail -f /var/log/syslog`
 
-#### Look at the parameters in the config file
+### Look at the parameters in the config file
 
 `nano /boot/syslinux.cfg-`
 
-#### Create a backup image of your usb and store it on disk1
+### Create a backup image of your usb and store it on disk1
 
 `dd if=/dev/sda of=/mnt/disk1/unraid.img`
 
-#### Copy files using midnight commander
+### Copy files using midnight commander
 
 `mc`
