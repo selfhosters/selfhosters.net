@@ -1,0 +1,57 @@
+site_name: "Selfhosters.net"
+site_description: "Collection on Unraid tips"
+site_author: "Selfhosters"
+site_url: "https://selfhosters.net"
+
+repo_name: "selfhosters/selfhosters.net"
+repo_url: "https://github.com/selfhosters/selfhosters.net"
+edit_uri: "https://github.com/selfhosters/selfhosters.net/edit/master/docs/"
+
+# Configuration
+# https://squidfunk.github.io/mkdocs-material/getting-started/#configuration
+markdown_extensions:
+  - codehilite
+  - admonition
+  - footnotes
+    #https://squidfunk.github.io/mkdocs-material/extensions/pymdown/
+  - pymdownx.emoji:
+      emoji_index: !!python/name:pymdownx.emoji.twemoji
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+theme:
+  name: "material"
+  language: "en"
+  palette:
+    primary: "orange"
+    accent: "red"
+  font:
+    text: "Roboto"
+    code: "Roboto Mono"
+extra:
+  social:
+    - type: 'github'
+      link: 'https://github.com/selfhosters'
+
+# Navigation
+nav:
+  - Home: index.md
+  - Shorties:
+        - Test: Shorties/test.md
+  - How-to's:
+        - Test: howtwos/test.md
