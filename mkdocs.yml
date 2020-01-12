@@ -7,9 +7,9 @@ repo_name: "selfhosters/selfhosters.net"
 repo_url: "https://github.com/selfhosters/selfhosters.net"
 edit_uri: "https://github.com/selfhosters/selfhosters.net/edit/master/docs/"
 
-  # Configuration
-  # https://squidfunk.github.io/mkdocs-material/getting-started/#configuration
-  # https://squidfunk.github.io/mkdocs-material/extensions/pymdown/
+# Configuration
+# https://squidfunk.github.io/mkdocs-material/getting-started/#configuration
+# https://squidfunk.github.io/mkdocs-material/extensions/pymdown/
 
 markdown_extensions:
   - codehilite
@@ -53,6 +53,6 @@ extra:
 nav:
   - Home: index.md
   - Shorties:
-    - Test: Shorties/test.md
+      - Test: Shorties/test.md
   - How-to's:
-    - Test: howtwos/test.md
+      - Test: howtwos/test.md
