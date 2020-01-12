@@ -2,7 +2,7 @@
 
 # Welcome to selfhosters.net
 
-Selfhosters.net is a documentation portal for the [Unraid Discord](https://discord.gg/qWPbc8R). 
+Selfhosters.net is a documentation portal for the [Unraid Discord](https://discord.gg/qWPbc8R).
 
 Here you will find short guides and walkthroughs made by the  Unraid community.
 
