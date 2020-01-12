@@ -8,7 +8,9 @@
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
     nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
     massa, nec semper lorem quam in massa.
+
 ## nginx
+
 ```nginx
 # make sure that your dns has a cname set for code-server
 
@@ -42,16 +44,17 @@ server {
         proxy_set_header Connection upgrade;
     }
 }
-
 ```
+
 ## python
+
 ```python
 print("unraid rulez")
 ```
 
 ## bash
+
 ```bash
 #!/bin/bash
-
 echo "Hello world!"
 ```
