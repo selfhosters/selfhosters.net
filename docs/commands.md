@@ -57,7 +57,7 @@
 
 !!! note "Note"
     `poweroff` will gracefully shut everything down, even spin down the hard drives,
-    but will not actually turn off the power supply.But there is a race condition in the code 
+    but will not actually turn off the power supply.But there is a race condition in the code
     which could cause the system to power off before the Flash is updated indicating 'clean shutdown'.
     This can't cause data loss, but will cause parity-check to automatically start upon next reboot.
 
