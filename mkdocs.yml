@@ -55,5 +55,3 @@ nav:
   - Home: index.md
   - Shorties:
       - Test: Shorties/test.md
-  - How-to's:
-      - Test: howtwos/test.md
