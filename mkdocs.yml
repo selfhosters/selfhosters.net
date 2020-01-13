@@ -54,8 +54,3 @@ extra:
 nav:
   - Home: index.md
   - Nice to know Unraid commands: commands.md
-  - Guides:
-      Example 1: guides/placeholder.md
-      Example 2: guides/placeholder.md
-      Example 3: guides/placeholder.md
-     #- Tips & Tricks/highlighting_test.md
