@@ -1,0 +1,3 @@
+git+git://github.com/mkdocs/mkdocs/#egg=mkdocs # async issues with py3.8, fix not in pip yet
+mkdocs-material
+pymdown-extensions
