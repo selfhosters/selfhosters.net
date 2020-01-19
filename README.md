@@ -35,7 +35,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### Start the devserver
+### Start the dev-server
 
 ```bash
 mkdocs server
