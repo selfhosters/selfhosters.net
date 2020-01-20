@@ -2,12 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>https://selfhosters.net/</loc>
-     <lastmod>2020-01-19</lastmod>
+     <lastmod>2020-01-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://selfhosters.net/commands/</loc>
-     <lastmod>2020-01-19</lastmod>
+     <lastmod>2020-01-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://selfhosters.net/templating/</loc>
+     <lastmod>2020-01-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
