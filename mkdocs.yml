@@ -49,8 +49,12 @@ extra:
   social:
     - type: 'github'
       link: 'https://github.com/selfhosters'
+    - type: 'discord'
+      link: 'https://discord.gg/qWPbc8R'
 
 # Navigation
 nav:
   - Home: index.md
   - Nice to know Unraid commands: commands.md
+  - WIP:
+    - Writing a template compatible for unraid: templating.md
