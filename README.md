@@ -11,7 +11,7 @@ Repository for the selfhosters.net documentation.
 
 Create or edit a markdown(.md) file in the [/docs](/docs/) folder.
 
-It's based on markdown, so looking at a [cheat sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatshee), and checking changes against a [live preview](https://markdownlivepreview.com/) helps you confirm the appear like you want.
+It's based on markdown, so looking at a [cheat sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatshee), and checking changes against a [live preview](https://markdownlivepreview.com/) helps you confirm the changes appear like you want them to.
 
 ## Start documenting (and seeing changes live)
 
@@ -40,3 +40,7 @@ pip install -r requirements.txt
 ```bash
 mkdocs server
 ```
+
+### Write your documentation
+
+### Commit your changes
