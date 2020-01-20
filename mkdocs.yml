@@ -57,4 +57,4 @@ nav:
   - Home: index.md
   - Nice to know Unraid commands: commands.md
   - WIP:
-    - Writing a template compatible for unraid: templating.md
+      Writing a template compatible for unraid: templating.md
