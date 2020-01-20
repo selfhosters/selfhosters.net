@@ -7,13 +7,13 @@ This is an effort to collect information from [Squids FAQ](https://forums.unraid
 In order to have a smooth experience creating templates I highly recommend enabling `Template Authoring Mode`, it allows you to see the XML in clear-text and some other small neat tricks we might need to come back to.
 
 This process requires you to shutdown the docker service for a short while, as unraid doesn't let us change the setting with the service running.  
-![docker-off](templating\tmpl-docker-off.png)
+![docker-off](templating/tmpl-docker-off.png)
 
 When the docker service is successfully shutdown, enable advanced view  
-![docker-adv-view](templating\tmpl-docker-adv-view.png)
+![docker-adv-view](templating/tmpl-docker-adv-view.png)
 
 We can now enable authoring mode, you can also toggle the docker service back on  
-![docker-author-mode](templating\tmpl-docker-auth-mode.png)
+![docker-author-mode](templating/tmpl-docker-auth-mode.png)
 
 ## 1. Choosing which way to go
 
@@ -27,7 +27,7 @@ We can get started writing templates in two ways:
 ### 1.1.0 Enabling search from dockerHub
 
 In order to have Community Applications (hereby referenced as CA) generate one, we need to enable additional search from dockerHub. You do this by opening CA, and press the settings button on the sidebar
-![ca-side-bar](templating\tmpl-ca-bar.png)
+![ca-side-bar](templating/tmpl-ca-bar.png)
 
 Enable additional search
 ![ca-dHub-on](templating/tmpl-ca-hub-on.png)
