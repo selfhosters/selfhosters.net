@@ -40,7 +40,7 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
   - toc:
-      permalink: true  
+      permalink: true
 
 theme:
   name: "material"
@@ -68,11 +68,7 @@ nav:
       Adding Discord Notifications: Tips/discord_notifications/discord_notifications.md
   - Docker:
       Telegraf:
-          Adding IPMI stats to the Telegraf container: docker/telegraf/ipmi.md
+        Adding IPMI stats to the Telegraf container: docker/telegraf/ipmi.md
       Plex:
-          Routing Plex through Cloudflare: docker/plex/cloudflare.md
-
-
-
-
+        Routing Plex through Cloudflare: docker/plex/cloudflare.md
 
