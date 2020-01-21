@@ -2,21 +2,21 @@
 
 ## Telegraf
 
-If we try and activate the ipmi_sensor plugin in the telegraf.conf file we will get an error in the log saying the following: 
+If we try and activate the ipmi_sensor plugin in the telegraf.conf file we will get an error in the log saying the following:
 
 !!! error
     2020-01-21T17:28:50Z E! [inputs.ipmi_sensor] Error in plugin: ipmitool not found: verify that
     ipmitool is installed and that ipmitool is in your PATH
 
-This happens because the telegraf container does not come with ipmitool installed. 
+This happens because the telegraf container does not come with ipmitool installed.
 
 This can be easly fixed by just adding the following command in the post argument when creating the container:
 
 ```bash
-/bin/sh -c 'apk update && apk add ipmitool && telegraf'
+    /bin/sh -c 'apk update && apk add ipmitool && telegraf'
 ```
 
-Edit the container and add the line in the ==Post Arguments:== input field. 
+Edit the container and add the line in the ==Post Arguments:== input field.
 
 ![Post Args](post_args.png)
 
@@ -29,7 +29,6 @@ Below is two simple graph panels I made with Grafana.
 Create two graph panels in Grafana and copy the JSON below.
 
 ![Grafana](grafana.png)
-
 
 ??? Example "IPMI Voltages panel JSON"
 
