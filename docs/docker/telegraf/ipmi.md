@@ -183,7 +183,6 @@ Create two graph panels in Grafana and copy the JSON below.
     }
     }
     ```
-
 ??? Example "IPMI Temperature panel JSON"
     ```json
     {
