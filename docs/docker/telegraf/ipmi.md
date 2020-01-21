@@ -31,7 +31,6 @@ Create two graph panels in Grafana and copy the JSON below.
 ![Grafana](grafana.png)
 
 ??? Example "IPMI Voltages panel JSON"
-
     ```json
     {
     "datasource": null,
@@ -186,7 +185,6 @@ Create two graph panels in Grafana and copy the JSON below.
     ```
 
 ??? Example "IPMI Temperature panel JSON"
-
     ```json
     {
     "datasource": null,
