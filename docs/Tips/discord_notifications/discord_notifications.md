@@ -30,4 +30,3 @@ At the end of your webhook URL add ==/slack== so the URL looks like this: `https
     ![Notifications](unraid_notifications.png)
     ![Agent](unraid_agent.png)
     ![Test](discord_event.png)
-    
