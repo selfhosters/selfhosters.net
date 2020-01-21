@@ -9,10 +9,10 @@ In order to have a smooth experience creating templates I highly recommend enabl
 This process requires you to shutdown the docker service for a short while, as unraid doesn't let us change the setting with the service running.  
 ![docker-off](templating/tmpl-docker-off.png)
 
-When the docker service is successfully shutdown, enable advanced view  
+When the docker service is successfully shutdown, enable advanced view.
 ![docker-adv-view](templating/tmpl-docker-adv-view.png)
 
-We can now enable authoring mode, you can also toggle the docker service back on  
+We can now enable authoring mode, you can also toggle the docker service back on.  
 ![docker-author-mode](templating/tmpl-docker-auth-mode.png)
 
 ## 1. Choosing which way to go
@@ -26,38 +26,38 @@ We can get started writing templates in two ways:
 
 ### 1.1.0 Enabling search from dockerHub
 
-In order to have Community Applications (hereby referenced as CA) generate one, we need to enable additional search from dockerHub. You do this by opening CA, and press the settings button on the sidebar
+In order to have Community Applications (hereby referenced as CA) generate one, we need to enable additional search from dockerHub. You do this by opening CA, and press the settings button on the sidebar.
 ![ca-side-bar](templating/tmpl-ca-bar.png)
 
-Enable additional search
+Enable additional search.
 ![ca-dHub-on](templating/tmpl-ca-hub-on.png)
 
 ### 1.1.1 Search from DockerHub
 
-For this guide I will use `domistyle/idrac6` as an example. Go back to CA, and type the image you want to create a template for, in the search bar (If you get a match now, chances are, it is already in CA), and press `Get More Results From DockerHub`
+For this guide I will use `domistyle/idrac6` as an example. Go back to CA, and type the image you want to create a template for, in the search bar (If you get a match now, chances are, it is already in CA), and press `Get More Results From DockerHub`.
 ![ca-from-dHub](templating/tmpl-ca-from-dHub.png)
 
-CA shows results for both the image-maintainer, and image-name. Which means that we will get similar results. Press the download to disk icon, and let CA convert it
+CA shows results for both the image-maintainer, and image-name. Which means that we will get similar results. Press the download to disk icon, and let CA convert it.
 ![ca-result-dHub](templating/tmpl-ca-result-dHub.png)
 
-For this one CA didn't do a very good job in converting it (it reads the dockerfile for volumes, expose, publish etc.), however we can modify it with the template editor in Unraid
+For this one CA didn't do a very good job in converting it (it reads the dockerfile for volumes, expose, publish etc.), however we can modify it with the template editor in Unraid.
 ![converted](templating/tmpl-converted.png)
 
 ### 1.1.2 Editing the template
 
 To see what we need to edit, we can most often read the [readme](https://github.com/DomiStyle/docker-idrac6/blob/master/README.md#usage) of the container (including a screenshot incase the readme changes)
-![cont-readme](templating/tmpl-cont-readme.png)
+![cont-readme](templating/tmpl-cont-readme.png).
 
 !!! note "Get to know the template editor, its very handy. Also for managing existing templates"
 
-I'm going trough the rest of this guide with a mix of views (to remove clutter from images). If some of the settings you see on a screenshot isn't showing to you, enable advanced view
+I'm going through the rest of this guide with a mix of views (to remove clutter from images). If some of the settings you see on a screenshot isn't showing to you, enable advanced view.
 ![cont-adv-mode](templating/tmpl-cont-adv-mode.png)
 
 #### Variables
 
 I will start with adding the variables, just because those are on the top of the documentation of this container.
 
-To add the `IDRAC_HOST` variable, we are going to press the `Add annother Path, Port, Variable or Device` link
+To add the `IDRAC_HOST` variable, we are going to press the `Add annother Path, Port, Variable or Device` link.
 ![cont-add-var](templating/tmpl-cont-add-var.png)
 
 We need to change the Config Type to Variable, then we can start adding values. There is a lot going on here, but it is all going to make sense in the end.
@@ -87,7 +87,7 @@ We need to change the Config Type to Variable, then we can start adding values. 
 Next is adding the volumes. We press the same `Add annother Path, Port, Variable or Device` link, but we don't need to change the config type this time.
 The fields we can add here is mostly the same, but in "Volume" mode some of them are voided. like password mask.
 
-If its a "proper" appdata location, I set required to yes
+If it's a "proper" appdata location, I set required to yes
 
 >==Access Mode== Defines how the container should have access to this volume. Almost always read/write
 
@@ -112,27 +112,27 @@ As you can see there is lots of fields we can fill in with the template editor.
 
 I'm not going to walk you trough this, but I am going to tell you how it ended up like it did.
 
-I changed the overview to match the intro from the readme of the container
+I changed the overview to match the intro from the readme of the container.
 
-I used the dropdown to set the categories as I saw fit
+I used the dropdown to set the categories as I saw fit.
 
-I set the support thread as the issue page of the project
+I set the support thread as the issue page of the project.
 
 !!! danger "Do not do this if you are creating a template for your own container, create a support thread on the unraid forums and use that link"
 
-The project page is usually the GitHub link to the container
+The project page is usually the GitHub link to the container.
 
-I have yet to change the Icon URL, because I need to create a icon
+I have yet to change the Icon URL, because I need to create a icon.
 
-`WebUI` Should be filled with the *container* port, unraid should do the translation `http://[IP]:[PORT:5800]`. If this is a https enabled port, set the url to use https
+`WebUI` Should be filled with the *container* port, unraid should do the translation `http://[IP]:[PORT:5800]`. If this is a https enabled port, set the url to use https.
 
-For Post arguments and Extra Parameters, you should know if you need to fill this
+For Post arguments and Extra Parameters, you should know if you need to fill this.
 
 ![cont-meta-filled](templating/tmpl-cont-meta-filled.png)
 
-#### Grab the XML
+### 1.1.3 Grab the XML
 
-Once you have filled all the fields, and set the ports, variables and volumes as good as you can, you can press the `Save` button, this takes you to a page where can see the xml in plain-text. Don't worry, it also saves the xml to your OS disk. Bellow is the XML generated by the procedure above
+Once you have filled all the fields, and set the ports, variables and volumes as good as you can, you can press the `Save` button, this takes you to a page where can see the xml in plain-text. Don't worry, it also saves the xml to your OS disk. Bellow is the XML generated by the procedure above.
 
 ??? example
 
