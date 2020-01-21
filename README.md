@@ -38,7 +38,7 @@ pip install -r requirements.txt
 ### Start the dev-server
 
 ```bash
-mkdocs server
+mkdocs serve
 ```
 
 ### Write your documentation
