@@ -31,312 +31,314 @@ Create two graph panels in Grafana and copy the JSON below.
 ![Grafana](grafana.png)
 
 ??? Example "IPMI Voltages panel JSON"
-    >```json
+
+    ```json
+    {
+    "datasource": null,
+    "aliasColors": {},
+    "bars": false,
+    "cacheTimeout": null,
+    "dashLength": 10,
+    "dashes": false,
+    "fill": 1,
+    "fillGradient": 0,
+    "gridPos": {
+        "h": 8,
+        "w": 16,
+        "x": 0,
+        "y": 0
+    },
+    "hiddenSeries": false,
+    "id": 6,
+    "legend": {
+        "alignAsTable": true,
+        "avg": false,
+        "current": true,
+        "max": false,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "sort": "current",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+    },
+    "lines": true,
+    "linewidth": 1,
+    "links": [],
+    "nullPointMode": "connected",
+    "options": {
+        "dataLinks": []
+    },
+    "percentage": false,
+    "pluginVersion": "6.6.0-pre",
+    "pointradius": 2,
+    "points": false,
+    "renderer": "flot",
+    "seriesOverrides": [],
+    "spaceLength": 10,
+    "stack": false,
+    "steppedLine": false,
+    "targets": [
         {
-        "datasource": null,
-        "aliasColors": {},
-        "bars": false,
-        "cacheTimeout": null,
-        "dashLength": 10,
-        "dashes": false,
-        "fill": 1,
-        "fillGradient": 0,
-        "gridPos": {
-            "h": 8,
-            "w": 16,
-            "x": 0,
-            "y": 0
-        },
-        "hiddenSeries": false,
-        "id": 6,
-        "legend": {
-            "alignAsTable": true,
-            "avg": false,
-            "current": true,
-            "max": false,
-            "min": false,
-            "rightSide": true,
-            "show": true,
-            "sort": "current",
-            "sortDesc": true,
-            "total": false,
-            "values": true
-        },
-        "lines": true,
-        "linewidth": 1,
-        "links": [],
-        "nullPointMode": "connected",
-        "options": {
-            "dataLinks": []
-        },
-        "percentage": false,
-        "pluginVersion": "6.6.0-pre",
-        "pointradius": 2,
-        "points": false,
-        "renderer": "flot",
-        "seriesOverrides": [],
-        "spaceLength": 10,
-        "stack": false,
-        "steppedLine": false,
-        "targets": [
+        "alias": "$tag_name",
+        "groupBy": [
             {
-            "alias": "$tag_name",
-            "groupBy": [
-                {
-                "params": [
-                    "$__interval"
-                ],
-                "type": "time"
-                },
-                {
-                "params": [
-                    "name"
-                ],
-                "type": "tag"
-                },
-                {
-                "params": [
-                    "host"
-                ],
-                "type": "tag"
-                },
-                {
-                "params": [
-                    "unit"
-                ],
-                "type": "tag"
-                },
-                {
-                "params": [
-                    "none"
-                ],
-                "type": "fill"
-                }
+            "params": [
+                "$__interval"
             ],
-            "measurement": "ipmi_sensor",
-            "orderByTime": "ASC",
-            "policy": "default",
-            "refId": "A",
-            "resultFormat": "time_series",
-            "select": [
-                [
-                {
-                    "params": [
-                    "value"
-                    ],
-                    "type": "field"
-                },
-                {
-                    "params": [],
-                    "type": "mean"
-                }
-                ]
-            ],
-            "tags": [
-                {
-                "key": "unit",
-                "operator": "=",
-                "value": "volts"
-                }
-            ]
-            }
-        ],
-        "thresholds": [],
-        "timeFrom": null,
-        "timeRegions": [],
-        "timeShift": null,
-        "title": "IPMI Voltages",
-        "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-        },
-        "type": "graph",
-        "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-        },
-        "yaxes": [
-            {
-            "format": "volt",
-            "label": null,
-            "logBase": 1,
-            "max": null,
-            "min": null,
-            "show": true
+            "type": "time"
             },
             {
-            "format": "short",
-            "label": null,
-            "logBase": 1,
-            "max": null,
-            "min": null,
-            "show": true
+            "params": [
+                "name"
+            ],
+            "type": "tag"
+            },
+            {
+            "params": [
+                "host"
+            ],
+            "type": "tag"
+            },
+            {
+            "params": [
+                "unit"
+            ],
+            "type": "tag"
+            },
+            {
+            "params": [
+                "none"
+            ],
+            "type": "fill"
             }
         ],
-        "yaxis": {
-            "align": false,
-            "alignLevel": null
+        "measurement": "ipmi_sensor",
+        "orderByTime": "ASC",
+        "policy": "default",
+        "refId": "A",
+        "resultFormat": "time_series",
+        "select": [
+            [
+            {
+                "params": [
+                "value"
+                ],
+                "type": "field"
+            },
+            {
+                "params": [],
+                "type": "mean"
+            }
+            ]
+        ],
+        "tags": [
+            {
+            "key": "unit",
+            "operator": "=",
+            "value": "volts"
+            }
+        ]
         }
+    ],
+    "thresholds": [],
+    "timeFrom": null,
+    "timeRegions": [],
+    "timeShift": null,
+    "title": "IPMI Voltages",
+    "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+    },
+    "type": "graph",
+    "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+    },
+    "yaxes": [
+        {
+        "format": "volt",
+        "label": null,
+        "logBase": 1,
+        "max": null,
+        "min": null,
+        "show": true
+        },
+        {
+        "format": "short",
+        "label": null,
+        "logBase": 1,
+        "max": null,
+        "min": null,
+        "show": true
         }
-    >```
+    ],
+    "yaxis": {
+        "align": false,
+        "alignLevel": null
+    }
+    }
+    ```
 
 ??? Example "IPMI Temperature panel JSON"
-    >```json
+
+    ```json
+    {
+    "datasource": null,
+    "aliasColors": {},
+    "bars": false,
+    "cacheTimeout": null,
+    "dashLength": 10,
+    "dashes": false,
+    "fill": 1,
+    "fillGradient": 0,
+    "gridPos": {
+        "h": 8,
+        "w": 16,
+        "x": 0,
+        "y": 8
+    },
+    "hiddenSeries": false,
+    "id": 8,
+    "legend": {
+        "alignAsTable": true,
+        "avg": false,
+        "current": true,
+        "max": false,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "sort": "current",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+    },
+    "lines": true,
+    "linewidth": 1,
+    "links": [],
+    "nullPointMode": "connected",
+    "options": {
+        "dataLinks": []
+    },
+    "percentage": false,
+    "pluginVersion": "6.6.0-pre",
+    "pointradius": 2,
+    "points": false,
+    "renderer": "flot",
+    "seriesOverrides": [],
+    "spaceLength": 10,
+    "stack": false,
+    "steppedLine": false,
+    "targets": [
         {
-        "datasource": null,
-        "aliasColors": {},
-        "bars": false,
-        "cacheTimeout": null,
-        "dashLength": 10,
-        "dashes": false,
-        "fill": 1,
-        "fillGradient": 0,
-        "gridPos": {
-            "h": 8,
-            "w": 16,
-            "x": 0,
-            "y": 8
-        },
-        "hiddenSeries": false,
-        "id": 8,
-        "legend": {
-            "alignAsTable": true,
-            "avg": false,
-            "current": true,
-            "max": false,
-            "min": false,
-            "rightSide": true,
-            "show": true,
-            "sort": "current",
-            "sortDesc": true,
-            "total": false,
-            "values": true
-        },
-        "lines": true,
-        "linewidth": 1,
-        "links": [],
-        "nullPointMode": "connected",
-        "options": {
-            "dataLinks": []
-        },
-        "percentage": false,
-        "pluginVersion": "6.6.0-pre",
-        "pointradius": 2,
-        "points": false,
-        "renderer": "flot",
-        "seriesOverrides": [],
-        "spaceLength": 10,
-        "stack": false,
-        "steppedLine": false,
-        "targets": [
+        "alias": "$tag_name",
+        "groupBy": [
             {
-            "alias": "$tag_name",
-            "groupBy": [
-                {
-                "params": [
-                    "$__interval"
-                ],
-                "type": "time"
-                },
-                {
-                "params": [
-                    "name"
-                ],
-                "type": "tag"
-                },
-                {
-                "params": [
-                    "host"
-                ],
-                "type": "tag"
-                },
-                {
-                "params": [
-                    "unit"
-                ],
-                "type": "tag"
-                },
-                {
-                "params": [
-                    "none"
-                ],
-                "type": "fill"
-                }
+            "params": [
+                "$__interval"
             ],
-            "measurement": "ipmi_sensor",
-            "orderByTime": "ASC",
-            "policy": "default",
-            "refId": "A",
-            "resultFormat": "time_series",
-            "select": [
-                [
-                {
-                    "params": [
-                    "value"
-                    ],
-                    "type": "field"
-                },
-                {
-                    "params": [],
-                    "type": "mean"
-                }
-                ]
-            ],
-            "tags": [
-                {
-                "key": "unit",
-                "operator": "=",
-                "value": "degrees_c"
-                }
-            ]
-            }
-        ],
-        "thresholds": [],
-        "timeFrom": null,
-        "timeRegions": [],
-        "timeShift": null,
-        "title": "IPMI Temperatures",
-        "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-        },
-        "type": "graph",
-        "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-        },
-        "yaxes": [
-            {
-            "format": "celsius",
-            "label": "",
-            "logBase": 1,
-            "max": null,
-            "min": null,
-            "show": true
+            "type": "time"
             },
             {
-            "format": "short",
-            "label": null,
-            "logBase": 1,
-            "max": null,
-            "min": null,
-            "show": true
+            "params": [
+                "name"
+            ],
+            "type": "tag"
+            },
+            {
+            "params": [
+                "host"
+            ],
+            "type": "tag"
+            },
+            {
+            "params": [
+                "unit"
+            ],
+            "type": "tag"
+            },
+            {
+            "params": [
+                "none"
+            ],
+            "type": "fill"
             }
         ],
-        "yaxis": {
-            "align": false,
-            "alignLevel": null
+        "measurement": "ipmi_sensor",
+        "orderByTime": "ASC",
+        "policy": "default",
+        "refId": "A",
+        "resultFormat": "time_series",
+        "select": [
+            [
+            {
+                "params": [
+                "value"
+                ],
+                "type": "field"
+            },
+            {
+                "params": [],
+                "type": "mean"
+            }
+            ]
+        ],
+        "tags": [
+            {
+            "key": "unit",
+            "operator": "=",
+            "value": "degrees_c"
+            }
+        ]
         }
+    ],
+    "thresholds": [],
+    "timeFrom": null,
+    "timeRegions": [],
+    "timeShift": null,
+    "title": "IPMI Temperatures",
+    "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+    },
+    "type": "graph",
+    "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+    },
+    "yaxes": [
+        {
+        "format": "celsius",
+        "label": "",
+        "logBase": 1,
+        "max": null,
+        "min": null,
+        "show": true
+        },
+        {
+        "format": "short",
+        "label": null,
+        "logBase": 1,
+        "max": null,
+        "min": null,
+        "show": true
         }
-    >```
+    ],
+    "yaxis": {
+        "align": false,
+        "alignLevel": null
+    }
+    }
+    ```
 
 <iframe src="https://snapshot.raintank.io/dashboard-solo/snapshot/sh0G31Ev7DHxQJeMAhAItRtFArO2GKIy?orgId=2&from=1579632016305&to=1579632916305&panelId=4" width="800" height="400" frameborder="0"></iframe>
 
