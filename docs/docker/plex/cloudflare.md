@@ -35,7 +35,6 @@ This is very important that you do or else Cloudflare might ban your account for
 !!! info
     See: [2.8 Limitation on Serving Non-HTML Content](https://www.cloudflare.com/terms/)
 
-
 Go to the ==Page Rules== menu and click on ==Create page rule==
 You can have 3 page rules per domain.
 
@@ -43,7 +42,7 @@ Add your domain with a wildcard at the end like so: `plex.domain.com/*` If you'r
 
 If you want to add the rule on all subdomains you can do that so: `*.domain.com/`
 
-Next select the ==Cache Level== setting and set it to ==Bypass== 
+Next select the ==Cache Level== setting and set it to ==Bypass==
 Then click ==Save and Deploy==
 
 ![Page Rules](page_rules.png)
