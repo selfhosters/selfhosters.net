@@ -71,4 +71,3 @@ nav:
         Adding IPMI stats to the Telegraf container: docker/telegraf/ipmi.md
       Plex:
         Routing Plex through Cloudflare: docker/plex/cloudflare.md
-
