@@ -20,7 +20,7 @@ Make sure that system notifications are enabled and select the different types o
 
 2. Scroll down to the Slack agent, enable the agent, paste your webhook URL and give it a name. (The name you add here will override the name you gave it in the Discord settings)
 At the end of your webhook URL add ==/slack== so the URL looks like this: `https://discordapp.com/api/webhooks/40832456738934/7DcEpWr5V24OIEIELjg-KkHky86SrOgTqA/slack`
-3. To test teh connection you can just click the Test button.
+3. To test the connection you can just click the Test button.
 
 !!! note "Note"
     There are some limitations on what the different notifications titles and messages can be.

@@ -22,7 +22,7 @@ If you're stuck, just pop into the ==#reverse-proxy== channel on our [Discord](h
 If you haven't already you need to add your domain to Cloudflare for this to work. See this guide on how to do that: [Creating a Cloudflare account and adding a website](https://support.cloudflare.com/hc/en-us/articles/201720164-Creating-a-Cloudflare-account-and-adding-a-website)
 
 In short you need to change your nameservers on your DNS provides page to the ones Cloudflare says.
-This might take some time depending on the DNS provider. Last time I did it I was using Namecheap and it took less then 10 minutes to propagate so have some patience.
+This might take some time depending on the DNS provider. Last time I did it I was using Namecheap and it took less then 10 minutes to propagate, so have some patience.
 
 After it's been transfered make sure the orange cloud is enabled. This is what activates the Cloudflare CDN on the domain.
 
