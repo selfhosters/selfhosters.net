@@ -13,7 +13,7 @@
         <meta name="description" content="Selfhosters.net is a documentation portal for the Unraid Discord. Here you will find short guides and walkthroughs made by the  Unraid community.">
       
       
-        <link rel="canonical" href="https://selfhosters.net/commands/">
+        <link rel="canonical" href="https://selfhosters.net/docker/plex/cloudflare/">
       
       
         <meta name="author" content="Selfhosters">
@@ -37,18 +37,18 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
     
     
       
-        <title>Nice to know Unraid commands - Selfhosters.net</title>
+        <title>Routing Plex through Cloudflare - Selfhosters.net</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.1b62728e.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.1b62728e.css">
       
-        <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.a8b3c06d.css">
       
       
         
@@ -57,7 +57,7 @@
       
     
     
-      <script src="../assets/javascripts/modernizr.268332fc.js"></script>
+      <script src="../../../assets/javascripts/modernizr.268332fc.js"></script>
     
     
       
@@ -66,7 +66,7 @@
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
-    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
     
@@ -91,7 +91,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#nice-to-know-unraid-commands" tabindex="1" class="md-skip">
+      <a href="#routing-plex-through-cloudflare" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -117,7 +117,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Nice to know Unraid commands
+                Routing Plex through Cloudflare
               
             </span>
           
@@ -228,7 +228,7 @@
 
 
   <li class="md-nav__item">
-    <a href=".." title="Home" class="md-nav__link">
+    <a href="../../.." title="Home" class="md-nav__link">
       Home
     </a>
   </li>
@@ -238,152 +238,11 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Nice to know Unraid commands
-      </label>
-    
-    <a href="./" title="Nice to know Unraid commands" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../../commands/" title="Nice to know Unraid commands" class="md-nav__link">
       Nice to know Unraid commands
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#docker-service" class="md-nav__link">
-    Docker service
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#docker-containers" class="md-nav__link">
-    Docker containers
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#nginx" class="md-nav__link">
-    Nginx
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#php" class="md-nav__link">
-    PHP
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#vm-service" class="md-nav__link">
-    VM Service
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#domains" class="md-nav__link">
-    &nbsp;&nbsp;&nbsp;&nbsp;Domains
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#samba" class="md-nav__link">
-    Samba
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#unraid" class="md-nav__link">
-    Unraid
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#shutdownreboot" class="md-nav__link">
-    Shutdown/Reboot
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#run-diagnostics" class="md-nav__link">
-    Run diagnostics
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tail-the-syslog" class="md-nav__link">
-    Tail the syslog
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#look-at-the-parameters-in-the-config-file" class="md-nav__link">
-    Look at the parameters in the config file
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#create-a-backup-image-of-your-usb-and-store-it-on-disk1" class="md-nav__link">
-    Create a backup image of your usb and store it on disk1
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#copy-files-using-midnight-commander" class="md-nav__link">
-    Copy files using midnight commander
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
     
@@ -412,7 +271,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../templating/" title="Writing a template compatible for unraid" class="md-nav__link">
+    <a href="../../../templating/" title="Writing a template compatible for unraid" class="md-nav__link">
       Writing a template compatible for unraid
     </a>
   </li>
@@ -448,7 +307,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Tips/discord_notifications/discord_notifications/" title="Adding Discord Notifications" class="md-nav__link">
+    <a href="../../../Tips/discord_notifications/discord_notifications/" title="Adding Discord Notifications" class="md-nav__link">
       Adding Discord Notifications
     </a>
   </li>
@@ -463,10 +322,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
     
     <label class="md-nav__link" for="nav-5">
       Docker
@@ -503,7 +364,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../docker/telegraf/ipmi/" title="Adding IPMI stats to the Telegraf container" class="md-nav__link">
+    <a href="../../telegraf/ipmi/" title="Adding IPMI stats to the Telegraf container" class="md-nav__link">
       Adding IPMI stats to the Telegraf container
     </a>
   </li>
@@ -518,10 +379,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-2" type="checkbox" id="nav-5-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-2" type="checkbox" id="nav-5-2" checked>
     
     <label class="md-nav__link" for="nav-5-2">
       Plex
@@ -537,11 +400,109 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../docker/plex/cloudflare/" title="Routing Plex through Cloudflare" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Routing Plex through Cloudflare
+      </label>
+    
+    <a href="./" title="Routing Plex through Cloudflare" class="md-nav__link md-nav__link--active">
       Routing Plex through Cloudflare
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why" class="md-nav__link">
+    Why
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reverse-proxy" class="md-nav__link">
+    Reverse proxy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloudflare" class="md-nav__link">
+    Cloudflare
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cache-rules" class="md-nav__link">
+    Cache rules
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disable-ipv6" class="md-nav__link">
+    Disable IPv6
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plex" class="md-nav__link">
+    Plex
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#custom-server-access-urls" class="md-nav__link">
+    Custom server access URLs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -576,44 +537,38 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#docker-service" class="md-nav__link">
-    Docker service
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#docker-containers" class="md-nav__link">
-    Docker containers
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#nginx" class="md-nav__link">
-    Nginx
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#php" class="md-nav__link">
-    PHP
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#vm-service" class="md-nav__link">
-    VM Service
+  <a href="#why" class="md-nav__link">
+    Why
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#domains" class="md-nav__link">
-    &nbsp;&nbsp;&nbsp;&nbsp;Domains
+  <a href="#reverse-proxy" class="md-nav__link">
+    Reverse proxy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloudflare" class="md-nav__link">
+    Cloudflare
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cache-rules" class="md-nav__link">
+    Cache rules
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disable-ipv6" class="md-nav__link">
+    Disable IPv6
   </a>
   
 </li>
@@ -622,61 +577,24 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#samba" class="md-nav__link">
-    Samba
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#unraid" class="md-nav__link">
-    Unraid
+        
+          <li class="md-nav__item">
+  <a href="#plex" class="md-nav__link">
+    Plex
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#shutdownreboot" class="md-nav__link">
-    Shutdown/Reboot
+  <a href="#custom-server-access-urls" class="md-nav__link">
+    Custom server access URLs
   </a>
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#run-diagnostics" class="md-nav__link">
-    Run diagnostics
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tail-the-syslog" class="md-nav__link">
-    Tail the syslog
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#look-at-the-parameters-in-the-config-file" class="md-nav__link">
-    Look at the parameters in the config file
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#create-a-backup-image-of-your-usb-and-store-it-on-disk1" class="md-nav__link">
-    Create a backup image of your usb and store it on disk1
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#copy-files-using-midnight-commander" class="md-nav__link">
-    Copy files using midnight commander
-  </a>
+      </ul>
+    </nav>
   
 </li>
         
@@ -701,55 +619,69 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/selfhosters/selfhosters.net/edit/master/docs/commands.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/selfhosters/selfhosters.net/edit/master/docs/docker/plex/cloudflare.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="nice-to-know-unraid-commands">Nice to know Unraid commands<a class="headerlink" href="#nice-to-know-unraid-commands" title="Permanent link">&para;</a></h1>
-<h2 id="docker-service">Docker service<a class="headerlink" href="#docker-service" title="Permanent link">&para;</a></h2>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<mark>start</mark> <mark>stop</mark> <mark>restart</mark> <mark>status</mark></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<code class="codehilite"><span class="err">/etc/rc.d/rc.docker &lt;command&gt;</span></code></p>
-<h2 id="docker-containers">Docker containers<a class="headerlink" href="#docker-containers" title="Permanent link">&para;</a></h2>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<mark>start</mark> <mark>stop</mark> <mark>restart</mark> <mark>pause</mark> <mark>logs</mark></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<code class="codehilite"><span class="err">docker &lt;command&gt; &lt;containername&gt;</span></code></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Print all container names:</strong> <code class="codehilite"><span class="x">docker ps --format ‘</span><span class="cp">{{</span><span class="nv">.Names</span><span class="cp">}}</span><span class="x">’</span></code>
-&nbsp;&nbsp;&nbsp;&nbsp;<strong>Print all container images:</strong> <code class="codehilite"><span class="x">docker ps --format ‘</span><span class="cp">{{</span><span class="nv">.Image</span><span class="cp">}}</span><span class="x">’</span></code></p>
-<h2 id="nginx">Nginx<a class="headerlink" href="#nginx" title="Permanent link">&para;</a></h2>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<mark>start</mark> <mark>stop</mark> <mark>restart</mark> <mark>status</mark></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<code class="codehilite"><span class="err">/etc/rc.d/rc.nginx &lt;command&gt;</span></code></p>
-<h2 id="php">PHP<a class="headerlink" href="#php" title="Permanent link">&para;</a></h2>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<mark>start</mark> <mark>stop</mark> <mark>restart</mark> <mark>status</mark></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; <code class="codehilite"><span class="err">/etc/rc.d/rc.php-fpm &lt;command&gt;</span></code></p>
-<h2 id="vm-service">VM Service<a class="headerlink" href="#vm-service" title="Permanent link">&para;</a></h2>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<mark>start</mark> <mark>stop</mark></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<code class="codehilite"><span class="err">/etc/rc.d/rc.libvirt &lt;command&gt;</span></code></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>List all domains:</strong> <code class="codehilite"><span class="err">virsh list --all</span></code></p>
-<h3 id="domains">&nbsp;&nbsp;&nbsp;&nbsp;Domains<a class="headerlink" href="#domains" title="Permanent link">&para;</a></h3>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark>start</mark> <mark>shutdown</mark> <mark>reboot</mark> <mark>suspend</mark></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code class="codehilite"><span class="err">virsh &lt;command&gt; &lt;domain&gt;</span></code></p>
-<h2 id="samba">Samba<a class="headerlink" href="#samba" title="Permanent link">&para;</a></h2>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<mark>start</mark> <mark>stop</mark></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<code class="codehilite"><span class="err">/etc/rd.d/rc.samba &lt;command&gt;</span></code></p>
-<h2 id="unraid">Unraid<a class="headerlink" href="#unraid" title="Permanent link">&para;</a></h2>
-<h3 id="shutdownreboot">Shutdown/Reboot<a class="headerlink" href="#shutdownreboot" title="Permanent link">&para;</a></h3>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<mark>reboot</mark> <mark>poweroff</mark> <mark>shutdown</mark></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<code class="codehilite"><span class="err">/sbin/&lt;command&gt;</span></code></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><code class="codehilite"><span class="err">poweroff</span></code> will gracefully shut everything down, even spin down the hard drives,
-but will not actually turn off the power supply.But there is a race condition in the code
-which could cause the system to power off before the Flash is updated indicating 'clean shutdown'.
-This can't cause data loss, but will cause parity-check to automatically start upon next reboot.</p>
+                <h1 id="routing-plex-through-cloudflare">Routing Plex through Cloudflare<a class="headerlink" href="#routing-plex-through-cloudflare" title="Permanent link">&para;</a></h1>
+<h2 id="why">Why<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
+<p>Routing Plex through the <a href="https://www.cloudflare.com/learning/cdn/what-is-a-cdn/">Cloudflare CDN</a> can vastly improve your remote connection speeds to your server. Cloudflare acts as a middle man between your server and your different clients.</p>
+<p>Many experience bad peering between server and client even though the server has a good upload speed. This is because the client sometimes has to hop through all sorts of hoops if it's on a different ISP network. This can increase latency and lowered connection speeds.</p>
+<p>But by using Cloudflare as a middle man, both your server and the clients will (in most cases) have a great connection to Cloudflare.</p>
+<p>This will speed up the start times and scrolling of your streams.</p>
+<h3 id="reverse-proxy">Reverse proxy<a class="headerlink" href="#reverse-proxy" title="Permanent link">&para;</a></h3>
+<p>To get this working you need to reverse proxy Plex. This guide won't go into detail on how to do this. But I highly recommend this guide as a starting point. <a href="https://blog.linuxserver.io/2019/04/25/letsencrypt-nginx-starter-guide/">Let's Encrypt, Nginx &amp; Reverse Proxy Starter Guide - 2019 Edition</a></p>
+<p>The <a href="https://hub.docker.com/r/linuxserver/letsencrypt/">linuxserver/letsencrypt</a> container comes with premade nginx configs that you can use.
+If you're stuck, just pop into the <mark>#reverse-proxy</mark> channel on our <a href="https://selfhosters.net/unraid">Discord</a> and someone will help you <img alt="🙂" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f642.svg" title=":slight_smile:" /></p>
+<h3 id="cloudflare">Cloudflare<a class="headerlink" href="#cloudflare" title="Permanent link">&para;</a></h3>
+<p>If you haven't already you need to add your domain to Cloudflare for this to work. See this guide on how to do that: <a href="https://support.cloudflare.com/hc/en-us/articles/201720164-Creating-a-Cloudflare-account-and-adding-a-website">Creating a Cloudflare account and adding a website</a></p>
+<p>In short you need to change your nameservers on your DNS provides page to the ones Cloudflare says.
+This might take some time depending on the DNS provider. Last time I did it I was using Namecheap and it took less then 10 minutes to propagate so have some patience.</p>
+<p>After it's been transfered make sure the orange cloud is enabled. This is what activates the Cloudflare CDN on the domain.</p>
+<p><img alt="cloud" src="../cloudflare_cloud.png" /></p>
+<h4 id="cache-rules">Cache rules<a class="headerlink" href="#cache-rules" title="Permanent link">&para;</a></h4>
+<p>This is very important that you do or else Cloudflare might ban your account for breaking the TOS on caching.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>See: <a href="https://www.cloudflare.com/terms/">2.8 Limitation on Serving Non-HTML Content</a></p>
 </div>
-<h3 id="run-diagnostics">Run diagnostics<a class="headerlink" href="#run-diagnostics" title="Permanent link">&para;</a></h3>
-<p><code class="codehilite"><span class="err">diagnostics</span></code></p>
-<h3 id="tail-the-syslog">Tail the syslog<a class="headerlink" href="#tail-the-syslog" title="Permanent link">&para;</a></h3>
-<p><code class="codehilite"><span class="err">tail -f /var/log/syslog</span></code></p>
-<h3 id="look-at-the-parameters-in-the-config-file">Look at the parameters in the config file<a class="headerlink" href="#look-at-the-parameters-in-the-config-file" title="Permanent link">&para;</a></h3>
-<p><code class="codehilite"><span class="err">nano /boot/syslinux.cfg-</span></code></p>
-<h3 id="create-a-backup-image-of-your-usb-and-store-it-on-disk1">Create a backup image of your usb and store it on disk1<a class="headerlink" href="#create-a-backup-image-of-your-usb-and-store-it-on-disk1" title="Permanent link">&para;</a></h3>
-<p><code class="codehilite"><span class="err">dd if=/dev/sda of=/mnt/disk1/unraid.img</span></code></p>
-<h3 id="copy-files-using-midnight-commander">Copy files using midnight commander<a class="headerlink" href="#copy-files-using-midnight-commander" title="Permanent link">&para;</a></h3>
-<p><code class="codehilite"><span class="err">mc</span></code></p>
+<p>Go to the <mark>Page Rules</mark> menu and click on <mark>Create page rule</mark>
+You can have 3 page rules per domain.</p>
+<p>Add your domain with a wildcard at the end like so: <code class="codehilite"><span class="err">plex.domain.com/*</span></code> If you're using your root domain you do the same. <code class="codehilite"><span class="err">domain.com/*</span></code></p>
+<p>If you want to add the rule on all subdomains you can do that so: <code class="codehilite"><span class="err">*.domain.com/</span></code></p>
+<p>Next select the <mark>Cache Level</mark> setting and set it to <mark>Bypass</mark>
+Then click <mark>Save and Deploy</mark></p>
+<p><img alt="Page Rules" src="../page_rules.png" /></p>
+<h4 id="disable-ipv6">Disable IPv6<a class="headerlink" href="#disable-ipv6" title="Permanent link">&para;</a></h4>
+<p>There is currently a <a href="https://forums.plex.tv/t/plex-api-sessions-status-not-honoring-x-forwarded-for-x-real-ip-with-ipv6-clients/175705">bug</a> in Plex that it sees remote IPv6 adresses as local when reverse proxied. And as Cloudflare uses IPv6 we can disable that using the Cloudflare API. (It's not possible through the webUI)</p>
+<p>This bug won't affect performance, but any remote streams using IPv6 will show as local on the Plex dashboard and in Tautili. So this is more of an annoyance that we can easily fix.</p>
+<p>Below is the command you need to run for disabling IPv6.</p>
+<div class="codehilite"><pre><span></span>    curl -X PATCH <span class="s2">&quot;https://api.cloudflare.com/client/v4/zones/xxxxxxxxxxxxxxxxx/settings/ipv6&quot;</span> <span class="se">\</span>
+    -H <span class="s2">&quot;X-Auth-Email: xxxxxxx@gmail.com&quot;</span> <span class="se">\</span>
+    -H <span class="s2">&quot;X-Auth-Key: xxxxxxxxxxxxxxxxxxxxx&quot;</span> <span class="se">\</span>
+    -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
+    --data <span class="s1">&#39;{&quot;value&quot;:&quot;off&quot;}&#39;</span>
+</pre></div>
+
+<p>In the API URL replace the x's with you Zone ID for you domain. You can find the zone ID on the <mark>Overview</mark> page at the bottom.</p>
+<p><img alt="zone" src="../zone_id.png" /></p>
+<p>On the second line add your email account you used for Cloudflare and on the third line add your <mark>Global API key</mark></p>
+<p>The Global API key can be found on your profile page and then API Tokens.</p>
+<p>Next just paste all the lines into the terminal and hit enter.</p>
+<p>If successful, the output will look like this:</p>
+<div class="codehilite"><pre><span></span>    <span class="p">{</span><span class="nt">&quot;result&quot;</span><span class="p">:{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;ipv6&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;off&quot;</span><span class="p">,</span><span class="nt">&quot;modified_on&quot;</span><span class="p">:</span><span class="s2">&quot;2020-01-21T20:52:11.121560Z&quot;</span><span class="p">,</span><span class="nt">&quot;editable&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">},</span><span class="nt">&quot;success&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;errors&quot;</span><span class="p">:[],</span><span class="nt">&quot;messages&quot;</span><span class="p">:[]}</span>
+</pre></div>
+
+<p>In the webui it should now say that IPv6 Compatibility is off.
+<img alt="ipv6" src="../ipv6.png" /></p>
+<h3 id="plex">Plex<a class="headerlink" href="#plex" title="Permanent link">&para;</a></h3>
+<h4 id="custom-server-access-urls">Custom server access URLs<a class="headerlink" href="#custom-server-access-urls" title="Permanent link">&para;</a></h4>
+<p>After you've setup your reverse proxy for Plex and configured Cloudflare, go into your Plex settings and select <mark>Network</mark>.
+Then click on <mark>Show Advanced</mark> and scroll down to <mark>Custom server access URLs</mark></p>
+<p>Add your domain you setup for plex with the port 443 after like so: <code class="codehilite"><span class="c">https://plexdomain.com:443</span></code> and hit save.</p>
+<p><img alt="domain" src="../custom_url.png" /></p>
+<p>At this point you do not need to have <mark>Remote Access</mark> enabled anymore.</p>
+<p>To test you can disable your <mark>Remote Access</mark> and try and stream something remotely.</p>
+<p>Happy streaming <img alt="😄" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f604.svg" title=":smile:" /></p>
                 
                   
                 
@@ -759,7 +691,7 @@ This can't cause data loss, but will cause parity-check to automatically start u
                   <div class="md-source-date">
                     <small>
                       
-                        Last update: January 22, 2020
+                        Last update: January 21, 2020
                       
                     </small>
                   </div>
@@ -781,7 +713,7 @@ This can't cause data loss, but will cause parity-check to automatically start u
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href=".." title="Home" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../telegraf/ipmi/" title="Adding IPMI stats to the Telegraf container" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -790,25 +722,11 @@ This can't cause data loss, but will cause parity-check to automatically start u
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Home
+                Adding IPMI stats to the Telegraf container
               </span>
             </div>
           </a>
         
-        
-          <a href="../templating/" title="Writing a template compatible for unraid" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Writing a template compatible for unraid
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
         
       </nav>
     </div>
@@ -825,7 +743,7 @@ This can't cause data loss, but will cause parity-check to automatically start u
       </div>
       
   <div class="md-footer-social">
-    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
     
       <a href="https://github.com/selfhosters" class="md-footer-social__link fa fa-github"></a>
     
@@ -839,9 +757,9 @@ This can't cause data loss, but will cause parity-check to automatically start u
       
     </div>
     
-      <script src="../assets/javascripts/application.808e90bb.js"></script>
+      <script src="../../../assets/javascripts/application.808e90bb.js"></script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
     
   </body>

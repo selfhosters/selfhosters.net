@@ -13,6 +13,8 @@
         <meta name="description" content="Selfhosters.net is a documentation portal for the Unraid Discord. Here you will find short guides and walkthroughs made by the  Unraid community.">
       
       
+        <link rel="canonical" href="https://selfhosters.net/Tips/discord_notifications/discord_notifications/">
+      
       
         <meta name="author" content="Selfhosters">
       
@@ -35,18 +37,18 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
     
     
       
-        <title>Selfhosters.net</title>
+        <title>Adding Discord Notifications - Selfhosters.net</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/application.1b62728e.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.1b62728e.css">
       
-        <link rel="stylesheet" href="assets/stylesheets/application-palette.a8b3c06d.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.a8b3c06d.css">
       
       
         
@@ -55,7 +57,7 @@
       
     
     
-      <script src="assets/javascripts/modernizr.268332fc.js"></script>
+      <script src="../../../assets/javascripts/modernizr.268332fc.js"></script>
     
     
       
@@ -64,7 +66,7 @@
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
-    <link rel="stylesheet" href="assets/fonts/material-icons.css">
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
     
@@ -89,6 +91,10 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
+      <a href="#discord-notifications" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -111,7 +117,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                
+                Adding Discord Notifications
               
             </span>
           
@@ -222,7 +228,7 @@
 
 
   <li class="md-nav__item">
-    <a href="." title="Home" class="md-nav__link">
+    <a href="../../.." title="Home" class="md-nav__link">
       Home
     </a>
   </li>
@@ -234,7 +240,7 @@
 
 
   <li class="md-nav__item">
-    <a href="commands/" title="Nice to know Unraid commands" class="md-nav__link">
+    <a href="../../../commands/" title="Nice to know Unraid commands" class="md-nav__link">
       Nice to know Unraid commands
     </a>
   </li>
@@ -265,7 +271,7 @@
 
 
   <li class="md-nav__item">
-    <a href="templating/" title="Writing a template compatible for unraid" class="md-nav__link">
+    <a href="../../../templating/" title="Writing a template compatible for unraid" class="md-nav__link">
       Writing a template compatible for unraid
     </a>
   </li>
@@ -280,10 +286,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
     
     <label class="md-nav__link" for="nav-4">
       Unraid Tips
@@ -299,11 +307,56 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="Tips/discord_notifications/discord_notifications/" title="Adding Discord Notifications" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Adding Discord Notifications
+      </label>
+    
+    <a href="./" title="Adding Discord Notifications" class="md-nav__link md-nav__link--active">
       Adding Discord Notifications
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creating-the-discord-webhook" class="md-nav__link">
+    Creating the Discord webhook
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-the-webhook" class="md-nav__link">
+    Adding the webhook
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -356,7 +409,7 @@
 
 
   <li class="md-nav__item">
-    <a href="docker/telegraf/ipmi/" title="Adding IPMI stats to the Telegraf container" class="md-nav__link">
+    <a href="../../../docker/telegraf/ipmi/" title="Adding IPMI stats to the Telegraf container" class="md-nav__link">
       Adding IPMI stats to the Telegraf container
     </a>
   </li>
@@ -392,7 +445,7 @@
 
 
   <li class="md-nav__item">
-    <a href="docker/plex/cloudflare/" title="Routing Plex through Cloudflare" class="md-nav__link">
+    <a href="../../../docker/plex/cloudflare/" title="Routing Plex through Cloudflare" class="md-nav__link">
       Routing Plex through Cloudflare
     </a>
   </li>
@@ -415,12 +468,102 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creating-the-discord-webhook" class="md-nav__link">
+    Creating the Discord webhook
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-the-webhook" class="md-nav__link">
+    Adding the webhook
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
-  <h1>404 - Not found</h1>
-
+                
+                  <a href="https://github.com/selfhosters/selfhosters.net/edit/master/docs/Tips/discord_notifications/discord_notifications.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="discord-notifications">Discord Notifications<a class="headerlink" href="#discord-notifications" title="Permanent link">&para;</a></h1>
+<h2 id="creating-the-discord-webhook">Creating the Discord webhook<a class="headerlink" href="#creating-the-discord-webhook" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Head over to your Discord server and  click on <mark>Server Settings</mark> then <mark>Webhooks</mark> and <mark>Create Webhooks</mark> Give it a name and choose the channel you want it to send notifications to.</p>
+</li>
+<li>
+<p>Copy the Webhook URL and click save.</p>
+</li>
+</ol>
+<details class="info"><summary>Screenshots</summary><p><img alt="Settings" src="../discord_settings.png" />
+<img alt="Webhook" src="../discord_webhook.png" /></p>
+</details>
+<h2 id="adding-the-webhook">Adding the webhook<a class="headerlink" href="#adding-the-webhook" title="Permanent link">&para;</a></h2>
+<p>As Unraid doesn't officially support Discord notifications we have to use the Slack agent.</p>
+<ol>
+<li>
+<p>Go to the Unraid settings page and click on <mark>Notifications</mark>
+Make sure that system notifications are enabled and select the different types of notifications you want in the <mark>Agents</mark> list.</p>
+</li>
+<li>
+<p>Scroll down to the Slack agent, enable the agent, paste your webhook URL and give it a name. (The name you add here will override the name you gave it in the Discord settings)
+At the end of your webhook URL add <mark>/slack</mark> so the URL looks like this: <code class="codehilite"><span class="c">https://discordapp.com/api/webhooks/40832456738934/7DcEpWr5V24OIEIELjg-KkHky86SrOgTqA/slack</span></code></p>
+</li>
+<li>To test teh connection you can just click the Test button.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There are some limitations on what the different notifications titles and messages can be.
+I have found that notifications title <code class="codehilite"><span class="err">Subject</span></code> and notifications message <code class="codehilite"><span class="err">Event</span></code> works just fine. If you add any more it will probably not send any notifications.</p>
+</div>
+<details class="info"><summary>Screenshots</summary><p><img alt="Notifications" src="../unraid_notifications.png" />
+<img alt="Agent" src="../unraid_agent.png" />
+<img alt="Test" src="../discord_event.png" /></p>
+</details>
+                
+                  
+                
+                
+                  
+                  <hr>
+                  <div class="md-source-date">
+                    <small>
+                      
+                        Last update: January 21, 2020
+                      
+                    </small>
+                  </div>
+                
+              
               
                 
 
@@ -434,6 +577,41 @@
         
 <footer class="md-footer">
   
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../../templating/" title="Writing a template compatible for unraid" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Writing a template compatible for unraid
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../../docker/telegraf/ipmi/" title="Adding IPMI stats to the Telegraf container" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Adding IPMI stats to the Telegraf container
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
@@ -446,7 +624,7 @@
       </div>
       
   <div class="md-footer-social">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.css">
+    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
     
       <a href="https://github.com/selfhosters" class="md-footer-social__link fa fa-github"></a>
     
@@ -460,9 +638,9 @@
       
     </div>
     
-      <script src="assets/javascripts/application.808e90bb.js"></script>
+      <script src="../../../assets/javascripts/application.808e90bb.js"></script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:""}})</script>
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
     
   </body>
