@@ -13,7 +13,7 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;`docker <command> <containername>`
 
-&nbsp;&nbsp;&nbsp;&nbsp;**Print all container names:** `docker ps --format ‘{{.Names}}’`
+&nbsp;&nbsp;&nbsp;&nbsp;**Print all container names:** `docker ps --format ‘{{.Names}}’`  
 &nbsp;&nbsp;&nbsp;&nbsp;**Print all container images:** `docker ps --format ‘{{.Image}}’`
 
 ## Nginx
