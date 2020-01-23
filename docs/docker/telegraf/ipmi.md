@@ -16,6 +16,12 @@ This can be easly fixed by just adding the following command in the post argumen
     /bin/sh -c 'apk update && apk add ipmitool && telegraf'
 ```
 
+??? note "If you are using `telegraf`, rather than the default `telefraf:alpine` use the ubuntu variant of this command"
+
+    ```bash
+        /bin/sh -c 'apt update && apt install -y ipmitool && telegraf'
+    ```
+
 Edit the container and add the line in the ==Post Arguments:== input field.
 
 ![Post Args](post_args.png)
