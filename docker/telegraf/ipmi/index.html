@@ -529,6 +529,10 @@ ipmitool is installed and that ipmitool is in your PATH</p>
 <div class="codehilite"><pre><span></span>    /bin/sh -c <span class="s1">&#39;apk update &amp;&amp; apk add ipmitool &amp;&amp; telegraf&#39;</span>
 </pre></div>
 
+<details class="note"><summary>If you are using <code class="codehilite"><span class="err">telegraf</span></code>, rather than the default <code class="codehilite"><span class="n">telefraf</span><span class="o">:</span><span class="n">alpine</span></code> use the ubuntu variant of this command</summary><div class="codehilite"><pre><span></span>    /bin/sh -c <span class="s1">&#39;apt update &amp;&amp; apt install -y ipmitool &amp;&amp; telegraf&#39;</span>
+</pre></div>
+
+</details>
 <p>Edit the container and add the line in the <mark>Post Arguments:</mark> input field.</p>
 <p><img alt="Post Args" src="../post_args.png" /></p>
 <p>Next just click save and the container will be recreated with impitool installed.</p>
@@ -854,7 +858,7 @@ ipmitool is installed and that ipmitool is in your PATH</p>
                   <div class="md-source-date">
                     <small>
                       
-                        Last update: January 21, 2020
+                        Last update: January 23, 2020
                       
                     </small>
                   </div>
