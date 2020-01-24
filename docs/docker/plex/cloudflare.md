@@ -8,7 +8,7 @@ Many experience bad peering between server and client even though the server has
 
 But by using Cloudflare as a middle man, both your server and the clients will (in most cases) have a great connection to Cloudflare.
 
-This will speed up the start times and scrolling of your streams.
+This will speed up the start times and scrolling of your streams and the general stability of the connection.
 
 ### Reverse proxy
 
@@ -38,7 +38,7 @@ This is very important that you do or else Cloudflare might ban your account for
 Go to the ==Page Rules== menu and click on ==Create page rule==
 You can have 3 page rules per domain.
 
-Add your domain with a wildcard at the end like so: `plex.domain.com/*` If you're using your root domain you do the same. `domain.com/*`
+Add your domain with a wildcard at the end like so: `plex.domain.com/*` If you're using your root domain you do the same. `domain.com/*` or `domain.com/plex*`
 
 If you want to add the rule on all subdomains you can do that so: `*.domain.com/`
 
@@ -57,7 +57,7 @@ Below is the command you need to run for disabling IPv6.
 
 ```bash
     curl -X PATCH "https://api.cloudflare.com/client/v4/zones/xxxxxxxxxxxxxxxxx/settings/ipv6" \
-    -H "X-Auth-Email: xxxxxxx@gmail.com" \
+    -H "X-Auth-Email: xxxxxxx@email.com" \
     -H "X-Auth-Key: xxxxxxxxxxxxxxxxxxxxx" \
     -H "Content-Type: application/json" \
     --data '{"value":"off"}'
@@ -89,12 +89,16 @@ In the webui it should now say that IPv6 Compatibility is off.
 After you've setup your reverse proxy for Plex and configured Cloudflare, go into your Plex settings and select ==Network==.
 Then click on ==Show Advanced== and scroll down to ==Custom server access URLs==
 
-Add your domain you setup for plex with the port 443 after like so: `https://plexdomain.com:443` and hit save.
+Add your domain you setup for plex with the port 443 after like so: `https://plexdomain.com:443` or `https://plexdomain.com:443/plex`and hit save.
 
 ![domain](custom_url.png)
 
 At this point you do not need to have ==Remote Access== enabled anymore.
 
 To test you can disable your ==Remote Access== and try and stream something remotely.
+
+After a little while you should see on the Cloudflare ==Overview== page that the ==Total Data Served== have increased.
+
+![Overview](cloudflare_overview.png)
 
 Happy streaming :smile:
