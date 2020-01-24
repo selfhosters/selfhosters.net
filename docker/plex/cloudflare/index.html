@@ -627,7 +627,7 @@
 <p>Routing Plex through the <a href="https://www.cloudflare.com/learning/cdn/what-is-a-cdn/">Cloudflare CDN</a> can vastly improve your remote connection speeds to your server. Cloudflare acts as a middle man between your server and your different clients.</p>
 <p>Many experience bad peering between server and client even though the server has a good upload speed. This is because the client sometimes has to hop through all sorts of hoops if it's on a different ISP network. This can increase latency and lowered connection speeds.</p>
 <p>But by using Cloudflare as a middle man, both your server and the clients will (in most cases) have a great connection to Cloudflare.</p>
-<p>This will speed up the start times and scrolling of your streams.</p>
+<p>This will speed up the start times and scrolling of your streams and the general stability of the connection.</p>
 <h3 id="reverse-proxy">Reverse proxy<a class="headerlink" href="#reverse-proxy" title="Permanent link">&para;</a></h3>
 <p>To get this working you need to reverse proxy Plex. This guide won't go into detail on how to do this. But I highly recommend this guide as a starting point. <a href="https://blog.linuxserver.io/2019/04/25/letsencrypt-nginx-starter-guide/">Let's Encrypt, Nginx &amp; Reverse Proxy Starter Guide - 2019 Edition</a></p>
 <p>The <a href="https://hub.docker.com/r/linuxserver/letsencrypt/">linuxserver/letsencrypt</a> container comes with premade nginx configs that you can use.
@@ -646,7 +646,7 @@ This might take some time depending on the DNS provider. Last time I did it I wa
 </div>
 <p>Go to the <mark>Page Rules</mark> menu and click on <mark>Create page rule</mark>
 You can have 3 page rules per domain.</p>
-<p>Add your domain with a wildcard at the end like so: <code class="codehilite"><span class="err">plex.domain.com/*</span></code> If you're using your root domain you do the same. <code class="codehilite"><span class="err">domain.com/*</span></code></p>
+<p>Add your domain with a wildcard at the end like so: <code class="codehilite"><span class="err">plex.domain.com/*</span></code> If you're using your root domain you do the same. <code class="codehilite"><span class="err">domain.com/*</span></code> or <code class="codehilite"><span class="err">domain.com/plex*</span></code></p>
 <p>If you want to add the rule on all subdomains you can do that so: <code class="codehilite"><span class="err">*.domain.com/</span></code></p>
 <p>Next select the <mark>Cache Level</mark> setting and set it to <mark>Bypass</mark>
 Then click <mark>Save and Deploy</mark></p>
@@ -656,7 +656,7 @@ Then click <mark>Save and Deploy</mark></p>
 <p>This bug won't affect performance, but any remote streams using IPv6 will show as local on the Plex dashboard and in Tautili. So this is more of an annoyance that we can easily fix.</p>
 <p>Below is the command you need to run for disabling IPv6.</p>
 <div class="codehilite"><pre><span></span>    curl -X PATCH <span class="s2">&quot;https://api.cloudflare.com/client/v4/zones/xxxxxxxxxxxxxxxxx/settings/ipv6&quot;</span> <span class="se">\</span>
-    -H <span class="s2">&quot;X-Auth-Email: xxxxxxx@gmail.com&quot;</span> <span class="se">\</span>
+    -H <span class="s2">&quot;X-Auth-Email: xxxxxxx@email.com&quot;</span> <span class="se">\</span>
     -H <span class="s2">&quot;X-Auth-Key: xxxxxxxxxxxxxxxxxxxxx&quot;</span> <span class="se">\</span>
     -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
     --data <span class="s1">&#39;{&quot;value&quot;:&quot;off&quot;}&#39;</span>
@@ -677,10 +677,12 @@ Then click <mark>Save and Deploy</mark></p>
 <h4 id="custom-server-access-urls">Custom server access URLs<a class="headerlink" href="#custom-server-access-urls" title="Permanent link">&para;</a></h4>
 <p>After you've setup your reverse proxy for Plex and configured Cloudflare, go into your Plex settings and select <mark>Network</mark>.
 Then click on <mark>Show Advanced</mark> and scroll down to <mark>Custom server access URLs</mark></p>
-<p>Add your domain you setup for plex with the port 443 after like so: <code class="codehilite"><span class="c">https://plexdomain.com:443</span></code> and hit save.</p>
+<p>Add your domain you setup for plex with the port 443 after like so: <code class="codehilite"><span class="c">https://plexdomain.com:443</span></code> or <code class="codehilite"><span class="c">https://plexdomain.com:443/plex</span></code>and hit save.</p>
 <p><img alt="domain" src="../custom_url.png" /></p>
 <p>At this point you do not need to have <mark>Remote Access</mark> enabled anymore.</p>
 <p>To test you can disable your <mark>Remote Access</mark> and try and stream something remotely.</p>
+<p>After a little while you should see on the Cloudflare <mark>Overview</mark> page that the <mark>Total Data Served</mark> have increased.</p>
+<p><img alt="Overview" src="../cloudflare_overview.png" /></p>
 <p>Happy streaming <img alt="😄" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f604.svg" title=":smile:" /></p>
                 
                   
@@ -691,7 +693,7 @@ Then click on <mark>Show Advanced</mark> and scroll down to <mark>Custom server 
                   <div class="md-source-date">
                     <small>
                       
-                        Last update: January 22, 2020
+                        Last update: January 24, 2020
                       
                     </small>
                   </div>
