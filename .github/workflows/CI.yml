@@ -43,3 +43,12 @@ jobs:
           PUBLISH_DIR: ./site
         with:
           emptyCommits: "false"
+
+  cloudflare:
+    runs-on: ubuntu-latest
+    steps:
+      - name: clearcache
+        run: |
+          curl -X GET "https://api.cloudflare.com/client/v4/user/tokens/verify" \
+          -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_CLEAR_CACHE }}" \
+          -H "Content-Type:application/json"
