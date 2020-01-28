@@ -6,7 +6,6 @@
 
 2. Copy the Webhook URL and click save.
 
-
 ![!Settings](discord_settings.png)
 ![!Webhook](discord_webhook.png)
 
@@ -24,7 +23,6 @@ At the end of your webhook URL add ==/slack== so the URL looks like this: `https
 !!! note "Note"
     There are some limitations on what the different notifications titles and messages can be.
     I have found that notifications title `Subject` and notifications message `Event` works just fine. If you add any more it will probably not send any notifications.
-
 
 ![!Notifications](unraid_notifications.png)
 ![!Agent](unraid_agent.png)
