@@ -2,3 +2,4 @@ git+git://github.com/mkdocs/mkdocs/#egg=mkdocs # async issues with py3.8, fix no
 mkdocs-material
 pymdown-extensions
 mkdocs-git-revision-date-localized-plugin
+git+git://github.com/g-provost/lightgallery-markdown#egg=lightgallery

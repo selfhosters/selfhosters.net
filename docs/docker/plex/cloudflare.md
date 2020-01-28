@@ -17,6 +17,120 @@ To get this working you need to reverse proxy Plex. This guide won't go into det
 The [linuxserver/letsencrypt](https://hub.docker.com/r/linuxserver/letsencrypt/) container comes with premade nginx configs that you can use.
 If you're stuck, just pop into the ==#reverse-proxy== channel on our [Discord](https://selfhosters.net/unraid) and someone will help you :slight_smile:
 
+??? example "Nginx subdomain example"
+    ```nginx tab="plex.conf"
+        server {
+        listen 443 ssl;
+        listen [::]:443 ssl;
+
+        server_name plex.*;
+
+        include /config/nginx/ssl.conf;
+
+        client_max_body_size 0;
+        proxy_redirect off;
+        proxy_buffering off;
+
+        location / {
+            include /config/nginx/proxy.conf;
+            proxy_pass http://HOSTIP:32400/;
+
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection "upgrade";
+
+            proxy_set_header X-Plex-Client-Identifier $http_x_plex_client_identifier;
+            proxy_set_header X-Plex-Device $http_x_plex_device;
+            proxy_set_header X-Plex-Device-Name $http_x_plex_device_name;
+            proxy_set_header X-Plex-Platform $http_x_plex_platform;
+            proxy_set_header X-Plex-Platform-Version $http_x_plex_platform_version;
+            proxy_set_header X-Plex-Product $http_x_plex_product;
+            proxy_set_header X-Plex-Token $http_x_plex_token;
+            proxy_set_header X-Plex-Version $http_x_plex_version;
+            proxy_set_header X-Plex-Nocache $http_x_plex_nocache;
+            proxy_set_header X-Plex-Provides $http_x_plex_provides;
+            proxy_set_header X-Plex-Device-Vendor $http_x_plex_device_vendor;
+            proxy_set_header X-Plex-Model $http_x_plex_model;
+        }
+    }
+    ```
+
+    ```nginx tab="ssl.conf"
+    ## Version 2020/01/07 - Changelog: https://github.com/linuxserver/docker-letsencrypt/commits/master/root/defaults/ssl.conf
+
+    # session settings
+    ssl_session_timeout 1d;
+    ssl_session_cache shared:SSL:50m;
+    ssl_session_tickets off;
+
+    # Diffie-Hellman parameter for DHE cipher suites
+    ssl_dhparam /config/nginx/dhparams.pem;
+
+    # ssl certs
+    ssl_certificate /config/keys/letsencrypt/fullchain.pem;
+    ssl_certificate_key /config/keys/letsencrypt/privkey.pem;
+
+    # protocols
+    # using generated 2020-01-07, https://ssl-config.mozilla.org/#server=nginx&server-version=1.16.1-r4&config=intermediate&openssl-version=1.1.1d-r3
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384;
+    ssl_prefer_server_ciphers off;
+
+    # HSTS, remove # from the line below to enable HSTS
+    #add_header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload" always;
+
+    # OCSP Stapling
+    ssl_stapling on;
+    ssl_stapling_verify on;
+    resolver 127.0.0.11 valid=30s; # Docker DNS Server
+
+    # Enable TLS 1.3 early data
+    ssl_early_data on;
+
+    # Optional additional headers
+    #add_header Content-Security-Policy "upgrade-insecure-requests";
+    #add_header X-Frame-Options "SAMEORIGIN" always;
+    #add_header X-XSS-Protection "1; mode=block" always;
+    #add_header X-Content-Type-Options "nosniff" always;
+    #add_header X-UA-Compatible "IE=Edge" always;
+    #add_header Cache-Control "no-transform" always;
+    #add_header Referrer-Policy "same-origin" always;
+    ```
+
+    ```nginx tab="proxy.conf"
+    ## Version 2019/10/23 - Changelog: https://github.com/linuxserver/docker-letsencrypt/commits/master/root/defaults/proxy.conf
+
+    client_body_buffer_size 128k;
+
+    #Timeout if the real server is dead
+    proxy_next_upstream error timeout invalid_header http_500 http_502 http_503;
+
+    # Advanced Proxy Config
+    send_timeout 5m;
+    proxy_read_timeout 240;
+    proxy_send_timeout 240;
+    proxy_connect_timeout 240;
+
+    # TLS 1.3 early data
+    proxy_set_header Early-Data $ssl_early_data;
+
+    # Basic Proxy Config
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto https;
+    proxy_set_header X-Forwarded-Host $host;
+    proxy_set_header X-Forwarded-Ssl on;
+    proxy_redirect  http://  $scheme://;
+    proxy_http_version 1.1;
+    proxy_set_header Connection "";
+    #proxy_cookie_path / "/; HTTPOnly; Secure"; # enable at your own risk, may break certain apps
+    proxy_cache_bypass $cookie_session;
+    proxy_no_cache $cookie_session;
+    proxy_buffers 32 4k;
+    proxy_headers_hash_bucket_size 128;
+    proxy_headers_hash_max_size 1024;
+    ```
+
 ### Cloudflare
 
 If you haven't already you need to add your domain to Cloudflare for this to work. See this guide on how to do that: [Creating a Cloudflare account and adding a website](https://support.cloudflare.com/hc/en-us/articles/201720164-Creating-a-Cloudflare-account-and-adding-a-website)
@@ -26,7 +140,7 @@ This might take some time depending on the DNS provider. Last time I did it I wa
 
 After it's been transfered make sure the orange cloud is enabled. This is what activates the Cloudflare CDN on the domain.
 
-![cloud](cloudflare_cloud.png)
+![!cloud](cloudflare_cloud.png)
 
 #### Cache rules
 
@@ -45,7 +159,7 @@ If you want to add the rule on all subdomains you can do that so: `*.domain.com/
 Next select the ==Cache Level== setting and set it to ==Bypass==
 Then click ==Save and Deploy==
 
-![Page Rules](page_rules.png)
+![!Page Rules](page_rules.png)
 
 #### Disable IPv6
 
@@ -65,7 +179,7 @@ Below is the command you need to run for disabling IPv6.
 
 In the API URL replace the x's with you Zone ID for you domain. You can find the zone ID on the ==Overview== page at the bottom.
 
-![zone](zone_id.png)
+![!zone](zone_id.png)
 
 On the second line add your email account you used for Cloudflare and on the third line add your ==Global API key==
 
@@ -80,7 +194,7 @@ If successful, the output will look like this:
 ```
 
 In the webui it should now say that IPv6 Compatibility is off.
-![ipv6](ipv6.png)
+![!ipv6](ipv6.png)
 
 ### Plex
 
@@ -91,7 +205,7 @@ Then click on ==Show Advanced== and scroll down to ==Custom server access URLs==
 
 Add your domain you setup for plex with the port 443 after like so: `https://plexdomain.com:443` or `https://plexdomain.com:443/plex`and hit save.
 
-![domain](custom_url.png)
+![!domain](custom_url.png)
 
 At this point you do not need to have ==Remote Access== enabled anymore.
 
@@ -99,6 +213,6 @@ To test you can disable your ==Remote Access== and try and stream something remo
 
 After a little while you should see on the Cloudflare ==Overview== page that the ==Total Data Served== have increased.
 
-![Overview](cloudflare_overview.png)
+![!Overview](cloudflare_overview.png)
 
 Happy streaming :smile:

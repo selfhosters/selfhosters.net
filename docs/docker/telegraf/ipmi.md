@@ -24,7 +24,7 @@ This can be easly fixed by just adding the following command in the post argumen
 
 Edit the container and add the line in the ==Post Arguments:== input field.
 
-![Post Args](post_args.png)
+![!Post Args](post_args.png)
 
 Next just click save and the container will be recreated with impitool installed.
 
@@ -34,7 +34,7 @@ Below is two simple graph panels I made with Grafana.
 
 Create two graph panels in Grafana and copy the JSON below.
 
-![Grafana](grafana.png)
+![!Grafana](grafana.png)
 
 ??? Example "IPMI Voltages panel JSON"
 
