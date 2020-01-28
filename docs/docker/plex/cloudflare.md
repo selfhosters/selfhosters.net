@@ -26,7 +26,7 @@ This might take some time depending on the DNS provider. Last time I did it I wa
 
 After it's been transfered make sure the orange cloud is enabled. This is what activates the Cloudflare CDN on the domain.
 
-![cloud](cloudflare_cloud.png)
+![!cloud](cloudflare_cloud.png)
 
 #### Cache rules
 
@@ -45,7 +45,7 @@ If you want to add the rule on all subdomains you can do that so: `*.domain.com/
 Next select the ==Cache Level== setting and set it to ==Bypass==
 Then click ==Save and Deploy==
 
-![Page Rules](page_rules.png)
+![!Page Rules](page_rules.png)
 
 #### Disable IPv6
 
@@ -65,7 +65,7 @@ Below is the command you need to run for disabling IPv6.
 
 In the API URL replace the x's with you Zone ID for you domain. You can find the zone ID on the ==Overview== page at the bottom.
 
-![zone](zone_id.png)
+![!zone](zone_id.png)
 
 On the second line add your email account you used for Cloudflare and on the third line add your ==Global API key==
 
@@ -80,7 +80,7 @@ If successful, the output will look like this:
 ```
 
 In the webui it should now say that IPv6 Compatibility is off.
-![ipv6](ipv6.png)
+![!ipv6](ipv6.png)
 
 ### Plex
 
@@ -91,7 +91,7 @@ Then click on ==Show Advanced== and scroll down to ==Custom server access URLs==
 
 Add your domain you setup for plex with the port 443 after like so: `https://plexdomain.com:443` or `https://plexdomain.com:443/plex`and hit save.
 
-![domain](custom_url.png)
+![!domain](custom_url.png)
 
 At this point you do not need to have ==Remote Access== enabled anymore.
 
@@ -99,6 +99,6 @@ To test you can disable your ==Remote Access== and try and stream something remo
 
 After a little while you should see on the Cloudflare ==Overview== page that the ==Total Data Served== have increased.
 
-![Overview](cloudflare_overview.png)
+![!Overview](cloudflare_overview.png)
 
 Happy streaming :smile:
