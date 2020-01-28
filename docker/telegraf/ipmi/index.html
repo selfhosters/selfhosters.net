@@ -46,6 +46,7 @@
       
     
     
+    
       <link rel="stylesheet" href="../../../assets/stylesheets/application.1b62728e.css">
       
         <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.a8b3c06d.css">
@@ -56,9 +57,14 @@
         <meta name="theme-color" content="#fb8c00">
       
     
+    <link rel="stylesheet" href="../../../css/lightgallery.min.css">
+
+    
     
       <script src="../../../assets/javascripts/modernizr.268332fc.js"></script>
     
+    <script src="../../../js/lightgallery.min.js"></script>
+
     
       
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
@@ -510,12 +516,12 @@ ipmitool is installed and that ipmitool is in your PATH</p>
 
 </details>
 <p>Edit the container and add the line in the <mark>Post Arguments:</mark> input field.</p>
-<p><img alt="Post Args" src="../post_args.png" /></p>
+<p><div class="lightgallery"><a href="../post_args.png"><img alt="!Post Args" src="../post_args.png" /></a></div></p>
 <p>Next just click save and the container will be recreated with impitool installed.</p>
 <h2 id="grafana">Grafana<a class="headerlink" href="#grafana" title="Permanent link">&para;</a></h2>
 <p>Below is two simple graph panels I made with Grafana.</p>
 <p>Create two graph panels in Grafana and copy the JSON below.</p>
-<p><img alt="Grafana" src="../grafana.png" /></p>
+<p><div class="lightgallery"><a href="../grafana.png"><img alt="!Grafana" src="../grafana.png" /></a></div></p>
 <details class="example"><summary>IPMI Voltages panel JSON</summary><div class="codehilite"><pre><span></span><span class="p">{</span>
 <span class="nt">&quot;datasource&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
 <span class="nt">&quot;aliasColors&quot;</span><span class="p">:</span> <span class="p">{},</span>
@@ -834,7 +840,7 @@ ipmitool is installed and that ipmitool is in your PATH</p>
                   <div class="md-source-date">
                     <small>
                       
-                        Last update: January 23, 2020
+                        Last update: January 28, 2020
                       
                     </small>
                   </div>
@@ -914,10 +920,18 @@ ipmitool is installed and that ipmitool is in your PATH</p>
       
     </div>
     
+    
       <script src="../../../assets/javascripts/application.808e90bb.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
     
+    <script>
+    var elements = document.getElementsByClassName("lightgallery");
+    for(var i=0; i<elements.length; i++) {
+       lightGallery(elements[i]);
+    }
+    </script>
+
   </body>
 </html>

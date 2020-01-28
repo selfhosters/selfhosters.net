@@ -46,6 +46,7 @@
       
     
     
+    
       <link rel="stylesheet" href="../../../assets/stylesheets/application.1b62728e.css">
       
         <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.a8b3c06d.css">
@@ -56,9 +57,14 @@
         <meta name="theme-color" content="#fb8c00">
       
     
+    <link rel="stylesheet" href="../../../css/lightgallery.min.css">
+
+    
     
       <script src="../../../assets/javascripts/modernizr.268332fc.js"></script>
     
+    <script src="../../../js/lightgallery.min.js"></script>
+
     
       
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
@@ -608,12 +614,128 @@
 <p>To get this working you need to reverse proxy Plex. This guide won't go into detail on how to do this. But I highly recommend this guide as a starting point. <a href="https://blog.linuxserver.io/2019/04/25/letsencrypt-nginx-starter-guide/">Let's Encrypt, Nginx &amp; Reverse Proxy Starter Guide - 2019 Edition</a></p>
 <p>The <a href="https://hub.docker.com/r/linuxserver/letsencrypt/">linuxserver/letsencrypt</a> container comes with premade nginx configs that you can use.
 If you're stuck, just pop into the <mark>#reverse-proxy</mark> channel on our <a href="https://selfhosters.net/unraid">Discord</a> and someone will help you <img alt="🙂" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f642.svg" title=":slight_smile:" /></p>
+<details class="example"><summary>Nginx subdomain example</summary><div class="superfences-tabs">
+<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
+<label for="__tab_1_0">plex.conf</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span>    <span class="k">server</span> <span class="p">{</span>
+    <span class="kn">listen</span> <span class="mi">443</span> <span class="s">ssl</span><span class="p">;</span>
+    <span class="kn">listen</span> <span class="s">[::]:443</span> <span class="s">ssl</span><span class="p">;</span>
+
+    <span class="kn">server_name</span> <span class="s">plex.*</span><span class="p">;</span>
+
+    <span class="kn">include</span> <span class="s">/config/nginx/ssl.conf</span><span class="p">;</span>
+
+    <span class="kn">client_max_body_size</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kn">proxy_redirect</span> <span class="no">off</span><span class="p">;</span>
+    <span class="kn">proxy_buffering</span> <span class="no">off</span><span class="p">;</span>
+
+    <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
+        <span class="kn">include</span> <span class="s">/config/nginx/proxy.conf</span><span class="p">;</span>
+        <span class="kn">proxy_pass</span> <span class="s">http://HOSTIP:32400/</span><span class="p">;</span>
+
+        <span class="kn">proxy_set_header</span> <span class="s">Upgrade</span> <span class="nv">$http_upgrade</span><span class="p">;</span>
+        <span class="kn">proxy_set_header</span> <span class="s">Connection</span> <span class="s">&quot;upgrade&quot;</span><span class="p">;</span>
+
+        <span class="kn">proxy_set_header</span> <span class="s">X-Plex-Client-Identifier</span> <span class="nv">$http_x_plex_client_identifier</span><span class="p">;</span>
+        <span class="kn">proxy_set_header</span> <span class="s">X-Plex-Device</span> <span class="nv">$http_x_plex_device</span><span class="p">;</span>
+        <span class="kn">proxy_set_header</span> <span class="s">X-Plex-Device-Name</span> <span class="nv">$http_x_plex_device_name</span><span class="p">;</span>
+        <span class="kn">proxy_set_header</span> <span class="s">X-Plex-Platform</span> <span class="nv">$http_x_plex_platform</span><span class="p">;</span>
+        <span class="kn">proxy_set_header</span> <span class="s">X-Plex-Platform-Version</span> <span class="nv">$http_x_plex_platform_version</span><span class="p">;</span>
+        <span class="kn">proxy_set_header</span> <span class="s">X-Plex-Product</span> <span class="nv">$http_x_plex_product</span><span class="p">;</span>
+        <span class="kn">proxy_set_header</span> <span class="s">X-Plex-Token</span> <span class="nv">$http_x_plex_token</span><span class="p">;</span>
+        <span class="kn">proxy_set_header</span> <span class="s">X-Plex-Version</span> <span class="nv">$http_x_plex_version</span><span class="p">;</span>
+        <span class="kn">proxy_set_header</span> <span class="s">X-Plex-Nocache</span> <span class="nv">$http_x_plex_nocache</span><span class="p">;</span>
+        <span class="kn">proxy_set_header</span> <span class="s">X-Plex-Provides</span> <span class="nv">$http_x_plex_provides</span><span class="p">;</span>
+        <span class="kn">proxy_set_header</span> <span class="s">X-Plex-Device-Vendor</span> <span class="nv">$http_x_plex_device_vendor</span><span class="p">;</span>
+        <span class="kn">proxy_set_header</span> <span class="s">X-Plex-Model</span> <span class="nv">$http_x_plex_model</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_1" type="radio" id="__tab_1_1" />
+<label for="__tab_1_1">ssl.conf</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="c1">## Version 2020/01/07 - Changelog: https://github.com/linuxserver/docker-letsencrypt/commits/master/root/defaults/ssl.conf</span>
+
+<span class="c1"># session settings</span>
+<span class="k">ssl_session_timeout</span> <span class="s">1d</span><span class="p">;</span>
+<span class="k">ssl_session_cache</span> <span class="s">shared:SSL:50m</span><span class="p">;</span>
+<span class="k">ssl_session_tickets</span> <span class="no">off</span><span class="p">;</span>
+
+<span class="c1"># Diffie-Hellman parameter for DHE cipher suites</span>
+<span class="k">ssl_dhparam</span> <span class="s">/config/nginx/dhparams.pem</span><span class="p">;</span>
+
+<span class="c1"># ssl certs</span>
+<span class="k">ssl_certificate</span> <span class="s">/config/keys/letsencrypt/fullchain.pem</span><span class="p">;</span>
+<span class="k">ssl_certificate_key</span> <span class="s">/config/keys/letsencrypt/privkey.pem</span><span class="p">;</span>
+
+<span class="c1"># protocols</span>
+<span class="c1"># using generated 2020-01-07, https://ssl-config.mozilla.org/#server=nginx&amp;server-version=1.16.1-r4&amp;config=intermediate&amp;openssl-version=1.1.1d-r3</span>
+<span class="k">ssl_protocols</span> <span class="s">TLSv1.2</span> <span class="s">TLSv1.3</span><span class="p">;</span>
+<span class="k">ssl_ciphers</span> <span class="s">ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384</span><span class="p">;</span>
+<span class="k">ssl_prefer_server_ciphers</span> <span class="no">off</span><span class="p">;</span>
+
+<span class="c1"># HSTS, remove # from the line below to enable HSTS</span>
+<span class="c1">#add_header Strict-Transport-Security &quot;max-age=63072000; includeSubDomains; preload&quot; always;</span>
+
+<span class="c1"># OCSP Stapling</span>
+<span class="k">ssl_stapling</span> <span class="no">on</span><span class="p">;</span>
+<span class="k">ssl_stapling_verify</span> <span class="no">on</span><span class="p">;</span>
+<span class="k">resolver</span> <span class="mi">127</span><span class="s">.0.0.11</span> <span class="s">valid=30s</span><span class="p">;</span> <span class="c1"># Docker DNS Server</span>
+
+<span class="c1"># Enable TLS 1.3 early data</span>
+<span class="k">ssl_early_data</span> <span class="no">on</span><span class="p">;</span>
+
+<span class="c1"># Optional additional headers</span>
+<span class="c1">#add_header Content-Security-Policy &quot;upgrade-insecure-requests&quot;;</span>
+<span class="c1">#add_header X-Frame-Options &quot;SAMEORIGIN&quot; always;</span>
+<span class="c1">#add_header X-XSS-Protection &quot;1; mode=block&quot; always;</span>
+<span class="c1">#add_header X-Content-Type-Options &quot;nosniff&quot; always;</span>
+<span class="c1">#add_header X-UA-Compatible &quot;IE=Edge&quot; always;</span>
+<span class="c1">#add_header Cache-Control &quot;no-transform&quot; always;</span>
+<span class="c1">#add_header Referrer-Policy &quot;same-origin&quot; always;</span>
+</pre></div></div>
+<input name="__tabs_1" type="radio" id="__tab_1_2" />
+<label for="__tab_1_2">proxy.conf</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="c1">## Version 2019/10/23 - Changelog: https://github.com/linuxserver/docker-letsencrypt/commits/master/root/defaults/proxy.conf</span>
+
+<span class="k">client_body_buffer_size</span> <span class="mi">128k</span><span class="p">;</span>
+
+<span class="c1">#Timeout if the real server is dead</span>
+<span class="k">proxy_next_upstream</span> <span class="s">error</span> <span class="s">timeout</span> <span class="s">invalid_header</span> <span class="s">http_500</span> <span class="s">http_502</span> <span class="s">http_503</span><span class="p">;</span>
+
+<span class="c1"># Advanced Proxy Config</span>
+<span class="k">send_timeout</span> <span class="mi">5m</span><span class="p">;</span>
+<span class="k">proxy_read_timeout</span> <span class="mi">240</span><span class="p">;</span>
+<span class="k">proxy_send_timeout</span> <span class="mi">240</span><span class="p">;</span>
+<span class="k">proxy_connect_timeout</span> <span class="mi">240</span><span class="p">;</span>
+
+<span class="c1"># TLS 1.3 early data</span>
+<span class="k">proxy_set_header</span> <span class="s">Early-Data</span> <span class="nv">$ssl_early_data</span><span class="p">;</span>
+
+<span class="c1"># Basic Proxy Config</span>
+<span class="k">proxy_set_header</span> <span class="s">Host</span> <span class="nv">$host</span><span class="p">;</span>
+<span class="k">proxy_set_header</span> <span class="s">X-Real-IP</span> <span class="nv">$remote_addr</span><span class="p">;</span>
+<span class="k">proxy_set_header</span> <span class="s">X-Forwarded-For</span> <span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+<span class="k">proxy_set_header</span> <span class="s">X-Forwarded-Proto</span> <span class="s">https</span><span class="p">;</span>
+<span class="k">proxy_set_header</span> <span class="s">X-Forwarded-Host</span> <span class="nv">$host</span><span class="p">;</span>
+<span class="k">proxy_set_header</span> <span class="s">X-Forwarded-Ssl</span> <span class="no">on</span><span class="p">;</span>
+<span class="k">proxy_redirect</span>  <span class="s">http://</span>  <span class="nv">$scheme://</span><span class="p">;</span>
+<span class="k">proxy_http_version</span> <span class="mi">1</span><span class="s">.1</span><span class="p">;</span>
+<span class="k">proxy_set_header</span> <span class="s">Connection</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
+<span class="c1">#proxy_cookie_path / &quot;/; HTTPOnly; Secure&quot;; # enable at your own risk, may break certain apps</span>
+<span class="k">proxy_cache_bypass</span> <span class="nv">$cookie_session</span><span class="p">;</span>
+<span class="k">proxy_no_cache</span> <span class="nv">$cookie_session</span><span class="p">;</span>
+<span class="k">proxy_buffers</span> <span class="mi">32</span> <span class="mi">4k</span><span class="p">;</span>
+<span class="k">proxy_headers_hash_bucket_size</span> <span class="mi">128</span><span class="p">;</span>
+<span class="k">proxy_headers_hash_max_size</span> <span class="mi">1024</span><span class="p">;</span>
+</pre></div></div>
+</div>
+</details>
 <h3 id="cloudflare">Cloudflare<a class="headerlink" href="#cloudflare" title="Permanent link">&para;</a></h3>
 <p>If you haven't already you need to add your domain to Cloudflare for this to work. See this guide on how to do that: <a href="https://support.cloudflare.com/hc/en-us/articles/201720164-Creating-a-Cloudflare-account-and-adding-a-website">Creating a Cloudflare account and adding a website</a></p>
 <p>In short you need to change your nameservers on your DNS provides page to the ones Cloudflare says.
 This might take some time depending on the DNS provider. Last time I did it I was using Namecheap and it took less then 10 minutes to propagate, so have some patience.</p>
 <p>After it's been transfered make sure the orange cloud is enabled. This is what activates the Cloudflare CDN on the domain.</p>
-<p><img alt="cloud" src="../cloudflare_cloud.png" /></p>
+<p><div class="lightgallery"><a href="../cloudflare_cloud.png"><img alt="!cloud" src="../cloudflare_cloud.png" /></a></div></p>
 <h4 id="cache-rules">Cache rules<a class="headerlink" href="#cache-rules" title="Permanent link">&para;</a></h4>
 <p>This is very important that you do or else Cloudflare might ban your account for breaking the TOS on caching.</p>
 <div class="admonition info">
@@ -626,7 +748,7 @@ You can have 3 page rules per domain.</p>
 <p>If you want to add the rule on all subdomains you can do that so: <code class="codehilite"><span class="err">*.domain.com/</span></code></p>
 <p>Next select the <mark>Cache Level</mark> setting and set it to <mark>Bypass</mark>
 Then click <mark>Save and Deploy</mark></p>
-<p><img alt="Page Rules" src="../page_rules.png" /></p>
+<p><div class="lightgallery"><a href="../page_rules.png"><img alt="!Page Rules" src="../page_rules.png" /></a></div></p>
 <h4 id="disable-ipv6">Disable IPv6<a class="headerlink" href="#disable-ipv6" title="Permanent link">&para;</a></h4>
 <p>There is currently a <a href="https://forums.plex.tv/t/plex-api-sessions-status-not-honoring-x-forwarded-for-x-real-ip-with-ipv6-clients/175705">bug</a> in Plex that it sees remote IPv6 adresses as local when reverse proxied. And as Cloudflare uses IPv6 we can disable that using the Cloudflare API. (It's not possible through the webUI)</p>
 <p>This bug won't affect performance, but any remote streams using IPv6 will show as local on the Plex dashboard and in Tautili. So this is more of an annoyance that we can easily fix.</p>
@@ -639,7 +761,7 @@ Then click <mark>Save and Deploy</mark></p>
 </pre></div>
 
 <p>In the API URL replace the x's with you Zone ID for you domain. You can find the zone ID on the <mark>Overview</mark> page at the bottom.</p>
-<p><img alt="zone" src="../zone_id.png" /></p>
+<p><div class="lightgallery"><a href="../zone_id.png"><img alt="!zone" src="../zone_id.png" /></a></div></p>
 <p>On the second line add your email account you used for Cloudflare and on the third line add your <mark>Global API key</mark></p>
 <p>The Global API key can be found on your profile page and then API Tokens.</p>
 <p>Next just paste all the lines into the terminal and hit enter.</p>
@@ -648,17 +770,17 @@ Then click <mark>Save and Deploy</mark></p>
 </pre></div>
 
 <p>In the webui it should now say that IPv6 Compatibility is off.
-<img alt="ipv6" src="../ipv6.png" /></p>
+<div class="lightgallery"><a href="../ipv6.png"><img alt="!ipv6" src="../ipv6.png" /></a></div></p>
 <h3 id="plex">Plex<a class="headerlink" href="#plex" title="Permanent link">&para;</a></h3>
 <h4 id="custom-server-access-urls">Custom server access URLs<a class="headerlink" href="#custom-server-access-urls" title="Permanent link">&para;</a></h4>
 <p>After you've setup your reverse proxy for Plex and configured Cloudflare, go into your Plex settings and select <mark>Network</mark>.
 Then click on <mark>Show Advanced</mark> and scroll down to <mark>Custom server access URLs</mark></p>
 <p>Add your domain you setup for plex with the port 443 after like so: <code class="codehilite"><span class="c">https://plexdomain.com:443</span></code> or <code class="codehilite"><span class="c">https://plexdomain.com:443/plex</span></code>and hit save.</p>
-<p><img alt="domain" src="../custom_url.png" /></p>
+<p><div class="lightgallery"><a href="../custom_url.png"><img alt="!domain" src="../custom_url.png" /></a></div></p>
 <p>At this point you do not need to have <mark>Remote Access</mark> enabled anymore.</p>
 <p>To test you can disable your <mark>Remote Access</mark> and try and stream something remotely.</p>
 <p>After a little while you should see on the Cloudflare <mark>Overview</mark> page that the <mark>Total Data Served</mark> have increased.</p>
-<p><img alt="Overview" src="../cloudflare_overview.png" /></p>
+<p><div class="lightgallery"><a href="../cloudflare_overview.png"><img alt="!Overview" src="../cloudflare_overview.png" /></a></div></p>
 <p>Happy streaming <img alt="😄" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f604.svg" title=":smile:" /></p>
                 
                   
@@ -669,7 +791,7 @@ Then click on <mark>Show Advanced</mark> and scroll down to <mark>Custom server 
                   <div class="md-source-date">
                     <small>
                       
-                        Last update: January 24, 2020
+                        Last update: January 28, 2020
                       
                     </small>
                   </div>
@@ -749,10 +871,18 @@ Then click on <mark>Show Advanced</mark> and scroll down to <mark>Custom server 
       
     </div>
     
+    
       <script src="../../../assets/javascripts/application.808e90bb.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
     
+    <script>
+    var elements = document.getElementsByClassName("lightgallery");
+    for(var i=0; i<elements.length; i++) {
+       lightGallery(elements[i]);
+    }
+    </script>
+
   </body>
 </html>

@@ -46,6 +46,7 @@
       
     
     
+    
       <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
       
         <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
@@ -56,9 +57,14 @@
         <meta name="theme-color" content="#fb8c00">
       
     
+    <link rel="stylesheet" href="../../css/lightgallery.min.css">
+
+    
     
       <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
     
+    <script src="../../js/lightgallery.min.js"></script>
+
     
       
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
@@ -556,10 +562,18 @@ massa, nec semper lorem quam in massa.</p>
       
     </div>
     
+    
       <script src="../../assets/javascripts/application.808e90bb.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
     
+    <script>
+    var elements = document.getElementsByClassName("lightgallery");
+    for(var i=0; i<elements.length; i++) {
+       lightGallery(elements[i]);
+    }
+    </script>
+
   </body>
 </html>
