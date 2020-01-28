@@ -1,0 +1,1462 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Selfhosters.net is a documentation portal for the Unraid Discord. Here you will find short guides and walkthroughs made by the  Unraid community.">
+      
+      
+        <link rel="canonical" href="https://selfhosters.net/docker/templating/templating/">
+      
+      
+        <meta name="author" content="Selfhosters">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>Writing a template compatible for unraid - Selfhosters.net</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.1b62728e.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#fb8c00">
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="orange" data-md-color-accent="red">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#writing-a-template-compatible-for-unraid" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://selfhosters.net" title="Selfhosters.net" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Selfhosters.net
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Writing a template compatible for unraid
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/selfhosters/selfhosters.net/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    selfhosters/selfhosters.net
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://selfhosters.net" title="Selfhosters.net" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Selfhosters.net
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/selfhosters/selfhosters.net/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    selfhosters/selfhosters.net
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../commands/" title="Nice to know Unraid commands" class="md-nav__link">
+      Nice to know Unraid commands
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Unraid Tips
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Unraid Tips
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../tips/discord_notifications/discord_notifications/" title="Adding Discord Notifications" class="md-nav__link">
+      Adding Discord Notifications
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      Docker
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Docker
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1">
+    
+    <label class="md-nav__link" for="nav-4-1">
+      Telegraf
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-1">
+        Telegraf
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../telegraf/ipmi/" title="Adding IPMI stats to the Telegraf container" class="md-nav__link">
+      Adding IPMI stats to the Telegraf container
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
+    
+    <label class="md-nav__link" for="nav-4-2">
+      Plex
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-2">
+        Plex
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../plex/cloudflare/" title="Routing Plex through Cloudflare" class="md-nav__link">
+      Routing Plex through Cloudflare
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Writing a template compatible for unraid
+      </label>
+    
+    <a href="./" title="Writing a template compatible for unraid" class="md-nav__link md-nav__link--active">
+      Writing a template compatible for unraid
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-enabling-template-authoring-mode" class="md-nav__link">
+    0. Enabling Template Authoring Mode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-choosing-which-way-to-go" class="md-nav__link">
+    1. Choosing which way to go
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-ca-way" class="md-nav__link">
+    The CA way
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#110-enabling-search-from-dockerhub" class="md-nav__link">
+    1.1.0 Enabling search from dockerHub
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#111-search-from-dockerhub" class="md-nav__link">
+    1.1.1 Search from DockerHub
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-editing-the-template" class="md-nav__link">
+    1.1.2 Editing the template
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    Variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#volumes" class="md-nav__link">
+    Volumes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ports" class="md-nav__link">
+    Ports
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    Metadata
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113-grab-the-xml" class="md-nav__link">
+    1.1.3 Grab the XML
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#114-shave-off-the-xml" class="md-nav__link">
+    1.1.4 Shave off the XML
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-manual-way" class="md-nav__link">
+    The Manual way
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#120-starting-from-scratch" class="md-nav__link">
+    1.2.0 Starting from "scratch"
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#121-fill-the-base" class="md-nav__link">
+    1.2.1 Fill the base
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122-add-a-config" class="md-nav__link">
+    1.2.2 Add a Config
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-a-volume" class="md-nav__link">
+    Add a Volume
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-variable" class="md-nav__link">
+    Add a Variable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-port" class="md-nav__link">
+    Add a Port
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shared-attributes" class="md-nav__link">
+    Shared attributes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-additional-tags-and-neat-tricks" class="md-nav__link">
+    2 Additional tags, and neat tricks
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-categories" class="md-nav__link">
+    2.1 Categories
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-enabling-template-authoring-mode" class="md-nav__link">
+    0. Enabling Template Authoring Mode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-choosing-which-way-to-go" class="md-nav__link">
+    1. Choosing which way to go
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-ca-way" class="md-nav__link">
+    The CA way
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#110-enabling-search-from-dockerhub" class="md-nav__link">
+    1.1.0 Enabling search from dockerHub
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#111-search-from-dockerhub" class="md-nav__link">
+    1.1.1 Search from DockerHub
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-editing-the-template" class="md-nav__link">
+    1.1.2 Editing the template
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    Variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#volumes" class="md-nav__link">
+    Volumes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ports" class="md-nav__link">
+    Ports
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    Metadata
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113-grab-the-xml" class="md-nav__link">
+    1.1.3 Grab the XML
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#114-shave-off-the-xml" class="md-nav__link">
+    1.1.4 Shave off the XML
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-manual-way" class="md-nav__link">
+    The Manual way
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#120-starting-from-scratch" class="md-nav__link">
+    1.2.0 Starting from "scratch"
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#121-fill-the-base" class="md-nav__link">
+    1.2.1 Fill the base
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122-add-a-config" class="md-nav__link">
+    1.2.2 Add a Config
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-a-volume" class="md-nav__link">
+    Add a Volume
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-variable" class="md-nav__link">
+    Add a Variable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-port" class="md-nav__link">
+    Add a Port
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shared-attributes" class="md-nav__link">
+    Shared attributes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-additional-tags-and-neat-tricks" class="md-nav__link">
+    2 Additional tags, and neat tricks
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-categories" class="md-nav__link">
+    2.1 Categories
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/selfhosters/selfhosters.net/edit/master/docs/docker/templating/templating.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="writing-a-template-compatible-for-unraid">Writing a template compatible for unraid<a class="headerlink" href="#writing-a-template-compatible-for-unraid" title="Permanent link">&para;</a></h1>
+<p>This is an effort to collect information from <a href="https://forums.unraid.net/topic/57181-docker-faq/" target="_blank">Squids FAQ</a>.</p>
+<h2 id="0-enabling-template-authoring-mode">0. Enabling Template Authoring Mode<a class="headerlink" href="#0-enabling-template-authoring-mode" title="Permanent link">&para;</a></h2>
+<p>In order to have a smooth experience creating templates I highly recommend enabling <code class="codehilite"><span class="err">Template Authoring Mode</span></code>, it allows you to see the XML in clear-text and some other small neat tricks we might need to come back to.</p>
+<p>This process requires you to shutdown the docker service for a short while, as unraid doesn't let us change the setting with the service running.<br />
+<img alt="docker-off" src="../tmpl-docker-off.png" /></p>
+<p>When the docker service is successfully shutdown, enable advanced view.
+<img alt="docker-adv-view" src="../tmpl-docker-adv-view.png" /></p>
+<p>We can now enable authoring mode, you can also toggle the docker service back on.<br />
+<img alt="docker-author-mode" src="../tmpl-docker-auth-mode.png" /></p>
+<h2 id="1-choosing-which-way-to-go">1. Choosing which way to go<a class="headerlink" href="#1-choosing-which-way-to-go" title="Permanent link">&para;</a></h2>
+<p>We can get started writing templates in two ways:</p>
+<ol>
+<li>Convert a template generated by Community Application, the CA way</li>
+<li>Work directly with the XML</li>
+</ol>
+<h2 id="the-ca-way">The CA way<a class="headerlink" href="#the-ca-way" title="Permanent link">&para;</a></h2>
+<h3 id="110-enabling-search-from-dockerhub">1.1.0 Enabling search from dockerHub<a class="headerlink" href="#110-enabling-search-from-dockerhub" title="Permanent link">&para;</a></h3>
+<p>In order to have Community Applications (hereby referenced as CA) generate a template, we need to enable additional search from dockerHub. You do this by opening CA, and press the settings button on the sidebar.
+<img alt="ca-side-bar" src="../tmpl-ca-bar.png" /></p>
+<p>Enable additional search.
+<img alt="ca-dHub-on" src="../tmpl-ca-hub-on.png" /></p>
+<h3 id="111-search-from-dockerhub">1.1.1 Search from DockerHub<a class="headerlink" href="#111-search-from-dockerhub" title="Permanent link">&para;</a></h3>
+<p>For this guide I will use <code class="codehilite"><span class="err">domistyle/idrac6</span></code> as an example. Go back to CA, and type the image you want to create a template for, in the search bar (If you get a match now, chances are, it is already in CA), and press <code class="codehilite"><span class="err">Get More Results From DockerHub</span></code>.
+<img alt="ca-from-dHub" src="../tmpl-ca-from-dHub.png" /></p>
+<p>CA shows results for both the image-maintainer, and image-name. Which means that we will get similar results. Press the download to disk icon, and let CA convert it.
+<img alt="ca-result-dHub" src="../tmpl-ca-result-dHub.png" /></p>
+<p>For this one CA didn't do a very good job in converting it (it reads the Dockerfile for volumes, expose, publish etc.), however we can modify it with the template editor in Unraid.
+<img alt="converted" src="../tmpl-converted.png" /></p>
+<h3 id="112-editing-the-template">1.1.2 Editing the template<a class="headerlink" href="#112-editing-the-template" title="Permanent link">&para;</a></h3>
+<p>To see what we need to edit, we can most often refer to the <a href="https://github.com/DomiStyle/docker-idrac6/blob/master/README.md#usage">readme</a> of the container (including a screenshot incase the readme changes)
+<img alt="cont-readme" src="../tmpl-cont-readme.png" />.</p>
+<div class="admonition note">
+<p class="admonition-title">Get to know the template editor, its very handy. Also for managing existing templates.</p>
+</div>
+<p>I'm going through the rest of this guide with a mix of views (to remove clutter from images). If some of the settings you see on a screenshot isn't showing to you, enable advanced view.
+<img alt="cont-adv-mode" src="../tmpl-cont-adv-mode.png" /></p>
+<h4 id="variables">Variables<a class="headerlink" href="#variables" title="Permanent link">&para;</a></h4>
+<p>I will start with adding the variables, just because those are on the top of the documentation of this container.</p>
+<p>To add the <code class="codehilite"><span class="err">IDRAC_HOST</span></code> variable, we are going to press the <code class="codehilite"><span class="err">Add annother Path, Port, Variable or Device</span></code> link.
+<img alt="cont-add-var" src="../tmpl-cont-add-var.png" /></p>
+<p>We need to change the Config Type to Variable, then we can start adding values. There is a lot going on here, but it is all going to make sense in the end.</p>
+<ul>
+<li>
+<p><mark>Name</mark> The name for the variable, this is to help the user identifying what this variable does.</p>
+</li>
+<li>
+<p><mark>Key</mark> This is the actual variable, so we are putting <code class="codehilite"><span class="err">IDRAC_HOST</span></code> here.  </p>
+</li>
+<li>
+<p><mark>Value</mark> We don't fill this, this is for the user.  </p>
+</li>
+<li>
+<p><mark>Default Value</mark> We could fill this, but since we can only do a estimated guess on what a users idrac host is, we are going to skip it.  </p>
+</li>
+<li>
+<p><mark>Description</mark> Usually I don't fill this field with this long of a text, but the documentation of the container had a good one, so I'm using it.  </p>
+</li>
+<li>
+<p><mark>Display</mark> This decides if the "average user" (someone that isn't using advanced view) is going to see this variable.  </p>
+</li>
+<li>
+<p><mark>Required</mark> I set this to yes because I know the container wont work without it set. The fact that the documentation tells me its required also helped in the decision.  </p>
+</li>
+<li>
+<p><mark>Password Mask</mark> This isn't a password, so it doesn't need to have its value masked behind asterisk (*).  </p>
+</li>
+</ul>
+<p><img alt="cont-add-var-menu" src="../tmpl-cont-add-var-menu.png" /></p>
+<details class="example"><summary>Here is some screenshots on how I added the other required variables</summary><p><img alt="cont-add-var-menu-user" src="../tmpl-cont-add-var-menu-user.png" />
+Here I set the Default value as root, since I know that's the default username on idrac  </p>
+<p><img alt="cont-add-var-menu-password" src="../tmpl-cont-add-var-menu-password.png" />
+Here I set the Default value as calvin, since I know that's the default password on idrac, I also enabled Password Mask</p>
+</details>
+<h4 id="volumes">Volumes<a class="headerlink" href="#volumes" title="Permanent link">&para;</a></h4>
+<p>Next is adding the volumes. We press the same <code class="codehilite"><span class="err">Add annother Path, Port, Variable or Device</span></code> link, but we don't need to change the config type this time.
+The fields we can add here is mostly the same, but with the "Volume" type some of them are voided. Like password mask.</p>
+<p>If it's a "proper" appdata location, I set required to yes</p>
+<ul>
+<li><mark>Access Mode</mark> Defines how the container should have access to this volume. Almost always <code class="codehilite"><span class="err">read/write</span></code></li>
+</ul>
+<p><img alt="cont-add-vol-menu" src="../tmpl-cont-add-vol-menu.png" /></p>
+<h4 id="ports">Ports<a class="headerlink" href="#ports" title="Permanent link">&para;</a></h4>
+<p>Now its time for the ports. We press the same <code class="codehilite"><span class="err">Add annother Path, Port, Variable or Device</span></code> link. This time we need to change the config type to <code class="codehilite"><span class="err">Port</span></code>.</p>
+<p>The documentation for this container says we can use port 5800 to access the interface, so that's the port we are going to add. <del>It also mentions the VNC port, but most users wont need this</del></p>
+<ul>
+<li><mark>Connection Type</mark> Always <code class="codehilite"><span class="err">TCP</span></code>, unless specified otherwise.</li>
+</ul>
+<p><img alt="tmpl-cont-add-port-menu.png" src="../tmpl-cont-add-port-menu.png" /></p>
+<h4 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h4>
+<p>Now you have a basic template. This might be enough for your own usage, but in order to add it to CA we should add some spice to the template.</p>
+<p>As you can see there is lots of fields we can fill in with the template editor.
+<img alt="cont-meta-empty" src="../tmpl-cont-meta-empty.png" /></p>
+<p>I'm not going to walk you trough this, but I am going to tell you how it ended up like it did.</p>
+<p>I changed the overview to match the intro from the readme of the container.</p>
+<p>I used the dropdown to set the categories as I saw fit.</p>
+<p>I set the support thread as the issue page of the project.</p>
+<div class="admonition danger">
+<p class="admonition-title">Do not do this if you are creating a template for your own container, create a support thread on the unraid forums and use that link</p>
+</div>
+<p>The project page is usually the GitHub link to the container.</p>
+<p>I have yet to change the Icon URL, because I need to create a icon.</p>
+<p><code class="codehilite"><span class="err">WebUI</span></code> Should be filled with the <em>container</em> port, unraid should do the translation <code class="codehilite"><span class="nl">http</span><span class="p">:</span><span class="o">//[</span><span class="n">IP</span><span class="o">]</span><span class="err">:</span><span class="o">[</span><span class="n">PORT:5800</span><span class="o">]</span><span class="w"></span></code>. If this is a https enabled port, set the url to use https.</p>
+<p>For Post arguments and Extra Parameters, you should know if you need to fill this.</p>
+<div class="admonition note">
+<p class="admonition-title">There is more information on these in the <a href="#121-fill-the-base">Manual way</a></p>
+</div>
+<p><img alt="cont-meta-filled" src="../tmpl-cont-meta-filled.png" /></p>
+<h3 id="113-grab-the-xml">1.1.3 Grab the XML<a class="headerlink" href="#113-grab-the-xml" title="Permanent link">&para;</a></h3>
+<p>Once you have filled all the fields, and set the ports, variables and volumes as good as you can, you can press the <code class="codehilite"><span class="err">Save</span></code> button, this takes you to a page where can see the xml in plain-text. Don't worry, it also saves the xml to your OS disk. Bellow is the XML generated by the procedure above.</p>
+<details class="example"><summary>Extracted XML</summary><div class="codehilite"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="nt">&lt;Container</span> <span class="na">version=</span><span class="s">&quot;2&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>idrac6<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Repository&gt;</span>domistyle/idrac6<span class="nt">&lt;/Repository&gt;</span>
+    <span class="nt">&lt;Registry&gt;</span>https://hub.docker.com/r/domistyle/idrac6/<span class="nt">&lt;/Registry&gt;</span>
+    <span class="nt">&lt;Network&gt;</span>bridge<span class="nt">&lt;/Network&gt;</span>
+    <span class="nt">&lt;MyIP/&gt;</span>
+    <span class="nt">&lt;Shell&gt;</span>sh<span class="nt">&lt;/Shell&gt;</span>
+    <span class="nt">&lt;Privileged&gt;</span>false<span class="nt">&lt;/Privileged&gt;</span>
+    <span class="nt">&lt;Support&gt;</span>https://github.com/DomiStyle/docker-idrac6/issues<span class="nt">&lt;/Support&gt;</span>
+    <span class="nt">&lt;Project&gt;</span>https://github.com/DomiStyle/docker-idrac6/<span class="nt">&lt;/Project&gt;</span>
+    <span class="nt">&lt;Overview&gt;</span>Allows access to the iDRAC 6 console without installing Java or messing with Java Web Start. Java is only run inside of the container and access is provided via web interface or directly with VNC.<span class="nt">&lt;/Overview&gt;</span>
+    <span class="nt">&lt;Category&gt;</span>Tools: Network:Management<span class="nt">&lt;/Category&gt;</span>
+    <span class="nt">&lt;WebUI&gt;</span>http://[IP]:[PORT:5800]<span class="nt">&lt;/WebUI&gt;</span>
+    <span class="nt">&lt;TemplateURL/&gt;</span>
+    <span class="nt">&lt;Icon&gt;</span>/plugins/dynamix.docker.manager/images/question.png<span class="nt">&lt;/Icon&gt;</span>
+    <span class="nt">&lt;ExtraParams/&gt;</span>
+    <span class="nt">&lt;PostArgs/&gt;</span>
+    <span class="nt">&lt;CPUset/&gt;</span>
+    <span class="nt">&lt;DateInstalled&gt;</span>1579532295<span class="nt">&lt;/DateInstalled&gt;</span>
+    <span class="nt">&lt;DonateText/&gt;</span>
+    <span class="nt">&lt;DonateLink/&gt;</span>
+    <span class="nt">&lt;Description&gt;</span>Allows access to the iDRAC 6 console without installing Java or messing with Java Web Start. Java is only run inside of the container and access is provided via web interface or directly with VNC.<span class="nt">&lt;/Description&gt;</span>
+    <span class="nt">&lt;Networking&gt;</span>
+        <span class="nt">&lt;Mode&gt;</span>bridge<span class="nt">&lt;/Mode&gt;</span>
+        <span class="nt">&lt;Publish&gt;</span>
+        <span class="nt">&lt;Port&gt;</span>
+            <span class="nt">&lt;HostPort/&gt;</span>
+            <span class="nt">&lt;ContainerPort&gt;</span>5800<span class="nt">&lt;/ContainerPort&gt;</span>
+            <span class="nt">&lt;Protocol&gt;</span>tcp<span class="nt">&lt;/Protocol&gt;</span>
+        <span class="nt">&lt;/Port&gt;</span>
+        <span class="nt">&lt;/Publish&gt;</span>
+    <span class="nt">&lt;/Networking&gt;</span>
+    <span class="nt">&lt;Data&gt;</span>
+        <span class="nt">&lt;Volume&gt;</span>
+        <span class="nt">&lt;HostDir/&gt;</span>
+        <span class="nt">&lt;ContainerDir&gt;</span>/vmedia<span class="nt">&lt;/ContainerDir&gt;</span>
+        <span class="nt">&lt;Mode&gt;</span>rw<span class="nt">&lt;/Mode&gt;</span>
+        <span class="nt">&lt;/Volume&gt;</span>
+        <span class="nt">&lt;Volume&gt;</span>
+        <span class="nt">&lt;HostDir/&gt;</span>
+        <span class="nt">&lt;ContainerDir&gt;</span>/app<span class="nt">&lt;/ContainerDir&gt;</span>
+        <span class="nt">&lt;Mode&gt;</span>rw<span class="nt">&lt;/Mode&gt;</span>
+        <span class="nt">&lt;/Volume&gt;</span>
+        <span class="nt">&lt;Volume&gt;</span>
+        <span class="nt">&lt;HostDir/&gt;</span>
+        <span class="nt">&lt;ContainerDir&gt;</span>/screenshots<span class="nt">&lt;/ContainerDir&gt;</span>
+        <span class="nt">&lt;Mode&gt;</span>rw<span class="nt">&lt;/Mode&gt;</span>
+        <span class="nt">&lt;/Volume&gt;</span>
+    <span class="nt">&lt;/Data&gt;</span>
+    <span class="nt">&lt;Environment&gt;</span>
+        <span class="nt">&lt;Variable&gt;</span>
+        <span class="nt">&lt;Value/&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>IDRAC_HOST<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Mode/&gt;</span>
+        <span class="nt">&lt;/Variable&gt;</span>
+        <span class="nt">&lt;Variable&gt;</span>
+        <span class="nt">&lt;Value/&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>IDRAC_USER<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Mode/&gt;</span>
+        <span class="nt">&lt;/Variable&gt;</span>
+        <span class="nt">&lt;Variable&gt;</span>
+        <span class="nt">&lt;Value/&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>IDRAC_PASSWORD<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Mode/&gt;</span>
+        <span class="nt">&lt;/Variable&gt;</span>
+        <span class="nt">&lt;Variable&gt;</span>
+        <span class="nt">&lt;Value/&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>IDRAC_PORT<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Mode/&gt;</span>
+        <span class="nt">&lt;/Variable&gt;</span>
+        <span class="nt">&lt;Variable&gt;</span>
+        <span class="nt">&lt;Value&gt;</span>false<span class="nt">&lt;/Value&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>IDRAC_KEYCODE_HACK<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Mode/&gt;</span>
+        <span class="nt">&lt;/Variable&gt;</span>
+        <span class="nt">&lt;Variable&gt;</span>
+        <span class="nt">&lt;Value&gt;</span>99<span class="nt">&lt;/Value&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>USER_ID<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Mode/&gt;</span>
+        <span class="nt">&lt;/Variable&gt;</span>
+        <span class="nt">&lt;Variable&gt;</span>
+        <span class="nt">&lt;Value&gt;</span>100<span class="nt">&lt;/Value&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>GROUP_ID<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Mode/&gt;</span>
+        <span class="nt">&lt;/Variable&gt;</span>
+    <span class="nt">&lt;/Environment&gt;</span>
+    <span class="nt">&lt;Labels/&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;idrac host&quot;</span> <span class="na">Target=</span><span class="s">&quot;IDRAC_HOST&quot;</span> <span class="na">Default=</span><span class="s">&quot;&quot;</span> <span class="na">Mode=</span><span class="s">&quot;&quot;</span> <span class="na">Description=</span><span class="s">&quot;Host for your iDRAC instance. Make sure your instance is reachable with https://&amp;amp;lt;IDRAC_HOST&amp;amp;gt;. See IDRAC_PORT for using custom ports. HTTPS is always used.&quot;</span> <span class="na">Type=</span><span class="s">&quot;Variable&quot;</span> <span class="na">Display=</span><span class="s">&quot;always&quot;</span> <span class="na">Required=</span><span class="s">&quot;true&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;idrac user&quot;</span> <span class="na">Target=</span><span class="s">&quot;IDRAC_USER&quot;</span> <span class="na">Default=</span><span class="s">&quot;root&quot;</span> <span class="na">Mode=</span><span class="s">&quot;&quot;</span> <span class="na">Description=</span><span class="s">&quot;Username for your iDRAC instance.&quot;</span> <span class="na">Type=</span><span class="s">&quot;Variable&quot;</span> <span class="na">Display=</span><span class="s">&quot;always&quot;</span> <span class="na">Required=</span><span class="s">&quot;true&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;idrac password&quot;</span> <span class="na">Target=</span><span class="s">&quot;IDRAC_PASSWORD&quot;</span> <span class="na">Default=</span><span class="s">&quot;calvin&quot;</span> <span class="na">Mode=</span><span class="s">&quot;&quot;</span> <span class="na">Description=</span><span class="s">&quot;Password for your iDRAC instance.&quot;</span> <span class="na">Type=</span><span class="s">&quot;Variable&quot;</span> <span class="na">Display=</span><span class="s">&quot;always&quot;</span> <span class="na">Required=</span><span class="s">&quot;true&quot;</span> <span class="na">Mask=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;WebUI&quot;</span> <span class="na">Target=</span><span class="s">&quot;5800&quot;</span> <span class="na">Default=</span><span class="s">&quot;5800&quot;</span> <span class="na">Mode=</span><span class="s">&quot;tcp&quot;</span> <span class="na">Description=</span><span class="s">&quot;web interface port&quot;</span> <span class="na">Type=</span><span class="s">&quot;Port&quot;</span> <span class="na">Display=</span><span class="s">&quot;always&quot;</span> <span class="na">Required=</span><span class="s">&quot;true&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;idrac port&quot;</span> <span class="na">Target=</span><span class="s">&quot;IDRAC_PORT&amp;#9;&quot;</span> <span class="na">Default=</span><span class="s">&quot;443&quot;</span> <span class="na">Mode=</span><span class="s">&quot;&quot;</span> <span class="na">Description=</span><span class="s">&quot;The optional port for the web interface.&quot;</span> <span class="na">Type=</span><span class="s">&quot;Variable&quot;</span> <span class="na">Display=</span><span class="s">&quot;advanced-hide&quot;</span> <span class="na">Required=</span><span class="s">&quot;false&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;keyboard fix&quot;</span> <span class="na">Target=</span><span class="s">&quot;IDRAC_KEYCODE_HACK&quot;</span> <span class="na">Default=</span><span class="s">&quot;false|true&quot;</span> <span class="na">Mode=</span><span class="s">&quot;&quot;</span> <span class="na">Description=</span><span class="s">&quot;If you have issues with keyboard input, try setting this to true.&quot;</span> <span class="na">Type=</span><span class="s">&quot;Variable&quot;</span> <span class="na">Display=</span><span class="s">&quot;advanced-hide&quot;</span> <span class="na">Required=</span><span class="s">&quot;false&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>false<span class="nt">&lt;/Config&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;PUID&quot;</span> <span class="na">Target=</span><span class="s">&quot;USER_ID&quot;</span> <span class="na">Default=</span><span class="s">&quot;&quot;</span> <span class="na">Mode=</span><span class="s">&quot;&quot;</span> <span class="na">Description=</span><span class="s">&quot;PUID&quot;</span> <span class="na">Type=</span><span class="s">&quot;Variable&quot;</span> <span class="na">Display=</span><span class="s">&quot;advanced&quot;</span> <span class="na">Required=</span><span class="s">&quot;false&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>99<span class="nt">&lt;/Config&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;PGID&quot;</span> <span class="na">Target=</span><span class="s">&quot;GROUP_ID&quot;</span> <span class="na">Default=</span><span class="s">&quot;&quot;</span> <span class="na">Mode=</span><span class="s">&quot;&quot;</span> <span class="na">Description=</span><span class="s">&quot;PGID&quot;</span> <span class="na">Type=</span><span class="s">&quot;Variable&quot;</span> <span class="na">Display=</span><span class="s">&quot;advanced&quot;</span> <span class="na">Required=</span><span class="s">&quot;false&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>100<span class="nt">&lt;/Config&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;Virtual media&quot;</span> <span class="na">Target=</span><span class="s">&quot;/vmedia&quot;</span> <span class="na">Default=</span><span class="s">&quot;/mnt/user/appdata/idrac/vmedia&quot;</span> <span class="na">Mode=</span><span class="s">&quot;rw&quot;</span> <span class="na">Description=</span><span class="s">&quot;Can be used to allow virtual media to be mounted.&quot;</span> <span class="na">Type=</span><span class="s">&quot;Path&quot;</span> <span class="na">Display=</span><span class="s">&quot;advanced&quot;</span> <span class="na">Required=</span><span class="s">&quot;false&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;Libraries&quot;</span> <span class="na">Target=</span><span class="s">&quot;/app&quot;</span> <span class="na">Default=</span><span class="s">&quot;/mnt/user/appdata/idrac/app&quot;</span> <span class="na">Mode=</span><span class="s">&quot;rw&quot;</span> <span class="na">Description=</span><span class="s">&quot;Libraries downloaded from your iDRAC instance will be stored here. Add a volume to cache those files for a faster container startup.&quot;</span> <span class="na">Type=</span><span class="s">&quot;Path&quot;</span> <span class="na">Display=</span><span class="s">&quot;advanced&quot;</span> <span class="na">Required=</span><span class="s">&quot;false&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;Screenshots&quot;</span> <span class="na">Target=</span><span class="s">&quot;/screenshots&quot;</span> <span class="na">Default=</span><span class="s">&quot;/mnt/user/appdata/idrac/screenshots&quot;</span> <span class="na">Mode=</span><span class="s">&quot;rw&quot;</span> <span class="na">Description=</span><span class="s">&quot;Container Path: /screenshots&quot;</span> <span class="na">Type=</span><span class="s">&quot;Path&quot;</span> <span class="na">Display=</span><span class="s">&quot;advanced&quot;</span> <span class="na">Required=</span><span class="s">&quot;false&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/Container&gt;</span>
+</pre></div>
+
+</details>
+<h3 id="114-shave-off-the-xml">1.1.4 Shave off the XML<a class="headerlink" href="#114-shave-off-the-xml" title="Permanent link">&para;</a></h3>
+<p>CA adds a lot of stuff that is not necessary for a template, but which Unraid uses to actually run and present the container.</p>
+<p>My first steps in removing unnecessary tags is to delete tags that are closed without value, like <code class="codehilite"><span class="err">&lt;MyIP/&gt;</span></code>.</p>
+<details class="example"><summary>XML after</summary><div class="codehilite"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="nt">&lt;Container</span> <span class="na">version=</span><span class="s">&quot;2&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>idrac6<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Repository&gt;</span>domistyle/idrac6<span class="nt">&lt;/Repository&gt;</span>
+    <span class="nt">&lt;Registry&gt;</span>https://hub.docker.com/r/domistyle/idrac6/<span class="nt">&lt;/Registry&gt;</span>
+    <span class="nt">&lt;Network&gt;</span>bridge<span class="nt">&lt;/Network&gt;</span>
+    <span class="nt">&lt;Shell&gt;</span>sh<span class="nt">&lt;/Shell&gt;</span>
+    <span class="nt">&lt;Privileged&gt;</span>false<span class="nt">&lt;/Privileged&gt;</span>
+    <span class="nt">&lt;Support&gt;</span>https://github.com/DomiStyle/docker-idrac6/issues<span class="nt">&lt;/Support&gt;</span>
+    <span class="nt">&lt;Project&gt;</span>https://github.com/DomiStyle/docker-idrac6/<span class="nt">&lt;/Project&gt;</span>
+    <span class="nt">&lt;Overview&gt;</span>Allows access to the iDRAC 6 console without installing Java or messing with Java Web Start. Java is only run inside of the container and access is provided via web interface or directly with VNC.<span class="nt">&lt;/Overview&gt;</span>
+    <span class="nt">&lt;Category&gt;</span>Tools: Network:Management<span class="nt">&lt;/Category&gt;</span>
+    <span class="nt">&lt;WebUI&gt;</span>http://[IP]:[PORT:5800]<span class="nt">&lt;/WebUI&gt;</span>
+    <span class="nt">&lt;Icon&gt;</span>/plugins/dynamix.docker.manager/images/question.png<span class="nt">&lt;/Icon&gt;</span>
+    <span class="nt">&lt;DateInstalled&gt;</span>1579532295<span class="nt">&lt;/DateInstalled&gt;</span>
+    <span class="nt">&lt;Description&gt;</span>Allows access to the iDRAC 6 console without installing Java or messing with Java Web Start. Java is only run inside of the container and access is provided via web interface or directly with VNC.<span class="nt">&lt;/Description&gt;</span>
+    <span class="nt">&lt;Networking&gt;</span>
+        <span class="nt">&lt;Mode&gt;</span>bridge<span class="nt">&lt;/Mode&gt;</span>
+        <span class="nt">&lt;Publish&gt;</span>
+        <span class="nt">&lt;Port&gt;</span>
+            <span class="nt">&lt;HostPort/&gt;</span>
+            <span class="nt">&lt;ContainerPort&gt;</span>5800<span class="nt">&lt;/ContainerPort&gt;</span>
+            <span class="nt">&lt;Protocol&gt;</span>tcp<span class="nt">&lt;/Protocol&gt;</span>
+        <span class="nt">&lt;/Port&gt;</span>
+        <span class="nt">&lt;/Publish&gt;</span>
+    <span class="nt">&lt;/Networking&gt;</span>
+    <span class="nt">&lt;Data&gt;</span>
+        <span class="nt">&lt;Volume&gt;</span>
+        <span class="nt">&lt;HostDir/&gt;</span>
+        <span class="nt">&lt;ContainerDir&gt;</span>/vmedia<span class="nt">&lt;/ContainerDir&gt;</span>
+        <span class="nt">&lt;Mode&gt;</span>rw<span class="nt">&lt;/Mode&gt;</span>
+        <span class="nt">&lt;/Volume&gt;</span>
+        <span class="nt">&lt;Volume&gt;</span>
+        <span class="nt">&lt;HostDir/&gt;</span>
+        <span class="nt">&lt;ContainerDir&gt;</span>/app<span class="nt">&lt;/ContainerDir&gt;</span>
+        <span class="nt">&lt;Mode&gt;</span>rw<span class="nt">&lt;/Mode&gt;</span>
+        <span class="nt">&lt;/Volume&gt;</span>
+        <span class="nt">&lt;Volume&gt;</span>
+        <span class="nt">&lt;HostDir/&gt;</span>
+        <span class="nt">&lt;ContainerDir&gt;</span>/screenshots<span class="nt">&lt;/ContainerDir&gt;</span>
+        <span class="nt">&lt;Mode&gt;</span>rw<span class="nt">&lt;/Mode&gt;</span>
+        <span class="nt">&lt;/Volume&gt;</span>
+    <span class="nt">&lt;/Data&gt;</span>
+    <span class="nt">&lt;Environment&gt;</span>
+        <span class="nt">&lt;Variable&gt;</span>
+        <span class="nt">&lt;Value/&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>IDRAC_HOST<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Mode/&gt;</span>
+        <span class="nt">&lt;/Variable&gt;</span>
+        <span class="nt">&lt;Variable&gt;</span>
+        <span class="nt">&lt;Value/&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>IDRAC_USER<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Mode/&gt;</span>
+        <span class="nt">&lt;/Variable&gt;</span>
+        <span class="nt">&lt;Variable&gt;</span>
+        <span class="nt">&lt;Value/&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>IDRAC_PASSWORD<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Mode/&gt;</span>
+        <span class="nt">&lt;/Variable&gt;</span>
+        <span class="nt">&lt;Variable&gt;</span>
+        <span class="nt">&lt;Value/&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>IDRAC_PORT<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Mode/&gt;</span>
+        <span class="nt">&lt;/Variable&gt;</span>
+        <span class="nt">&lt;Variable&gt;</span>
+        <span class="nt">&lt;Value&gt;</span>false<span class="nt">&lt;/Value&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>IDRAC_KEYCODE_HACK<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Mode/&gt;</span>
+        <span class="nt">&lt;/Variable&gt;</span>
+        <span class="nt">&lt;Variable&gt;</span>
+        <span class="nt">&lt;Value&gt;</span>99<span class="nt">&lt;/Value&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>USER_ID<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Mode/&gt;</span>
+        <span class="nt">&lt;/Variable&gt;</span>
+        <span class="nt">&lt;Variable&gt;</span>
+        <span class="nt">&lt;Value&gt;</span>100<span class="nt">&lt;/Value&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>GROUP_ID<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Mode/&gt;</span>
+        <span class="nt">&lt;/Variable&gt;</span>
+    <span class="nt">&lt;/Environment&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;idrac host&quot;</span> <span class="na">Target=</span><span class="s">&quot;IDRAC_HOST&quot;</span> <span class="na">Default=</span><span class="s">&quot;&quot;</span> <span class="na">Mode=</span><span class="s">&quot;&quot;</span> <span class="na">Description=</span><span class="s">&quot;Host for your iDRAC instance. Make sure your instance is reachable with https://&amp;amp;lt;IDRAC_HOST&amp;amp;gt;. See IDRAC_PORT for using custom ports. HTTPS is always used.&quot;</span> <span class="na">Type=</span><span class="s">&quot;Variable&quot;</span> <span class="na">Display=</span><span class="s">&quot;always&quot;</span> <span class="na">Required=</span><span class="s">&quot;true&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;idrac user&quot;</span> <span class="na">Target=</span><span class="s">&quot;IDRAC_USER&quot;</span> <span class="na">Default=</span><span class="s">&quot;root&quot;</span> <span class="na">Mode=</span><span class="s">&quot;&quot;</span> <span class="na">Description=</span><span class="s">&quot;Username for your iDRAC instance.&quot;</span> <span class="na">Type=</span><span class="s">&quot;Variable&quot;</span> <span class="na">Display=</span><span class="s">&quot;always&quot;</span> <span class="na">Required=</span><span class="s">&quot;true&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;idrac password&quot;</span> <span class="na">Target=</span><span class="s">&quot;IDRAC_PASSWORD&quot;</span> <span class="na">Default=</span><span class="s">&quot;calvin&quot;</span> <span class="na">Mode=</span><span class="s">&quot;&quot;</span> <span class="na">Description=</span><span class="s">&quot;Password for your iDRAC instance.&quot;</span> <span class="na">Type=</span><span class="s">&quot;Variable&quot;</span> <span class="na">Display=</span><span class="s">&quot;always&quot;</span> <span class="na">Required=</span><span class="s">&quot;true&quot;</span> <span class="na">Mask=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;WebUI&quot;</span> <span class="na">Target=</span><span class="s">&quot;5800&quot;</span> <span class="na">Default=</span><span class="s">&quot;5800&quot;</span> <span class="na">Mode=</span><span class="s">&quot;tcp&quot;</span> <span class="na">Description=</span><span class="s">&quot;web interface port&quot;</span> <span class="na">Type=</span><span class="s">&quot;Port&quot;</span> <span class="na">Display=</span><span class="s">&quot;always&quot;</span> <span class="na">Required=</span><span class="s">&quot;true&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;idrac port&quot;</span> <span class="na">Target=</span><span class="s">&quot;IDRAC_PORT&amp;#9;&quot;</span> <span class="na">Default=</span><span class="s">&quot;443&quot;</span> <span class="na">Mode=</span><span class="s">&quot;&quot;</span> <span class="na">Description=</span><span class="s">&quot;The optional port for the web interface.&quot;</span> <span class="na">Type=</span><span class="s">&quot;Variable&quot;</span> <span class="na">Display=</span><span class="s">&quot;advanced-hide&quot;</span> <span class="na">Required=</span><span class="s">&quot;false&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;keyboard fix&quot;</span> <span class="na">Target=</span><span class="s">&quot;IDRAC_KEYCODE_HACK&quot;</span> <span class="na">Default=</span><span class="s">&quot;false|true&quot;</span> <span class="na">Mode=</span><span class="s">&quot;&quot;</span> <span class="na">Description=</span><span class="s">&quot;If you have issues with keyboard input, try setting this to true.&quot;</span> <span class="na">Type=</span><span class="s">&quot;Variable&quot;</span> <span class="na">Display=</span><span class="s">&quot;advanced-hide&quot;</span> <span class="na">Required=</span><span class="s">&quot;false&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>false<span class="nt">&lt;/Config&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;PUID&quot;</span> <span class="na">Target=</span><span class="s">&quot;USER_ID&quot;</span> <span class="na">Default=</span><span class="s">&quot;&quot;</span> <span class="na">Mode=</span><span class="s">&quot;&quot;</span> <span class="na">Description=</span><span class="s">&quot;PUID&quot;</span> <span class="na">Type=</span><span class="s">&quot;Variable&quot;</span> <span class="na">Display=</span><span class="s">&quot;advanced&quot;</span> <span class="na">Required=</span><span class="s">&quot;false&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>99<span class="nt">&lt;/Config&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;PGID&quot;</span> <span class="na">Target=</span><span class="s">&quot;GROUP_ID&quot;</span> <span class="na">Default=</span><span class="s">&quot;&quot;</span> <span class="na">Mode=</span><span class="s">&quot;&quot;</span> <span class="na">Description=</span><span class="s">&quot;PGID&quot;</span> <span class="na">Type=</span><span class="s">&quot;Variable&quot;</span> <span class="na">Display=</span><span class="s">&quot;advanced&quot;</span> <span class="na">Required=</span><span class="s">&quot;false&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>100<span class="nt">&lt;/Config&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;Virtual media&quot;</span> <span class="na">Target=</span><span class="s">&quot;/vmedia&quot;</span> <span class="na">Default=</span><span class="s">&quot;/mnt/user/appdata/idrac/vmedia&quot;</span> <span class="na">Mode=</span><span class="s">&quot;rw&quot;</span> <span class="na">Description=</span><span class="s">&quot;Can be used to allow virtual media to be mounted.&quot;</span> <span class="na">Type=</span><span class="s">&quot;Path&quot;</span> <span class="na">Display=</span><span class="s">&quot;advanced&quot;</span> <span class="na">Required=</span><span class="s">&quot;false&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;Libraries&quot;</span> <span class="na">Target=</span><span class="s">&quot;/app&quot;</span> <span class="na">Default=</span><span class="s">&quot;/mnt/user/appdata/idrac/app&quot;</span> <span class="na">Mode=</span><span class="s">&quot;rw&quot;</span> <span class="na">Description=</span><span class="s">&quot;Libraries downloaded from your iDRAC instance will be stored here. Add a volume to cache those files for a faster container startup.&quot;</span> <span class="na">Type=</span><span class="s">&quot;Path&quot;</span> <span class="na">Display=</span><span class="s">&quot;advanced&quot;</span> <span class="na">Required=</span><span class="s">&quot;false&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;Screenshots&quot;</span> <span class="na">Target=</span><span class="s">&quot;/screenshots&quot;</span> <span class="na">Default=</span><span class="s">&quot;/mnt/user/appdata/idrac/screenshots&quot;</span> <span class="na">Mode=</span><span class="s">&quot;rw&quot;</span> <span class="na">Description=</span><span class="s">&quot;Container Path: /screenshots&quot;</span> <span class="na">Type=</span><span class="s">&quot;Path&quot;</span> <span class="na">Display=</span><span class="s">&quot;advanced&quot;</span> <span class="na">Required=</span><span class="s">&quot;false&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/Container&gt;</span>
+</pre></div>
+
+</details>
+<p>Since I prefer using just the <code class="codehilite"><span class="err">Config</span></code> tags, I also remove the tags <code class="codehilite"><span class="err">Networking</span></code>, <code class="codehilite"><span class="err">Data</span></code> and <code class="codehilite"><span class="err">Enviroment</span></code> together with it's content.</p>
+<details class="example"><summary>XML after</summary><div class="codehilite"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="nt">&lt;Container</span> <span class="na">version=</span><span class="s">&quot;2&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>idrac6<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Repository&gt;</span>domistyle/idrac6<span class="nt">&lt;/Repository&gt;</span>
+    <span class="nt">&lt;Registry&gt;</span>https://hub.docker.com/r/domistyle/idrac6/<span class="nt">&lt;/Registry&gt;</span>
+    <span class="nt">&lt;Network&gt;</span>bridge<span class="nt">&lt;/Network&gt;</span>
+    <span class="nt">&lt;Shell&gt;</span>sh<span class="nt">&lt;/Shell&gt;</span>
+    <span class="nt">&lt;Privileged&gt;</span>false<span class="nt">&lt;/Privileged&gt;</span>
+    <span class="nt">&lt;Support&gt;</span>https://github.com/DomiStyle/docker-idrac6/issues<span class="nt">&lt;/Support&gt;</span>
+    <span class="nt">&lt;Project&gt;</span>https://github.com/DomiStyle/docker-idrac6/<span class="nt">&lt;/Project&gt;</span>
+    <span class="nt">&lt;Overview&gt;</span>Allows access to the iDRAC 6 console without installing Java or messing with Java Web Start. Java is only run inside of the container and access is provided via web interface or directly with VNC.<span class="nt">&lt;/Overview&gt;</span>
+    <span class="nt">&lt;Category&gt;</span>Tools: Network:Management<span class="nt">&lt;/Category&gt;</span>
+    <span class="nt">&lt;WebUI&gt;</span>http://[IP]:[PORT:5800]<span class="nt">&lt;/WebUI&gt;</span>
+    <span class="nt">&lt;Icon&gt;</span>/plugins/dynamix.docker.manager/images/question.png<span class="nt">&lt;/Icon&gt;</span>
+    <span class="nt">&lt;DateInstalled&gt;</span>1579532295<span class="nt">&lt;/DateInstalled&gt;</span>
+    <span class="nt">&lt;Description&gt;</span>Allows access to the iDRAC 6 console without installing Java or messing with Java Web Start. Java is only run inside of the container and access is provided via web interface or directly with VNC.<span class="nt">&lt;/Description&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;idrac host&quot;</span> <span class="na">Target=</span><span class="s">&quot;IDRAC_HOST&quot;</span> <span class="na">Default=</span><span class="s">&quot;&quot;</span> <span class="na">Mode=</span><span class="s">&quot;&quot;</span> <span class="na">Description=</span><span class="s">&quot;Host for your iDRAC instance. Make sure your instance is reachable with https://&amp;amp;lt;IDRAC_HOST&amp;amp;gt;. See IDRAC_PORT for using custom ports. HTTPS is always used.&quot;</span> <span class="na">Type=</span><span class="s">&quot;Variable&quot;</span> <span class="na">Display=</span><span class="s">&quot;always&quot;</span> <span class="na">Required=</span><span class="s">&quot;true&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;idrac user&quot;</span> <span class="na">Target=</span><span class="s">&quot;IDRAC_USER&quot;</span> <span class="na">Default=</span><span class="s">&quot;root&quot;</span> <span class="na">Mode=</span><span class="s">&quot;&quot;</span> <span class="na">Description=</span><span class="s">&quot;Username for your iDRAC instance.&quot;</span> <span class="na">Type=</span><span class="s">&quot;Variable&quot;</span> <span class="na">Display=</span><span class="s">&quot;always&quot;</span> <span class="na">Required=</span><span class="s">&quot;true&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;idrac password&quot;</span> <span class="na">Target=</span><span class="s">&quot;IDRAC_PASSWORD&quot;</span> <span class="na">Default=</span><span class="s">&quot;calvin&quot;</span> <span class="na">Mode=</span><span class="s">&quot;&quot;</span> <span class="na">Description=</span><span class="s">&quot;Password for your iDRAC instance.&quot;</span> <span class="na">Type=</span><span class="s">&quot;Variable&quot;</span> <span class="na">Display=</span><span class="s">&quot;always&quot;</span> <span class="na">Required=</span><span class="s">&quot;true&quot;</span> <span class="na">Mask=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;WebUI&quot;</span> <span class="na">Target=</span><span class="s">&quot;5800&quot;</span> <span class="na">Default=</span><span class="s">&quot;5800&quot;</span> <span class="na">Mode=</span><span class="s">&quot;tcp&quot;</span> <span class="na">Description=</span><span class="s">&quot;web interface port&quot;</span> <span class="na">Type=</span><span class="s">&quot;Port&quot;</span> <span class="na">Display=</span><span class="s">&quot;always&quot;</span> <span class="na">Required=</span><span class="s">&quot;true&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;idrac port&quot;</span> <span class="na">Target=</span><span class="s">&quot;IDRAC_PORT&amp;#9;&quot;</span> <span class="na">Default=</span><span class="s">&quot;443&quot;</span> <span class="na">Mode=</span><span class="s">&quot;&quot;</span> <span class="na">Description=</span><span class="s">&quot;The optional port for the web interface.&quot;</span> <span class="na">Type=</span><span class="s">&quot;Variable&quot;</span> <span class="na">Display=</span><span class="s">&quot;advanced-hide&quot;</span> <span class="na">Required=</span><span class="s">&quot;false&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;keyboard fix&quot;</span> <span class="na">Target=</span><span class="s">&quot;IDRAC_KEYCODE_HACK&quot;</span> <span class="na">Default=</span><span class="s">&quot;false|true&quot;</span> <span class="na">Mode=</span><span class="s">&quot;&quot;</span> <span class="na">Description=</span><span class="s">&quot;If you have issues with keyboard input, try setting this to true.&quot;</span> <span class="na">Type=</span><span class="s">&quot;Variable&quot;</span> <span class="na">Display=</span><span class="s">&quot;advanced-hide&quot;</span> <span class="na">Required=</span><span class="s">&quot;false&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>false<span class="nt">&lt;/Config&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;PUID&quot;</span> <span class="na">Target=</span><span class="s">&quot;USER_ID&quot;</span> <span class="na">Default=</span><span class="s">&quot;&quot;</span> <span class="na">Mode=</span><span class="s">&quot;&quot;</span> <span class="na">Description=</span><span class="s">&quot;PUID&quot;</span> <span class="na">Type=</span><span class="s">&quot;Variable&quot;</span> <span class="na">Display=</span><span class="s">&quot;advanced&quot;</span> <span class="na">Required=</span><span class="s">&quot;false&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>99<span class="nt">&lt;/Config&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;PGID&quot;</span> <span class="na">Target=</span><span class="s">&quot;GROUP_ID&quot;</span> <span class="na">Default=</span><span class="s">&quot;&quot;</span> <span class="na">Mode=</span><span class="s">&quot;&quot;</span> <span class="na">Description=</span><span class="s">&quot;PGID&quot;</span> <span class="na">Type=</span><span class="s">&quot;Variable&quot;</span> <span class="na">Display=</span><span class="s">&quot;advanced&quot;</span> <span class="na">Required=</span><span class="s">&quot;false&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>100<span class="nt">&lt;/Config&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;Virtual media&quot;</span> <span class="na">Target=</span><span class="s">&quot;/vmedia&quot;</span> <span class="na">Default=</span><span class="s">&quot;/mnt/user/appdata/idrac/vmedia&quot;</span> <span class="na">Mode=</span><span class="s">&quot;rw&quot;</span> <span class="na">Description=</span><span class="s">&quot;Can be used to allow virtual media to be mounted.&quot;</span> <span class="na">Type=</span><span class="s">&quot;Path&quot;</span> <span class="na">Display=</span><span class="s">&quot;advanced&quot;</span> <span class="na">Required=</span><span class="s">&quot;false&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;Libraries&quot;</span> <span class="na">Target=</span><span class="s">&quot;/app&quot;</span> <span class="na">Default=</span><span class="s">&quot;/mnt/user/appdata/idrac/app&quot;</span> <span class="na">Mode=</span><span class="s">&quot;rw&quot;</span> <span class="na">Description=</span><span class="s">&quot;Libraries downloaded from your iDRAC instance will be stored here. Add a volume to cache those files for a faster container startup.&quot;</span> <span class="na">Type=</span><span class="s">&quot;Path&quot;</span> <span class="na">Display=</span><span class="s">&quot;advanced&quot;</span> <span class="na">Required=</span><span class="s">&quot;false&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;Screenshots&quot;</span> <span class="na">Target=</span><span class="s">&quot;/screenshots&quot;</span> <span class="na">Default=</span><span class="s">&quot;/mnt/user/appdata/idrac/screenshots&quot;</span> <span class="na">Mode=</span><span class="s">&quot;rw&quot;</span> <span class="na">Description=</span><span class="s">&quot;Container Path: /screenshots&quot;</span> <span class="na">Type=</span><span class="s">&quot;Path&quot;</span> <span class="na">Display=</span><span class="s">&quot;advanced&quot;</span> <span class="na">Required=</span><span class="s">&quot;false&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/Container&gt;</span>
+</pre></div>
+
+</details>
+<p>Remove <code class="codehilite"><span class="err">DateInstalled</span></code>, since it's just used internally for Unraid. Unless you know what shell the container uses, also remove <code class="codehilite"><span class="err">Shell</span></code>.</p>
+<details class="example"><summary>What I consider a good XML, to base a PR on</summary><div class="codehilite"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="nt">&lt;Container</span> <span class="na">version=</span><span class="s">&quot;2&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>idrac6<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Repository&gt;</span>domistyle/idrac6<span class="nt">&lt;/Repository&gt;</span>
+    <span class="nt">&lt;Registry&gt;</span>https://hub.docker.com/r/domistyle/idrac6/<span class="nt">&lt;/Registry&gt;</span>
+    <span class="nt">&lt;Network&gt;</span>bridge<span class="nt">&lt;/Network&gt;</span>
+    <span class="nt">&lt;Privileged&gt;</span>false<span class="nt">&lt;/Privileged&gt;</span>
+    <span class="nt">&lt;Support&gt;</span>https://github.com/DomiStyle/docker-idrac6/issues<span class="nt">&lt;/Support&gt;</span>
+    <span class="nt">&lt;Project&gt;</span>https://github.com/DomiStyle/docker-idrac6/<span class="nt">&lt;/Project&gt;</span>
+    <span class="nt">&lt;Overview&gt;</span>Allows access to the iDRAC 6 console without installing Java or messing with Java Web Start. Java is only run inside of the container and access is provided via web interface or directly with VNC.<span class="nt">&lt;/Overview&gt;</span>
+    <span class="nt">&lt;Category&gt;</span>Tools: Network:Management<span class="nt">&lt;/Category&gt;</span>
+    <span class="nt">&lt;WebUI&gt;</span>http://[IP]:[PORT:5800]<span class="nt">&lt;/WebUI&gt;</span>
+    <span class="nt">&lt;Icon&gt;</span>/plugins/dynamix.docker.manager/images/question.png<span class="nt">&lt;/Icon&gt;</span>
+    <span class="nt">&lt;Description&gt;</span>Allows access to the iDRAC 6 console without installing Java or messing with Java Web Start. Java is only run inside of the container and access is provided via web interface or directly with VNC.<span class="nt">&lt;/Description&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;idrac host&quot;</span> <span class="na">Target=</span><span class="s">&quot;IDRAC_HOST&quot;</span> <span class="na">Default=</span><span class="s">&quot;&quot;</span> <span class="na">Mode=</span><span class="s">&quot;&quot;</span> <span class="na">Description=</span><span class="s">&quot;Host for your iDRAC instance. Make sure your instance is reachable with https://&amp;amp;lt;IDRAC_HOST&amp;amp;gt;. See IDRAC_PORT for using custom ports. HTTPS is always used.&quot;</span> <span class="na">Type=</span><span class="s">&quot;Variable&quot;</span> <span class="na">Display=</span><span class="s">&quot;always&quot;</span> <span class="na">Required=</span><span class="s">&quot;true&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;idrac user&quot;</span> <span class="na">Target=</span><span class="s">&quot;IDRAC_USER&quot;</span> <span class="na">Default=</span><span class="s">&quot;root&quot;</span> <span class="na">Mode=</span><span class="s">&quot;&quot;</span> <span class="na">Description=</span><span class="s">&quot;Username for your iDRAC instance.&quot;</span> <span class="na">Type=</span><span class="s">&quot;Variable&quot;</span> <span class="na">Display=</span><span class="s">&quot;always&quot;</span> <span class="na">Required=</span><span class="s">&quot;true&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;idrac password&quot;</span> <span class="na">Target=</span><span class="s">&quot;IDRAC_PASSWORD&quot;</span> <span class="na">Default=</span><span class="s">&quot;calvin&quot;</span> <span class="na">Mode=</span><span class="s">&quot;&quot;</span> <span class="na">Description=</span><span class="s">&quot;Password for your iDRAC instance.&quot;</span> <span class="na">Type=</span><span class="s">&quot;Variable&quot;</span> <span class="na">Display=</span><span class="s">&quot;always&quot;</span> <span class="na">Required=</span><span class="s">&quot;true&quot;</span> <span class="na">Mask=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;WebUI&quot;</span> <span class="na">Target=</span><span class="s">&quot;5800&quot;</span> <span class="na">Default=</span><span class="s">&quot;5800&quot;</span> <span class="na">Mode=</span><span class="s">&quot;tcp&quot;</span> <span class="na">Description=</span><span class="s">&quot;web interface port&quot;</span> <span class="na">Type=</span><span class="s">&quot;Port&quot;</span> <span class="na">Display=</span><span class="s">&quot;always&quot;</span> <span class="na">Required=</span><span class="s">&quot;true&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;idrac port&quot;</span> <span class="na">Target=</span><span class="s">&quot;IDRAC_PORT&amp;#9;&quot;</span> <span class="na">Default=</span><span class="s">&quot;443&quot;</span> <span class="na">Mode=</span><span class="s">&quot;&quot;</span> <span class="na">Description=</span><span class="s">&quot;The optional port for the web interface.&quot;</span> <span class="na">Type=</span><span class="s">&quot;Variable&quot;</span> <span class="na">Display=</span><span class="s">&quot;advanced-hide&quot;</span> <span class="na">Required=</span><span class="s">&quot;false&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;keyboard fix&quot;</span> <span class="na">Target=</span><span class="s">&quot;IDRAC_KEYCODE_HACK&quot;</span> <span class="na">Default=</span><span class="s">&quot;false|true&quot;</span> <span class="na">Mode=</span><span class="s">&quot;&quot;</span> <span class="na">Description=</span><span class="s">&quot;If you have issues with keyboard input, try setting this to true.&quot;</span> <span class="na">Type=</span><span class="s">&quot;Variable&quot;</span> <span class="na">Display=</span><span class="s">&quot;advanced-hide&quot;</span> <span class="na">Required=</span><span class="s">&quot;false&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>false<span class="nt">&lt;/Config&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;PUID&quot;</span> <span class="na">Target=</span><span class="s">&quot;USER_ID&quot;</span> <span class="na">Default=</span><span class="s">&quot;&quot;</span> <span class="na">Mode=</span><span class="s">&quot;&quot;</span> <span class="na">Description=</span><span class="s">&quot;PUID&quot;</span> <span class="na">Type=</span><span class="s">&quot;Variable&quot;</span> <span class="na">Display=</span><span class="s">&quot;advanced&quot;</span> <span class="na">Required=</span><span class="s">&quot;false&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>99<span class="nt">&lt;/Config&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;PGID&quot;</span> <span class="na">Target=</span><span class="s">&quot;GROUP_ID&quot;</span> <span class="na">Default=</span><span class="s">&quot;&quot;</span> <span class="na">Mode=</span><span class="s">&quot;&quot;</span> <span class="na">Description=</span><span class="s">&quot;PGID&quot;</span> <span class="na">Type=</span><span class="s">&quot;Variable&quot;</span> <span class="na">Display=</span><span class="s">&quot;advanced&quot;</span> <span class="na">Required=</span><span class="s">&quot;false&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>100<span class="nt">&lt;/Config&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;Virtual media&quot;</span> <span class="na">Target=</span><span class="s">&quot;/vmedia&quot;</span> <span class="na">Default=</span><span class="s">&quot;/mnt/user/appdata/idrac/vmedia&quot;</span> <span class="na">Mode=</span><span class="s">&quot;rw&quot;</span> <span class="na">Description=</span><span class="s">&quot;Can be used to allow virtual media to be mounted.&quot;</span> <span class="na">Type=</span><span class="s">&quot;Path&quot;</span> <span class="na">Display=</span><span class="s">&quot;advanced&quot;</span> <span class="na">Required=</span><span class="s">&quot;false&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;Libraries&quot;</span> <span class="na">Target=</span><span class="s">&quot;/app&quot;</span> <span class="na">Default=</span><span class="s">&quot;/mnt/user/appdata/idrac/app&quot;</span> <span class="na">Mode=</span><span class="s">&quot;rw&quot;</span> <span class="na">Description=</span><span class="s">&quot;Libraries downloaded from your iDRAC instance will be stored here. Add a volume to cache those files for a faster container startup.&quot;</span> <span class="na">Type=</span><span class="s">&quot;Path&quot;</span> <span class="na">Display=</span><span class="s">&quot;advanced&quot;</span> <span class="na">Required=</span><span class="s">&quot;false&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;Screenshots&quot;</span> <span class="na">Target=</span><span class="s">&quot;/screenshots&quot;</span> <span class="na">Default=</span><span class="s">&quot;/mnt/user/appdata/idrac/screenshots&quot;</span> <span class="na">Mode=</span><span class="s">&quot;rw&quot;</span> <span class="na">Description=</span><span class="s">&quot;Container Path: /screenshots&quot;</span> <span class="na">Type=</span><span class="s">&quot;Path&quot;</span> <span class="na">Display=</span><span class="s">&quot;advanced&quot;</span> <span class="na">Required=</span><span class="s">&quot;false&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/Container&gt;</span>
+</pre></div>
+
+</details>
+<div class="admonition note">
+<p class="admonition-title">More spice</p>
+<p>It's worth reading <a href="#122-add-a-config">1.1.2 Add a Config</a> and <a href="#2-additional-tags-and-neat-tricks">Tips and tricks</a> to see if any of that applies to your template.</p>
+</div>
+<h2 id="the-manual-way">The Manual way<a class="headerlink" href="#the-manual-way" title="Permanent link">&para;</a></h2>
+<h3 id="120-starting-from-scratch">1.2.0 Starting from "scratch"<a class="headerlink" href="#120-starting-from-scratch" title="Permanent link">&para;</a></h3>
+<p>To make sure we don't miss anything, we are going to start from a baseXML.</p>
+<p>I'm using the same <a href="https://hub.docker.com/r/domistyle/idrac6/" target="_blank">example-container</a> as above.</p>
+<div class="admonition note">
+<p class="admonition-title">Knowing the basics of <a href="https://www.w3schools.com/xml/default.asp" target="_blank">XML</a> is preferred</p>
+</div>
+<details class="example"><summary>baseXML</summary><div class="codehilite"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+    <span class="nt">&lt;Container</span> <span class="na">version=</span><span class="s">&quot;2&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Name&gt;&lt;/Name&gt;</span>
+    <span class="nt">&lt;Repository&gt;&lt;/Repository&gt;</span>
+    <span class="nt">&lt;Registry&gt;&lt;/Registry&gt;</span>
+    <span class="nt">&lt;Network&gt;</span>bridge<span class="nt">&lt;/Network&gt;</span>
+    <span class="nt">&lt;Privileged&gt;</span>false<span class="nt">&lt;/Privileged&gt;</span>
+    <span class="nt">&lt;Support&gt;&lt;/Support&gt;</span>
+    <span class="nt">&lt;Project&gt;&lt;/Project&gt;</span>
+    <span class="nt">&lt;Overview&gt;&lt;/Overview&gt;</span>
+    <span class="nt">&lt;WebUI&gt;&lt;/WebUI&gt;</span>
+    <span class="nt">&lt;TemplateURL/&gt;</span>
+    <span class="nt">&lt;Icon&gt;</span>/plugins/dynamix.docker.manager/images/question.png<span class="nt">&lt;/Icon&gt;</span>
+    <span class="nt">&lt;ExtraParams/&gt;</span>
+    <span class="nt">&lt;PostArgs/&gt;</span>
+    <span class="nt">&lt;DonateText/&gt;</span>
+    <span class="nt">&lt;DonateLink/&gt;</span>
+<span class="nt">&lt;/Container&gt;</span>
+</pre></div>
+
+</details>
+<h3 id="121-fill-the-base">1.2.1 Fill the base<a class="headerlink" href="#121-fill-the-base" title="Permanent link">&para;</a></h3>
+<p>Since you are here browsing the "hard" way, I'm assuming you know some, if not most of the Docker terminology used going forward.</p>
+<p>Filling the baseXML above is pretty straight forward, however the tags expect the following:</p>
+<ul>
+<li>
+<p><mark>Name</mark> The name for the container, preferably in lowercase.</p>
+</li>
+<li>
+<p><mark>Repository</mark> The name of the image to pull from dockerHub (other repositories work). e.g. <code class="codehilite"><span class="err">domistyle/idrac6</span></code></p>
+</li>
+<li>
+<p><mark>Registry</mark> Link to the dockerHub page for this container. e.g. <code class="codehilite"><span class="c">https://hub.docker.com/r/domistyle/idrac6/</span></code></p>
+</li>
+<li>
+<p><mark>Support</mark> A link to a support thread on the unraid forums for the container</p>
+</li>
+<li>
+<p><mark>Project</mark> Link to the GitHub page (or the homepage of the project) e.g. <code class="codehilite"><span class="c">https://github.com/DomiStyle/docker-idrac6/</span></code></p>
+</li>
+<li>
+<p><mark>Overview</mark> Basic description of the project. e.g.</p>
+<blockquote>
+<p>Allows access to the iDRAC 6 console without installing Java or messing with Java Web Start. Java is only run inside of the container and access is provided via web interface or directly with VNC.</p>
+</blockquote>
+</li>
+<li>
+<p><mark>WebUI</mark> Which container-port an eventual webui might be. e.g. <code class="codehilite"><span class="nl">http</span><span class="p">:</span><span class="o">//[</span><span class="n">IP</span><span class="o">]</span><span class="err">:</span><span class="o">[</span><span class="n">PORT:5800</span><span class="o">]</span><span class="w"></span></code> Unraid will translate this string to the IP of the server, and the host-port set for container-port 5800</p>
+</li>
+<li>
+<p><mark>Icon</mark> URL to a icon, personally I prefer them in png. Has to be loaded over https. e.g. <code class="codehilite"><span class="c">https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/img/chevereto.png</span></code>
+<img alt="chevereto icon" src="https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/img/chevereto.png" style="height:1em" /></p>
+</li>
+<li>
+<p><mark>ExtraParams</mark> Parameters sent with the <code class="codehilite"><span class="err">docker run</span></code> command. e.g. <code class="codehilite"><span class="err">--restart unless-stopped</span></code></p>
+</li>
+<li>
+<p><mark>PostArgs</mark> Command to run inside the container after start. e.g. <code class="codehilite"><span class="err">/bin/sh -c &#39;apk update &amp;&amp; apk add ipmitool &amp;&amp; telegraf&#39;</span></code><br />
+<a href="../../telegraf/ipmi#telegraf" target="_blank">See valid example</a></p>
+</li>
+<li>
+<p><mark>DonateText</mark> Text to show with the donate button.</p>
+</li>
+<li>
+<p><mark>DonateLink</mark> URL for donations.</p>
+</li>
+<li>
+<p><mark>Network</mark> Usually <code class="codehilite"><span class="err">bridge</span></code> if not specified by the image maintainer</p>
+</li>
+<li>
+<p><mark>TemplateURL</mark> Url to the template. If it is a PR to our repo, set it to <code class="codehilite"><span class="c">https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/&lt;container-name&gt;.xml</span></code> and replace <code class="codehilite"><span class="err">&lt;container-name&gt;</span></code> with the actual name of the container (again, in lowercase).</p>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Has to be a raw link for GitHub.</p>
+</div>
+<ul>
+<li><mark>DonateImg</mark> URL to donation image.</li>
+</ul>
+<h3 id="122-add-a-config">1.2.2 Add a Config<a class="headerlink" href="#122-add-a-config" title="Permanent link">&para;</a></h3>
+<p>There is two ways to achieve this, but I'm only going to focus on one of them.
+The syntax is like this:</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;Config</span> <span class="na">Name=</span><span class="s">&quot;&quot;</span> <span class="na">Target=</span><span class="s">&quot;&quot;</span> <span class="na">Default=</span><span class="s">&quot;&quot;</span> <span class="na">Mode=</span><span class="s">&quot;rw&quot;</span> <span class="na">Description=</span><span class="s">&quot;&quot;</span> <span class="na">Type=</span><span class="s">&quot;Path&quot;</span> <span class="na">Display=</span><span class="s">&quot;always&quot;</span> <span class="na">Required=</span><span class="s">&quot;false&quot;</span> <span class="na">Mask=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+
+<p>This syntax spans over all the 4 config types, some attributes changes meaning depending on the <code class="codehilite"><span class="err">Type</span></code>.</p>
+<h4 id="add-a-volume">Add a Volume<a class="headerlink" href="#add-a-volume" title="Permanent link">&para;</a></h4>
+<p>The volume specific values are:</p>
+<ul>
+<li>
+<p><mark>Target</mark> The container path for the volume. e.g. <code class="codehilite"><span class="err">/config</span></code></p>
+</li>
+<li>
+<p><mark>Mode</mark> What permissions to use for the volume.</p>
+<ul>
+<li><code class="codehilite"><span class="err">rw</span></code> as ReadWrite</li>
+<li><code class="codehilite"><span class="err">ro</span></code> as ReadOnly</li>
+<li>Slave options are also supported</li>
+</ul>
+</li>
+<li>
+<p><mark>Type</mark> Always <code class="codehilite"><span class="err">Path</span></code>.</p>
+</li>
+</ul>
+<h4 id="add-a-variable">Add a Variable<a class="headerlink" href="#add-a-variable" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p><mark>Target</mark> The variable. e.g. <code class="codehilite"><span class="err">IDRAC_HOST</span></code></p>
+</li>
+<li>
+<p><mark>Type</mark> Always <code class="codehilite"><span class="err">Variable</span></code>.</p>
+</li>
+</ul>
+<h4 id="add-a-port">Add a Port<a class="headerlink" href="#add-a-port" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p><mark>Target</mark> The container port. e.g. <code class="codehilite"><span class="err">80</span></code></p>
+</li>
+<li>
+<p><mark>Type</mark> Always <code class="codehilite"><span class="err">Port</span></code>.</p>
+</li>
+</ul>
+<h4 id="shared-attributes">Shared attributes<a class="headerlink" href="#shared-attributes" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p><mark>Name</mark> The name that shows in the Unraid template manager. e.g. <code class="codehilite"><span class="err">Appdata</span></code>, <code class="codehilite"><span class="err">PUID</span></code>, <code class="codehilite"><span class="err">WebUI</span></code></p>
+</li>
+<li>
+<p><mark>Description</mark> A more detailed description on this Config. e.g <code class="codehilite"><span class="err">Appdata location</span></code>, <code class="codehilite"><span class="err">PUID</span></code>, <code class="codehilite"><span class="err">WebUI</span></code></p>
+</li>
+<li>
+<p><mark>Default</mark> Suggested value for the Config. e.g. <code class="codehilite"><span class="err">/mnt/user/appdata/idrac</span></code>, <code class="codehilite"><span class="err">99</span></code>, <code class="codehilite"><span class="err">8080</span></code></p>
+</li>
+<li>
+<p><mark>Display</mark> How the volume is shown to the user.</p>
+<ul>
+<li><code class="codehilite"><span class="err">always</span></code> Always show the volume, can be edited and deleted in basic view.</li>
+<li><code class="codehilite"><span class="err">always-hide</span></code>  Always show the volume, can <em>not</em> be edited and deleted in basic view.</li>
+<li><code class="codehilite"><span class="err">advanced</span></code> Shows when the user presses <code class="codehilite"><span class="err">Show more settings ...</span></code>, can be edited and deleted in basic view.</li>
+<li><code class="codehilite"><span class="err">advanced-hide</span></code> Shows when the user presses <code class="codehilite"><span class="err">Show more settings ...</span></code>, can <em>not</em> be edited and deleted in basic view.</li>
+</ul>
+</li>
+<li>
+<p><mark>Required</mark> If the user is able to continue without specifying the value. <code class="codehilite"><span class="err">true</span></code> or <code class="codehilite"><span class="err">false</span></code></p>
+</li>
+<li>
+<p><mark>Mask</mark> If the value should be masked behind asterisk, only really useful on variables. <code class="codehilite"><span class="err">true</span></code> or <code class="codehilite"><span class="err">false</span></code></p>
+</li>
+</ul>
+<h3 id="2-additional-tags-and-neat-tricks">2 Additional tags, and neat tricks<a class="headerlink" href="#2-additional-tags-and-neat-tricks" title="Permanent link">&para;</a></h3>
+<p>CA supports some extra tags that enhances the experience. They are all listed in the <a href="https://forums.unraid.net/topic/38619-docker-template-xml-schema/" target="_blank">XML schema post</a>.</p>
+<ul>
+<li>
+<p><mark>Beta</mark> Gives the application a warning in CA with the following text <code class="codehilite"><span class="err">This application has been marked as being Beta.  This does NOT neccessarily mean that there will be issues.</span></code>. <code class="codehilite"><span class="nt">&lt;Beta&gt;</span>true<span class="nt">&lt;/Beta&gt;</span></code> or <code class="codehilite"><span class="nt">&lt;Beta&gt;</span>false<span class="nt">&lt;/Beta&gt;</span></code></p>
+</li>
+<li>
+<p><mark>Branch</mark> Prompts the user to choose a dockerHub tag. e.g. <a href="https://github.com/linuxserver/docker-templates/blob/7e87d46ca1edcb0371b5f5f3a663735242d042ce/linuxserver.io/emby.xml#L6-L13" target="_blank">linuxserver/emby.xml</a></p>
+</li>
+</ul>
+<p>The template manager also support setting a set of predefined values, often uses in conjunction with variables that expect bools. Defined by separating the values with <code class="codehilite"><span class="err">|</span></code>. e.g. <code class="codehilite"><span class="err">true|false</span></code>. Has to be set in the default attribute.</p>
+<h4 id="21-categories">2.1 Categories<a class="headerlink" href="#21-categories" title="Permanent link">&para;</a></h4>
+<p>It's preferred to categories your template, use the <code class="codehilite"><span class="err">Application Categorizer</span></code> plugin in CA to do this, it generates the tags we need for us.
+<img alt="templ-application-categorizer" src="../tmpl-app-cat.png" /></p>
+                
+                  
+                
+                
+                  
+                  <hr>
+                  <div class="md-source-date">
+                    <small>
+                      
+                        Last update: January 25, 2020
+                      
+                    </small>
+                  </div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../plex/cloudflare/" title="Routing Plex through Cloudflare" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Routing Plex through Cloudflare
+              </span>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/selfhosters" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://discord.gg/qWPbc8R" class="md-footer-social__link fa fa-discord"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.808e90bb.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+    
+  </body>
+</html>
