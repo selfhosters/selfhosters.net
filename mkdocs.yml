@@ -17,6 +17,7 @@ plugins:
   - git-revision-date-localized
 
 markdown_extensions:
+  - attr_list
   - codehilite
   - admonition
   - footnotes
@@ -62,12 +63,11 @@ extra:
 nav:
   - Home: index.md
   - Nice to know Unraid commands: commands.md
-  - WIP:
-      Writing a template compatible for unraid: templating.md
   - Unraid Tips:
-      Adding Discord Notifications: Tips/discord_notifications/discord_notifications.md
+      Adding Discord Notifications: tips/discord_notifications/discord_notifications.md
   - Docker:
       Telegraf:
         Adding IPMI stats to the Telegraf container: docker/telegraf/ipmi.md
       Plex:
         Routing Plex through Cloudflare: docker/plex/cloudflare.md
+      Writing a template compatible for unraid: docker/templating/templating.md
