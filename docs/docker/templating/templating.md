@@ -7,13 +7,13 @@ This is an effort to collect information from [Squids FAQ](https://forums.unraid
 In order to have a smooth experience creating templates I highly recommend enabling `Template Authoring Mode`, it allows you to see the XML in clear-text and some other small neat tricks we might need to come back to.
 
 This process requires you to shutdown the docker service for a short while, as unraid doesn't let us change the setting with the service running.  
-![docker-off](tmpl-docker-off.png)
+![!docker-off](tmpl-docker-off.png)
 
 When the docker service is successfully shutdown, enable advanced view.
-![docker-adv-view](tmpl-docker-adv-view.png)
+![!docker-adv-view](tmpl-docker-adv-view.png)
 
 We can now enable authoring mode, you can also toggle the docker service back on.  
-![docker-author-mode](tmpl-docker-auth-mode.png)
+![!docker-author-mode](tmpl-docker-auth-mode.png)
 
 ## 1. Choosing which way to go
 
@@ -27,38 +27,38 @@ We can get started writing templates in two ways:
 ### 1.1.0 Enabling search from dockerHub
 
 In order to have Community Applications (hereby referenced as CA) generate a template, we need to enable additional search from dockerHub. You do this by opening CA, and press the settings button on the sidebar.
-![ca-side-bar](tmpl-ca-bar.png)
+![!ca-side-bar](tmpl-ca-bar.png)
 
 Enable additional search.
-![ca-dHub-on](tmpl-ca-hub-on.png)
+![!ca-dHub-on](tmpl-ca-hub-on.png)
 
 ### 1.1.1 Search from DockerHub
 
 For this guide I will use `domistyle/idrac6` as an example. Go back to CA, and type the image you want to create a template for, in the search bar (If you get a match now, chances are, it is already in CA), and press `Get More Results From DockerHub`.
-![ca-from-dHub](tmpl-ca-from-dHub.png)
+![!ca-from-dHub](tmpl-ca-from-dHub.png)
 
 CA shows results for both the image-maintainer, and image-name. Which means that we will get similar results. Press the download to disk icon, and let CA convert it.
-![ca-result-dHub](tmpl-ca-result-dHub.png)
+![!ca-result-dHub](tmpl-ca-result-dHub.png)
 
 For this one CA didn't do a very good job in converting it (it reads the Dockerfile for volumes, expose, publish etc.), however we can modify it with the template editor in Unraid.
-![converted](tmpl-converted.png)
+![!converted](tmpl-converted.png)
 
 ### 1.1.2 Editing the template
 
 To see what we need to edit, we can most often refer to the [readme](https://github.com/DomiStyle/docker-idrac6/blob/master/README.md#usage) of the container (including a screenshot incase the readme changes)
-![cont-readme](tmpl-cont-readme.png).
+![!cont-readme](tmpl-cont-readme.png).
 
 !!! note "Get to know the template editor, its very handy. Also for managing existing templates."
 
 I'm going through the rest of this guide with a mix of views (to remove clutter from images). If some of the settings you see on a screenshot isn't showing to you, enable advanced view.
-![cont-adv-mode](tmpl-cont-adv-mode.png)
+![!cont-adv-mode](tmpl-cont-adv-mode.png)
 
 #### Variables
 
 I will start with adding the variables, just because those are on the top of the documentation of this container.
 
 To add the `IDRAC_HOST` variable, we are going to press the `Add annother Path, Port, Variable or Device` link.
-![cont-add-var](tmpl-cont-add-var.png)
+![!cont-add-var](tmpl-cont-add-var.png)
 
 We need to change the Config Type to Variable, then we can start adding values. There is a lot going on here, but it is all going to make sense in the end.
 
@@ -78,14 +78,14 @@ We need to change the Config Type to Variable, then we can start adding values. 
 
 * ==Password Mask== This isn't a password, so it doesn't need to have its value masked behind asterisk (*).  
 
-![cont-add-var-menu](tmpl-cont-add-var-menu.png)
+![!cont-add-var-menu](tmpl-cont-add-var-menu.png)
 
 ??? example "Here is some screenshots on how I added the other required variables"
 
-    ![cont-add-var-menu-user](tmpl-cont-add-var-menu-user.png)
+    ![!cont-add-var-menu-user](tmpl-cont-add-var-menu-user.png)
     Here I set the Default value as root, since I know that's the default username on idrac  
 
-    ![cont-add-var-menu-password](tmpl-cont-add-var-menu-password.png)
+    ![!cont-add-var-menu-password](tmpl-cont-add-var-menu-password.png)
     Here I set the Default value as calvin, since I know that's the default password on idrac, I also enabled Password Mask
 
 #### Volumes
@@ -97,7 +97,7 @@ If it's a "proper" appdata location, I set required to yes
 
 * ==Access Mode== Defines how the container should have access to this volume. Almost always `read/write`
 
-![cont-add-vol-menu](tmpl-cont-add-vol-menu.png)
+![!cont-add-vol-menu](tmpl-cont-add-vol-menu.png)
 
 #### Ports
 
@@ -107,14 +107,14 @@ The documentation for this container says we can use port 5800 to access the int
 
 * ==Connection Type== Always `TCP`, unless specified otherwise.
 
-![tmpl-cont-add-port-menu.png](tmpl-cont-add-port-menu.png)
+![!tmpl-cont-add-port-menu.png](tmpl-cont-add-port-menu.png)
 
 #### Metadata
 
 Now you have a basic template. This might be enough for your own usage, but in order to add it to CA we should add some spice to the template.
 
 As you can see there is lots of fields we can fill in with the template editor.
-![cont-meta-empty](tmpl-cont-meta-empty.png)
+![!cont-meta-empty](tmpl-cont-meta-empty.png)
 
 I'm not going to walk you trough this, but I am going to tell you how it ended up like it did.
 
@@ -136,7 +136,7 @@ For Post arguments and Extra Parameters, you should know if you need to fill thi
 
 !!! note "There is more information on these in the [Manual way](#121-fill-the-base)"
 
-![cont-meta-filled](tmpl-cont-meta-filled.png)
+![!cont-meta-filled](tmpl-cont-meta-filled.png)
 
 ### 1.1.3 Grab the XML
 
@@ -563,4 +563,4 @@ The template manager also support setting a set of predefined values, often uses
 #### 2.1 Categories
 
 It's preferred to categories your template, use the `Application Categorizer` plugin in CA to do this, it generates the tags we need for us.
-![templ-application-categorizer](tmpl-app-cat.png)
+![!templ-application-categorizer](tmpl-app-cat.png)
