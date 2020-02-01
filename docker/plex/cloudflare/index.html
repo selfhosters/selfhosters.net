@@ -610,6 +610,15 @@
 <p>Many experience bad peering between server and client even though the server has a good upload speed. This is because the client sometimes has to hop through all sorts of hoops if it's on a different ISP network. This can increase latency and lowered connection speeds.</p>
 <p>But by using Cloudflare as a middle man, both your server and the clients will (in most cases) have a great connection to Cloudflare.</p>
 <p>This will speed up the start times and scrolling of your streams and the general stability of the connection.</p>
+<div class="admonition error">
+<p class="admonition-title">Update February 1, 2020</p>
+<p>Cloudflare has updated their TOS with the following:</p>
+<div class="admonition quote">
+<p class="admonition-title">Cloudflare TOS 2.8</p>
+<p>Use of the Service for serving video (unless purchased separately as a Paid Service) or a disproportionate percentage of pictures, audio files, or other non-HTML content, is prohibited.</p>
+</div>
+<p>It previously only mentioned cached content. So if you plan on doing this, I would recommend setting up a separate account and domain if you already use Cloudflare.</p>
+</div>
 <h3 id="reverse-proxy">Reverse proxy<a class="headerlink" href="#reverse-proxy" title="Permanent link">&para;</a></h3>
 <p>To get this working you need to reverse proxy Plex. This guide won't go into detail on how to do this. But I highly recommend this guide as a starting point. <a href="https://blog.linuxserver.io/2019/04/25/letsencrypt-nginx-starter-guide/">Let's Encrypt, Nginx &amp; Reverse Proxy Starter Guide - 2019 Edition</a></p>
 <p>The <a href="https://hub.docker.com/r/linuxserver/letsencrypt/">linuxserver/letsencrypt</a> container comes with premade nginx configs that you can use.
@@ -791,7 +800,7 @@ Then click on <mark>Show Advanced</mark> and scroll down to <mark>Custom server 
                   <div class="md-source-date">
                     <small>
                       
-                        Last update: January 28, 2020
+                        Last update: February 1, 2020
                       
                     </small>
                   </div>
