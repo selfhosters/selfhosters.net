@@ -10,6 +10,13 @@ But by using Cloudflare as a middle man, both your server and the clients will (
 
 This will speed up the start times and scrolling of your streams and the general stability of the connection.
 
+!!! Error "Update February 1, 2020"
+    Cloudflare has updated their TOS with the following:
+
+    !!! quote "Cloudflare TOS 2.8"
+        Use of the Service for serving video (unless purchased separately as a Paid Service) or a disproportionate percentage of pictures, audio files, or other non-HTML content, is prohibited.
+    It previously only mentioned cached content. So if you plan on doing this, I would recommend setting up a separate account and domain if you already use Cloudflare.
+
 ### Reverse proxy
 
 To get this working you need to reverse proxy Plex. This guide won't go into detail on how to do this. But I highly recommend this guide as a starting point. [Let's Encrypt, Nginx & Reverse Proxy Starter Guide - 2019 Edition](https://blog.linuxserver.io/2019/04/25/letsencrypt-nginx-starter-guide/)
