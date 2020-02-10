@@ -310,7 +310,7 @@
         
           <li class="md-nav__item">
   <a href="#domains" class="md-nav__link">
-    &nbsp;&nbsp;&nbsp;&nbsp;Domains
+    Domains
   </a>
   
 </li>
@@ -602,7 +602,7 @@
         
           <li class="md-nav__item">
   <a href="#domains" class="md-nav__link">
-    &nbsp;&nbsp;&nbsp;&nbsp;Domains
+    Domains
   </a>
   
 </li>
@@ -702,33 +702,66 @@
                 
                 <h1 id="nice-to-know-unraid-commands">Nice to know Unraid commands<a class="headerlink" href="#nice-to-know-unraid-commands" title="Permanent link">&para;</a></h1>
 <h2 id="docker-service">Docker service<a class="headerlink" href="#docker-service" title="Permanent link">&para;</a></h2>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<mark>start</mark> <mark>stop</mark> <mark>restart</mark> <mark>status</mark></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<code class="codehilite"><span class="err">/etc/rc.d/rc.docker &lt;command&gt;</span></code></p>
+<div class="codehilite"><pre><span></span><code>/etc/rc.d/rc.docker &lt;command&gt;
+</code></pre></div>
+
+<p><strong>Available commands:</strong>
+<mark>start</mark> <mark>stop</mark> <mark>restart</mark> <mark>status</mark></p>
 <h2 id="docker-containers">Docker containers<a class="headerlink" href="#docker-containers" title="Permanent link">&para;</a></h2>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<mark>start</mark> <mark>stop</mark> <mark>restart</mark> <mark>pause</mark> <mark>logs</mark></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<code class="codehilite"><span class="err">docker &lt;command&gt; &lt;containername&gt;</span></code></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Print all container names:</strong> <code class="codehilite"><span class="x">docker ps --format ‘</span><span class="cp">{{</span><span class="nv">.Names</span><span class="cp">}}</span><span class="x">’</span></code><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong>Print all container images:</strong> <code class="codehilite"><span class="x">docker ps --format ‘</span><span class="cp">{{</span><span class="nv">.Image</span><span class="cp">}}</span><span class="x">’</span></code></p>
+<div class="codehilite"><pre><span></span><code>docker &lt;command&gt; &lt;containername&gt;
+</code></pre></div>
+
+<p><strong>Available commands:</strong>
+<mark>start</mark> <mark>stop</mark> <mark>restart</mark> <mark>pasue</mark> <mark>logs</mark></p>
+<p><strong>Print all container names:</strong></p>
+<div class="codehilite"><pre><span></span><code>docker ps --format ‘<span class="o">{{</span>.Names<span class="o">}}</span>’
+</code></pre></div>
+
+<p><strong>Print all container images:</strong></p>
+<div class="codehilite"><pre><span></span><code>docker ps --format ‘<span class="o">{{</span>.Image<span class="o">}}</span>’
+</code></pre></div>
+
 <h2 id="nginx">Nginx<a class="headerlink" href="#nginx" title="Permanent link">&para;</a></h2>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<mark>start</mark> <mark>stop</mark> <mark>restart</mark> <mark>status</mark></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<code class="codehilite"><span class="err">/etc/rc.d/rc.nginx &lt;command&gt;</span></code></p>
+<div class="codehilite"><pre><span></span><code>/etc/rc.d/rc.nginx &lt;command&gt;
+</code></pre></div>
+
+<p><strong>Available commands:</strong>
+<mark>start</mark> <mark>stop</mark> <mark>restart</mark> <mark>status</mark></p>
 <h2 id="php">PHP<a class="headerlink" href="#php" title="Permanent link">&para;</a></h2>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<mark>start</mark> <mark>stop</mark> <mark>restart</mark> <mark>status</mark></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp; <code class="codehilite"><span class="err">/etc/rc.d/rc.php-fpm &lt;command&gt;</span></code></p>
+<div class="codehilite"><pre><span></span><code>/etc/rc.d/rc.php-fpm &lt;command&gt;
+</code></pre></div>
+
+<p><strong>Available commands:</strong>
+<mark>start</mark> <mark>stop</mark> <mark>restart</mark> <mark>status</mark></p>
 <h2 id="vm-service">VM Service<a class="headerlink" href="#vm-service" title="Permanent link">&para;</a></h2>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<mark>start</mark> <mark>stop</mark></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<code class="codehilite"><span class="err">/etc/rc.d/rc.libvirt &lt;command&gt;</span></code></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>List all domains:</strong> <code class="codehilite"><span class="err">virsh list --all</span></code></p>
-<h3 id="domains">&nbsp;&nbsp;&nbsp;&nbsp;Domains<a class="headerlink" href="#domains" title="Permanent link">&para;</a></h3>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark>start</mark> <mark>shutdown</mark> <mark>reboot</mark> <mark>suspend</mark></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code class="codehilite"><span class="err">virsh &lt;command&gt; &lt;domain&gt;</span></code></p>
+<div class="codehilite"><pre><span></span><code>/etc/rc.d/rc.libvirt &lt;command&gt;
+</code></pre></div>
+
+<p><strong>Available commands:</strong>
+<mark>start</mark> <mark>stop</mark></p>
+<p><strong>List all domains:</strong></p>
+<div class="codehilite"><pre><span></span><code>virsh list --all
+</code></pre></div>
+
+<h3 id="domains">Domains<a class="headerlink" href="#domains" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code>virsh &lt;command&gt; &lt;domain&gt;
+</code></pre></div>
+
+<p><strong>Available commands:</strong>
+<mark>start</mark> <mark>shutdown</mark> <mark>reboot</mark> <mark>suspend</mark></p>
 <h2 id="samba">Samba<a class="headerlink" href="#samba" title="Permanent link">&para;</a></h2>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<mark>start</mark> <mark>stop</mark></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<code class="codehilite"><span class="err">/etc/rd.d/rc.samba &lt;command&gt;</span></code></p>
+<div class="codehilite"><pre><span></span><code>/etc/rd.d/rc.samba &lt;command&gt;
+</code></pre></div>
+
+<p><strong>Available commands:</strong>
+<mark>start</mark> <mark>stop</mark></p>
 <h2 id="unraid">Unraid<a class="headerlink" href="#unraid" title="Permanent link">&para;</a></h2>
 <h3 id="shutdownreboot">Shutdown/Reboot<a class="headerlink" href="#shutdownreboot" title="Permanent link">&para;</a></h3>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<mark>reboot</mark> <mark>poweroff</mark> <mark>shutdown</mark></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<code class="codehilite"><span class="err">/sbin/&lt;command&gt;</span></code></p>
+<div class="codehilite"><pre><span></span><code>/sbin/&lt;command&gt;
+</code></pre></div>
+
+<p><strong>Available commands:</strong>
+<mark>reboot</mark> <mark>poweroff</mark> <mark>shutdown</mark></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><code class="codehilite"><span class="err">poweroff</span></code> will gracefully shut everything down, even spin down the hard drives,
@@ -737,17 +770,28 @@ which could cause the system to power off before the Flash is updated indicating
 This can't cause data loss, but will cause parity-check to automatically start upon next reboot.</p>
 </div>
 <h3 id="run-diagnostics">Run diagnostics<a class="headerlink" href="#run-diagnostics" title="Permanent link">&para;</a></h3>
-<p><code class="codehilite"><span class="err">diagnostics</span></code></p>
+<div class="codehilite"><pre><span></span><code>diagnostics
+</code></pre></div>
+
 <h3 id="tail-the-syslog">Tail the syslog<a class="headerlink" href="#tail-the-syslog" title="Permanent link">&para;</a></h3>
-<p><code class="codehilite"><span class="err">tail -f /var/log/syslog</span></code></p>
+<div class="codehilite"><pre><span></span><code>tail -f /var/log/syslog
+</code></pre></div>
+
 <h3 id="look-at-the-parameters-in-the-config-file">Look at the parameters in the config file<a class="headerlink" href="#look-at-the-parameters-in-the-config-file" title="Permanent link">&para;</a></h3>
-<p><code class="codehilite"><span class="err">nano /boot/syslinux.cfg-</span></code></p>
+<div class="codehilite"><pre><span></span><code>nano /boot/syslinux.cfg-
+</code></pre></div>
+
 <h3 id="create-a-backup-image-of-your-usb-and-store-it-on-disk1">Create a backup image of your usb and store it on disk1<a class="headerlink" href="#create-a-backup-image-of-your-usb-and-store-it-on-disk1" title="Permanent link">&para;</a></h3>
-<p><code class="codehilite"><span class="err">dd if=/dev/sda of=/mnt/disk1/unraid.img</span></code></p>
+<div class="codehilite"><pre><span></span><code>dd <span class="k">if</span><span class="o">=</span>/dev/sda <span class="nv">of</span><span class="o">=</span>/mnt/disk1/unraid.img
+</code></pre></div>
+
 <h3 id="copy-files-using-midnight-commander">Copy files using midnight commander<a class="headerlink" href="#copy-files-using-midnight-commander" title="Permanent link">&para;</a></h3>
-<p><code class="codehilite"><span class="err">mc</span></code></p>
+<div class="codehilite"><pre><span></span><code>mc
+</code></pre></div>
+
 <h3 id="check-power-on-hours-for-all-drives">Check power on hours for all drives<a class="headerlink" href="#check-power-on-hours-for-all-drives" title="Permanent link">&para;</a></h3>
-<p><code class="codehilite">for drive in $(ls -la /dev | grep -Ev &#39;sda|sd[a-z][0-9]&#39; | grep sd[a-z] | awk &#39;{print $10}&#39;); do hours=$(smartctl --all /dev/<span class="cp">${</span><span class="n">drive</span><span class="cp">}</span> | grep Power_On_Hours | awk &#39;{print $10}&#39;); echo &quot;Power on Hours for <span class="cp">${</span><span class="n">drive</span><span class="cp">}</span>: <span class="cp">${</span><span class="n">hours</span><span class="cp">}</span>&quot;; echo &#39;&#39;; done</code></p>
+<div class="codehilite"><pre><span></span><code><span class="k">for</span> drive in <span class="k">$(</span>ls -la /dev <span class="p">|</span> grep -Ev <span class="s1">&#39;sda|sd[a-z][0-9]&#39;</span> <span class="p">|</span> grep sd<span class="o">[</span>a-z<span class="o">]</span> <span class="p">|</span> awk <span class="s1">&#39;{print $10}&#39;</span><span class="k">)</span><span class="p">;</span> <span class="k">do</span> <span class="nv">hours</span><span class="o">=</span><span class="k">$(</span>smartctl --all /dev/<span class="si">${</span><span class="nv">drive</span><span class="si">}</span> <span class="p">|</span> grep Power_On_Hours <span class="p">|</span> awk <span class="s1">&#39;{print $10}&#39;</span><span class="k">)</span><span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;Power on Hours for </span><span class="si">${</span><span class="nv">drive</span><span class="si">}</span><span class="s2">: </span><span class="si">${</span><span class="nv">hours</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="nb">echo</span> <span class="s1">&#39;&#39;</span><span class="p">;</span> <span class="k">done</span>
+</code></pre></div>
                 
                   
                 
