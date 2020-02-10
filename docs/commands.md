@@ -82,6 +82,6 @@
 
 `mc`
 
-### Check power-on hours for all drives
+### Check power on hours for all drives
 
 `for drive in $(ls -la /dev | grep -Ev 'sda|sd[a-z][0-9]' | grep sd[a-z] | awk '{print $10}'); do hours=$(smartctl --all /dev/${drive} | grep Power_On_Hours | awk '{print $10}'); echo "Power on Hours for ${drive}: ${hours}"; echo ''; done`
