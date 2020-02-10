@@ -379,7 +379,7 @@
         
           <li class="md-nav__item">
   <a href="#check-power-on-hours-for-all-drives" class="md-nav__link">
-    Check power-on hours for all drives
+    Check power on hours for all drives
   </a>
   
 </li>
@@ -671,7 +671,7 @@
         
           <li class="md-nav__item">
   <a href="#check-power-on-hours-for-all-drives" class="md-nav__link">
-    Check power-on hours for all drives
+    Check power on hours for all drives
   </a>
   
 </li>
@@ -746,7 +746,7 @@ This can't cause data loss, but will cause parity-check to automatically start u
 <p><code class="codehilite"><span class="err">dd if=/dev/sda of=/mnt/disk1/unraid.img</span></code></p>
 <h3 id="copy-files-using-midnight-commander">Copy files using midnight commander<a class="headerlink" href="#copy-files-using-midnight-commander" title="Permanent link">&para;</a></h3>
 <p><code class="codehilite"><span class="err">mc</span></code></p>
-<h3 id="check-power-on-hours-for-all-drives">Check power-on hours for all drives<a class="headerlink" href="#check-power-on-hours-for-all-drives" title="Permanent link">&para;</a></h3>
+<h3 id="check-power-on-hours-for-all-drives">Check power on hours for all drives<a class="headerlink" href="#check-power-on-hours-for-all-drives" title="Permanent link">&para;</a></h3>
 <p><code class="codehilite">for drive in $(ls -la /dev | grep -Ev &#39;sda|sd[a-z][0-9]&#39; | grep sd[a-z] | awk &#39;{print $10}&#39;); do hours=$(smartctl --all /dev/<span class="cp">${</span><span class="n">drive</span><span class="cp">}</span> | grep Power_On_Hours | awk &#39;{print $10}&#39;); echo &quot;Power on Hours for <span class="cp">${</span><span class="n">drive</span><span class="cp">}</span>: <span class="cp">${</span><span class="n">hours</span><span class="cp">}</span>&quot;; echo &#39;&#39;; done</code></p>
                 
                   
