@@ -3,58 +3,89 @@
 
 ## Docker service
 
-&nbsp;&nbsp;&nbsp;&nbsp;==start== ==stop== ==restart== ==status==
+```bash
+/etc/rc.d/rc.docker <command>
+```
 
-&nbsp;&nbsp;&nbsp;&nbsp;`/etc/rc.d/rc.docker <command>`
+**Available commands:**
+==start== ==stop== ==restart== ==status==
 
 ## Docker containers
 
-&nbsp;&nbsp;&nbsp;&nbsp;==start== ==stop== ==restart== ==pause== ==logs==
+```bash
+docker <command> <containername>
+```
 
-&nbsp;&nbsp;&nbsp;&nbsp;`docker <command> <containername>`
+**Available commands:**
+==start== ==stop== ==restart== ==pasue== ==logs==
 
-&nbsp;&nbsp;&nbsp;&nbsp;**Print all container names:** `docker ps --format ‘{{.Names}}’`  
-&nbsp;&nbsp;&nbsp;&nbsp;**Print all container images:** `docker ps --format ‘{{.Image}}’`
+**Print all container names:**
+```bash
+docker ps --format ‘{{.Names}}’
+```
+**Print all container images:**
+```bash
+docker ps --format ‘{{.Image}}’
+```
 
 ## Nginx
 
-&nbsp;&nbsp;&nbsp;&nbsp;==start== ==stop== ==restart== ==status==
+```bash
+/etc/rc.d/rc.nginx <command>
+```
 
-&nbsp;&nbsp;&nbsp;&nbsp;`/etc/rc.d/rc.nginx <command>`
+**Available commands:**
+==start== ==stop== ==restart== ==status==
 
 ## PHP
 
-&nbsp;&nbsp;&nbsp;&nbsp;==start== ==stop== ==restart== ==status==
+```bash
+/etc/rc.d/rc.php-fpm <command>
+```
 
-&nbsp;&nbsp;&nbsp;&nbsp; `/etc/rc.d/rc.php-fpm <command>`
+**Available commands:**
+==start== ==stop== ==restart== ==status==
+
+
 
 ## VM Service
 
-&nbsp;&nbsp;&nbsp;&nbsp;==start== ==stop==
+==start== ==stop==
 
-&nbsp;&nbsp;&nbsp;&nbsp;`/etc/rc.d/rc.libvirt <command>`
+```bash
+/etc/rc.d/rc.libvirt <command>
+```
 
-&nbsp;&nbsp;&nbsp;&nbsp;**List all domains:** `virsh list --all`
+**List all domains:**
+```bash
+virsh list --all
+```
 
-### &nbsp;&nbsp;&nbsp;&nbsp;Domains
+### Domains
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;==start== ==shutdown== ==reboot== ==suspend==
+==start== ==shutdown== ==reboot== ==suspend==
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`virsh <command> <domain>`
+```bash
+virsh <command> <domain>
+```
 
 ## Samba
 
-&nbsp;&nbsp;&nbsp;&nbsp;==start== ==stop==
+==start== ==stop==
 
-&nbsp;&nbsp;&nbsp;&nbsp;`/etc/rd.d/rc.samba <command>`
+```bash
+/etc/rd.d/rc.samba <command>
+```
 
 ## Unraid
 
 ### Shutdown/Reboot
 
-&nbsp;&nbsp;&nbsp;&nbsp;==reboot== ==poweroff== ==shutdown==
+==reboot== ==poweroff== ==shutdown==
 
-&nbsp;&nbsp;&nbsp;&nbsp;`/sbin/<command>`
+```bash
+/sbin/<command>
+```
 
 !!! note "Note"
     `poweroff` will gracefully shut everything down, even spin down the hard drives,
@@ -64,24 +95,36 @@
 
 ### Run diagnostics
 
-`diagnostics`
+```bash
+diagnostics
+```
 
 ### Tail the syslog
 
-`tail -f /var/log/syslog`
+```bash
+tail -f /var/log/syslog
+```
 
 ### Look at the parameters in the config file
 
-`nano /boot/syslinux.cfg-`
+```bash
+nano /boot/syslinux.cfg-
+```
 
 ### Create a backup image of your usb and store it on disk1
 
-`dd if=/dev/sda of=/mnt/disk1/unraid.img`
+```bash
+dd if=/dev/sda of=/mnt/disk1/unraid.img
+```
 
 ### Copy files using midnight commander
 
-`mc`
+```bash
+mc
+```
 
 ### Check power on hours for all drives
 
-`for drive in $(ls -la /dev | grep -Ev 'sda|sd[a-z][0-9]' | grep sd[a-z] | awk '{print $10}'); do hours=$(smartctl --all /dev/${drive} | grep Power_On_Hours | awk '{print $10}'); echo "Power on Hours for ${drive}: ${hours}"; echo ''; done`
+```bash
+for drive in $(ls -la /dev | grep -Ev 'sda|sd[a-z][0-9]' | grep sd[a-z] | awk '{print $10}'); do hours=$(smartctl --all /dev/${drive} | grep Power_On_Hours | awk '{print $10}'); echo "Power on Hours for ${drive}: ${hours}"; echo ''; done
+```
