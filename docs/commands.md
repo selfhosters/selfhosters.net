@@ -20,10 +20,13 @@ docker <command> <containername>
 ==start== ==stop== ==restart== ==pasue== ==logs==
 
 **Print all container names:**
+
 ```bash
 docker ps --format ‘{{.Names}}’
 ```
+
 **Print all container images:**
+
 ```bash
 docker ps --format ‘{{.Image}}’
 ```
@@ -46,46 +49,49 @@ docker ps --format ‘{{.Image}}’
 **Available commands:**
 ==start== ==stop== ==restart== ==status==
 
-
-
 ## VM Service
-
-==start== ==stop==
 
 ```bash
 /etc/rc.d/rc.libvirt <command>
 ```
 
+**Available commands:**
+==start== ==stop==
+
 **List all domains:**
+
 ```bash
 virsh list --all
 ```
 
 ### Domains
 
-==start== ==shutdown== ==reboot== ==suspend==
-
 ```bash
 virsh <command> <domain>
 ```
 
-## Samba
+**Available commands:**
+==start== ==shutdown== ==reboot== ==suspend==
 
-==start== ==stop==
+## Samba
 
 ```bash
 /etc/rd.d/rc.samba <command>
 ```
 
+**Available commands:**
+==start== ==stop==
+
 ## Unraid
 
 ### Shutdown/Reboot
 
-==reboot== ==poweroff== ==shutdown==
-
 ```bash
 /sbin/<command>
 ```
+
+**Available commands:**
+==reboot== ==poweroff== ==shutdown==
 
 !!! note "Note"
     `poweroff` will gracefully shut everything down, even spin down the hard drives,
