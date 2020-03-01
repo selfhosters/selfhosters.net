@@ -45,6 +45,7 @@ markdown_extensions:
   - lightgallery
 
 theme:
+  favicon: "assets/images/favicon.ico"
   name: "material"
   language: "en"
   custom_dir: 'lightgallery/'
