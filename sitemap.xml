@@ -2,32 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>https://selfhosters.net/</loc>
-     <lastmod>2020-02-10</lastmod>
+     <lastmod>2020-03-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://selfhosters.net/commands/</loc>
-     <lastmod>2020-02-10</lastmod>
+     <lastmod>2020-03-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://selfhosters.net/tips/discord_notifications/discord_notifications/</loc>
-     <lastmod>2020-02-10</lastmod>
+     <lastmod>2020-03-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://selfhosters.net/docker/telegraf/ipmi/</loc>
-     <lastmod>2020-02-10</lastmod>
+     <lastmod>2020-03-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://selfhosters.net/docker/plex/cloudflare/</loc>
-     <lastmod>2020-02-10</lastmod>
+     <lastmod>2020-03-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://selfhosters.net/docker/templating/templating/</loc>
-     <lastmod>2020-02-10</lastmod>
+     <lastmod>2020-03-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
