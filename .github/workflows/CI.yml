@@ -45,6 +45,7 @@ jobs:
           emptyCommits: "false"
 
   make_public:
+    needs: deploy
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master'
     steps:
