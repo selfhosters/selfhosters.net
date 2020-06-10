@@ -44,6 +44,9 @@ markdown_extensions:
 
 theme:
   favicon: "assets/images/favicon.ico"
+  logo: "assets/images/logo.png"
+  features:
+    - instant
   name: "material"
   language: "en"
   custom_dir: "lightgallery/"
@@ -52,7 +55,7 @@ theme:
     accent: "red"
   font:
     text: "Roboto"
-    code: "Roboto Mono"
+    code: "Fira Code"
 extra:
   social:
     - icon: "fontawesome/brands/github"
