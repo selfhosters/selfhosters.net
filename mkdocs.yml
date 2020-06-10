@@ -74,4 +74,6 @@ nav:
         Adding IPMI stats to the Telegraf container: docker/telegraf/ipmi.md
       Plex:
         Routing Plex through Cloudflare: docker/plex/cloudflare.md
+      VPN:
+        Route a container trough a VPN with PfSense: docker/pfsense_vlan_vpn/pfsense_vlan_vpn.md
       Writing a template compatible for unraid: docker/templating/templating.md
