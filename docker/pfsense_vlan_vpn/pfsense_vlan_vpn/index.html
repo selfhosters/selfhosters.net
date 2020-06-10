@@ -11,24 +11,24 @@
         <meta name="description" content="Selfhosters.net is a documentation portal for the Unraid Discord. Here you will find short guides and walkthroughs made by the  Unraid community.">
       
       
-        <link rel="canonical" href="https://selfhosters.net/">
+        <link rel="canonical" href="https://selfhosters.net/docker/pfsense_vlan_vpn/pfsense_vlan_vpn/">
       
       
         <meta name="author" content="Selfhosters">
       
-      <link rel="shortcut icon" href="assets/images/favicon.ico">
+      <link rel="shortcut icon" href="../../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.3">
     
     
       
-        <title>Selfhosters.net</title>
+        <title>Route a container trough a VPN with PfSense - Selfhosters.net</title>
       
     
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.6e35a1a6.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6e35a1a6.min.css">
       
-        <link rel="stylesheet" href="assets/stylesheets/palette.a46bcfb3.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a46bcfb3.min.css">
       
       
         
@@ -36,11 +36,11 @@
         <meta name="theme-color" content="#ffa726">
       
     
-    <link rel="stylesheet" href="./css/lightgallery.min.css">
+    <link rel="stylesheet" href="../../../css/lightgallery.min.css">
 
     
     
-    <script src="./js/lightgallery.min.js"></script>
+    <script src="../../../js/lightgallery.min.js"></script>
 
     
       
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-selfhostersnet" class="md-skip">
+        <a href="#how-to-put-unraid-containers-on-their-own-vlan-inside-a-vpn-tunnel-using-pfsense" class="md-skip">
           Skip to content
         </a>
       
@@ -82,7 +82,7 @@
   <nav class="md-header-nav md-grid" aria-label="Header">
     <a href="https://selfhosters.net" title="Selfhosters.net" class="md-header-nav__button md-logo" aria-label="Selfhosters.net">
       
-  <img src="assets/images/logo.png" alt="logo">
+  <img src="../../../assets/images/logo.png" alt="logo">
 
     </a>
     <label class="md-header-nav__button md-icon" for="__drawer">
@@ -96,7 +96,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Home
+              Route a container trough a VPN with PfSense
             
           </span>
         </div>
@@ -168,7 +168,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://selfhosters.net" title="Selfhosters.net" class="md-nav__button md-logo" aria-label="Selfhosters.net">
       
-  <img src="assets/images/logo.png" alt="logo">
+  <img src="../../../assets/images/logo.png" alt="logo">
 
     </a>
     Selfhosters.net
@@ -193,20 +193,11 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-    <a href="." title="Home" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../.." title="Home" class="md-nav__link">
       Home
     </a>
-    
   </li>
 
     
@@ -216,7 +207,7 @@
 
 
   <li class="md-nav__item">
-    <a href="commands/" title="Nice to know Unraid commands" class="md-nav__link">
+    <a href="../../../commands/" title="Nice to know Unraid commands" class="md-nav__link">
       Nice to know Unraid commands
     </a>
   </li>
@@ -253,7 +244,7 @@
 
 
   <li class="md-nav__item">
-    <a href="tips/discord_notifications/discord_notifications/" title="Adding Discord Notifications" class="md-nav__link">
+    <a href="../../../tips/discord_notifications/discord_notifications/" title="Adding Discord Notifications" class="md-nav__link">
       Adding Discord Notifications
     </a>
   </li>
@@ -268,10 +259,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
     
     <label class="md-nav__link" for="nav-4">
       Docker
@@ -320,7 +313,7 @@
 
 
   <li class="md-nav__item">
-    <a href="docker/telegraf/ipmi/" title="Adding IPMI stats to the Telegraf container" class="md-nav__link">
+    <a href="../../telegraf/ipmi/" title="Adding IPMI stats to the Telegraf container" class="md-nav__link">
       Adding IPMI stats to the Telegraf container
     </a>
   </li>
@@ -362,7 +355,7 @@
 
 
   <li class="md-nav__item">
-    <a href="docker/plex/cloudflare/" title="Routing Plex through Cloudflare" class="md-nav__link">
+    <a href="../../plex/cloudflare/" title="Routing Plex through Cloudflare" class="md-nav__link">
       Routing Plex through Cloudflare
     </a>
   </li>
@@ -377,10 +370,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3" checked>
     
     <label class="md-nav__link" for="nav-4-3">
       VPN
@@ -402,11 +397,121 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="docker/pfsense_vlan_vpn/pfsense_vlan_vpn/" title="Route a container trough a VPN with PfSense" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Route a container trough a VPN with PfSense
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Route a container trough a VPN with PfSense" class="md-nav__link md-nav__link--active">
       Route a container trough a VPN with PfSense
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-openvpn-clients-in-pfsense" class="md-nav__link">
+    Create OpenVPN Clients in PFSense
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-interface-assignments-for-each-openvpn-client" class="md-nav__link">
+    Add interface assignments for each OpenVPN Client
+  </a>
+  
+    <nav class="md-nav" aria-label="Add interface assignments for each OpenVPN Client">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-vlan" class="md-nav__link">
+    Create a VLAN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-nat-mappings" class="md-nav__link">
+    Create NAT Mappings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-gateway-group" class="md-nav__link">
+    Create Gateway Group
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-vlan-rule" class="md-nav__link">
+    Create VLAN Rule
+  </a>
+  
+    <nav class="md-nav" aria-label="Create VLAN Rule">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-dns-servers-to-vlan" class="md-nav__link">
+    Add DNS Servers to VLAN
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#misc-pfsense-steps" class="md-nav__link">
+    Misc PFsense Steps
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unraid-steps" class="md-nav__link">
+    unRAID steps
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -421,7 +526,7 @@
 
 
   <li class="md-nav__item">
-    <a href="docker/templating/templating/" title="Writing a template compatible for unraid" class="md-nav__link">
+    <a href="../../templating/templating/" title="Writing a template compatible for unraid" class="md-nav__link">
       Writing a template compatible for unraid
     </a>
   </li>
@@ -449,6 +554,91 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-openvpn-clients-in-pfsense" class="md-nav__link">
+    Create OpenVPN Clients in PFSense
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-interface-assignments-for-each-openvpn-client" class="md-nav__link">
+    Add interface assignments for each OpenVPN Client
+  </a>
+  
+    <nav class="md-nav" aria-label="Add interface assignments for each OpenVPN Client">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-vlan" class="md-nav__link">
+    Create a VLAN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-nat-mappings" class="md-nav__link">
+    Create NAT Mappings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-gateway-group" class="md-nav__link">
+    Create Gateway Group
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-vlan-rule" class="md-nav__link">
+    Create VLAN Rule
+  </a>
+  
+    <nav class="md-nav" aria-label="Create VLAN Rule">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-dns-servers-to-vlan" class="md-nav__link">
+    Add DNS Servers to VLAN
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#misc-pfsense-steps" class="md-nav__link">
+    Misc PFsense Steps
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unraid-steps" class="md-nav__link">
+    unRAID steps
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -459,7 +649,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/selfhosters/selfhosters.net/edit/master/docs/index.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/selfhosters/selfhosters.net/edit/master/docs/docker/pfsense_vlan_vpn/pfsense_vlan_vpn.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -467,13 +657,203 @@
                   
                 
                 
-                <p><a href="https://discord.gg/qWPbc8R"><img alt="Unraid" src="https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/.github/ISSUE_TEMPLATE/discord_unraid_unraid.png" /></a></p>
-<h1 id="welcome-to-selfhostersnet">Welcome to selfhosters.net<a class="headerlink" href="#welcome-to-selfhostersnet" title="Permanent link">&para;</a></h1>
-<p>Selfhosters.net is a documentation portal for the <a href="https://discord.gg/qWPbc8R">Unraid Discord</a>.</p>
-<p>Here you will find short guides and walkthroughs made by the Unraid community.</p>
-<p><a href="https://discord.gg/qWPbc8R"><img alt="Discord" src="https://img.shields.io/discord/641230698166091777?color=%23ff8c2f&amp;label=Discord&amp;logo=discord&amp;logoColor=%23ff8c2f&amp;style=for-the-badge" /></a>
-<a href="https://github.com/selfhosters/selfhosters.net/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/selfhosters/selfhosters.net.svg?color=%23ff8c2f&amp;style=for-the-badge" /></a></p>
-<p><strong>The <a href="https://github.com/selfhosters/selfhosters.net/blob/master/README.md">README</a> has a short guide on how to get started contributing</strong></p>
+                <h1 id="how-to-put-unraid-containers-on-their-own-vlan-inside-a-vpn-tunnel-using-pfsense">How to Put unRAID containers on their own VLAN inside a VPN Tunnel using PFSense<a class="headerlink" href="#how-to-put-unraid-containers-on-their-own-vlan-inside-a-vpn-tunnel-using-pfsense" title="Permanent link">&para;</a></h1>
+<div class="admonition example">
+<p class="admonition-title">Credits:</p>
+<p>Written by Schwiing#3404</p>
+<p>Based on the work of IamSpartacus#3678</p>
+</div>
+<p>Disclaimer: This guide makes the following assumptions:</p>
+<ul>
+<li>
+<p>You're using PFsense as your Firewall</p>
+</li>
+<li>
+<p>You're using unRAID</p>
+</li>
+<li>
+<p>You have a VPN Provider (In this example I used mullvad)</p>
+</li>
+<li>
+<p>You have a managed switch and know how to tag VLAN traffic on that switch (In this example I used unifi)</p>
+</li>
+</ul>
+<hr />
+<h2 id="create-openvpn-clients-in-pfsense">Create OpenVPN Clients in PFSense<a class="headerlink" href="#create-openvpn-clients-in-pfsense" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Head to VPN -&gt; OpenVPN -&gt; Clients -&gt; + Add</p>
+</li>
+<li>
+<p>Fill out the client information based on your provider. I use mullvad, so I followed this guide: <a href="https://mullvad.net/en/help/using-pfsense-mullvad/">mullvad.net</a></p>
+</li>
+<li>
+<p>The only differences I made were:</p>
+<p>a. Set Server Host to: (a server closer to you  from this <a href="https://mullvad.net/servers">list</a>)</p>
+<p>b. Make sure these are checked:</p>
+<ul>
+<li>
+<p>Bars the server from adding routed to the client's routing table</p>
+</li>
+<li>
+<p>Don't add or remove routes automatically</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Mullvad supports up to 5 connections at once. So if you want to go down that route, add 5 clients</p>
+<p>a. Make sure to add a different server host for each client</p>
+</li>
+</ol>
+<hr />
+<h2 id="add-interface-assignments-for-each-openvpn-client">Add interface assignments for each OpenVPN Client<a class="headerlink" href="#add-interface-assignments-for-each-openvpn-client" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>This is just a matter of creating an interface for each new ovpnc* you made earlier</p>
+</li>
+<li>
+<p>Interfaces -&gt; Assignments -&gt; + Add. I named them based on the server each interface would connect to</p>
+</li>
+<li>
+<p>For example, my first interface name is MULLVAD_CHICAGO_002 (same as the server it connects to)</p>
+</li>
+<li>
+<p>Create the rest of your interfaces (remember, up to 5)</p>
+</li>
+</ol>
+<h3 id="create-a-vlan">Create a VLAN<a class="headerlink" href="#create-a-vlan" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Interfaces -&gt; VLANs -&gt; + add</p>
+</li>
+<li>
+<p>Select your LAN as your parent interface (Physical NIC)</p>
+</li>
+<li>
+<p>Pick a VLAN Tag. Make sure you remember this for later. I picked "90", so my network is 192.168.90.0/24</p>
+</li>
+<li>
+<p>Add a description. I used "DOCKER_VPN"</p>
+</li>
+</ol>
+<h3 id="create-nat-mappings">Create NAT Mappings<a class="headerlink" href="#create-nat-mappings" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Firewall -&gt; NAT -&gt; Outbound</p>
+</li>
+<li>
+<p>Make sure Outbound NAT Mode = Manual</p>
+</li>
+<li>
+<p>Add a rule to the top of the list with the following settings:</p>
+<ul>
+<li>Interface: MULLVAD_CHICAGO_002</li>
+<li>Protocol: Any</li>
+<li>Source: Network, 192.168.90.0/24 (Fill in whatever your VLAN Tag + Network is here)</li>
+</ul>
+</li>
+</ol>
+<h3 id="create-gateway-group">Create Gateway Group<a class="headerlink" href="#create-gateway-group" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>System -&gt; Routing -&gt; Gateway Groups -&gt; + Add</p>
+</li>
+<li>
+<p>Set all of your new gateways to Tier 1</p>
+</li>
+<li>
+<p>Trigger Level: Packet Loss or High Latency</p>
+</li>
+<li>
+<p>Keep WAN_DHCP at "Never" Tier</p>
+</li>
+<li>
+<p>Name it. I called it "Mullvad Gateway Group"</p>
+</li>
+</ol>
+<hr />
+<h2 id="create-vlan-rule">Create VLAN Rule<a class="headerlink" href="#create-vlan-rule" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Select your new VLAN (Mine is DOCKER_VPN)</p>
+</li>
+<li>
+<p>Top Rule:</p>
+<ul>
+<li>Action: Pass</li>
+<li>Interface: DOCKER_VPN</li>
+<li>Address Family: IPv4</li>
+<li>Source: DOCKER_VPN net</li>
+<li>Destination: LAN net</li>
+</ul>
+</li>
+<li>
+<p>Bottom Rule:</p>
+<ul>
+<li>Hit "Display Advanced" under Extra Options</li>
+<li>Action: Pass</li>
+<li>Interface: DOCKER_VPN</li>
+<li>Address Family: IPv4</li>
+<li>Source: DOCKER_VPN net</li>
+<li>Destination: any</li>
+<li>Gateway: Mullvad_VPN_Group</li>
+</ul>
+</li>
+</ol>
+<h3 id="add-dns-servers-to-vlan">Add DNS Servers to VLAN<a class="headerlink" href="#add-dns-servers-to-vlan" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Services -&gt; DHCP Server -&gt; DOCKER_VPN</p>
+</li>
+<li>
+<p>DNS Servers (these are for mullvad. YMMV):</p>
+<ul>
+<li>193.138.218.74</li>
+<li>10.8.0.1</li>
+</ul>
+</li>
+</ol>
+<h2 id="misc-pfsense-steps">Misc PFsense Steps<a class="headerlink" href="#misc-pfsense-steps" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>System -&gt; Advanced -&gt; Miscellaneous</p>
+</li>
+<li>
+<p>Gateway Monitoring: Do not create rules when gateway is down -&gt; CHECKED</p>
+</li>
+</ol>
+<hr />
+<h2 id="unraid-steps">unRAID steps<a class="headerlink" href="#unraid-steps" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Go to Network settings</p>
+<ul>
+<li>Enable VLANs: Yes</li>
+<li>VLAN Number: 90 (whatever you set your VLAN Tag earlier in Pfsense)</li>
+<li>Network Protocol: Ipv4 Only</li>
+<li>IPv4 Address: 192.168.90.31 (whatever you want here, under the same subnet)</li>
+<li>IPv4 default gateway: 192.168.90.1</li>
+</ul>
+</li>
+<li>
+<p>Next, Docker settings. Enable Docker: No, Advanced view: on</p>
+<ul>
+<li>Host Access to custom networks: Enabled</li>
+<li>Ipv4 custom network on interface br0.90:<ul>
+<li>Subnet: 192.168.90.0/24</li>
+<li>Gateway: 192.168.90.1</li>
+<li>DHCP Pool: 192.168.90.240/28 (16 hosts) [Set whatever you want here. 16 was plenty for me]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Once done, you now have a new VLAN in Unraid.</p>
+</li>
+<li>
+<p>Assign docker container new network. Set a static IP if it's easier for your Reverse Proxied containers</p>
+</li>
+</ol>
                 
                   
                     
@@ -482,7 +862,7 @@
 <div class="md-source-date">
   <small>
     
-      Last update: January 20, 2020
+      Last update: June 10, 2020
     
   </small>
 </div>
@@ -505,14 +885,28 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
+          <a href="../../plex/cloudflare/" title="Routing Plex through Cloudflare" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Routing Plex through Cloudflare
+              </div>
+            </div>
+          </a>
         
-          <a href="commands/" title="Nice to know Unraid commands" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+        
+          <a href="../../templating/templating/" title="Writing a template compatible for unraid" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Nice to know Unraid commands
+                Writing a template compatible for unraid
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
@@ -562,15 +956,15 @@
     </div>
     
     
-      <script src="assets/javascripts/vendor.d710d30a.min.js"></script>
-      <script src="assets/javascripts/bundle.a45f732b.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../../../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.a45f732b.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
       <script>
         app = initialize({
-          base: ".",
+          base: "../../..",
           features: ["instant"],
           search: Object.assign({
-            worker: "assets/javascripts/worker/search.c03f0417.min.js"
+            worker: "../../../assets/javascripts/worker/search.c03f0417.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
