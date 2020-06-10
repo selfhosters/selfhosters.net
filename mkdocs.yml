@@ -30,13 +30,11 @@ markdown_extensions:
   - pymdownx.caret
   - pymdownx.critic
   - pymdownx.details
-  - pymdownx.emoji:
-      emoji_generator: !!python/name:pymdownx.emoji.to_svg
   - pymdownx.inlinehilite
   - pymdownx.magiclink
   - pymdownx.mark
   - pymdownx.smartsymbols
-  - pymdownx.superfences
+  - pymdownx.tabbed
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
@@ -48,7 +46,7 @@ theme:
   favicon: "assets/images/favicon.ico"
   name: "material"
   language: "en"
-  custom_dir: 'lightgallery/'
+  custom_dir: "lightgallery/"
   palette:
     primary: "orange"
     accent: "red"
@@ -57,10 +55,10 @@ theme:
     code: "Roboto Mono"
 extra:
   social:
-    - type: 'github'
-      link: 'https://github.com/selfhosters'
-    - type: 'discord'
-      link: 'https://discord.gg/qWPbc8R'
+    - icon: "fontawesome/brands/github"
+      link: "https://github.com/selfhosters"
+    - icon: "fontawesome/brands/discord"
+      link: "https://discord.gg/qWPbc8R"
 
 # Navigation
 nav:
