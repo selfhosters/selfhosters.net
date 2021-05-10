@@ -94,10 +94,8 @@ virsh <command> <domain>
 ==reboot== ==poweroff== ==shutdown==
 
 !!! note "Note"
-    `poweroff` will gracefully shut everything down, even spin down the hard drives,
-    but will not actually turn off the power supply.But there is a race condition in the code
-    which could cause the system to power off before the Flash is updated indicating 'clean shutdown'.
-    This can't cause data loss, but will cause parity-check to automatically start upon next reboot.
+    `poweroff` If you get an unclean shutdown when issuing this command you need to adjust your timeout settings, 
+    see [https://forums.unraid.net/topic/69868-dealing-with-unclean-shutdowns](https://forums.unraid.net/topic/69868-dealing-with-unclean-shutdowns)
 
 ### Run diagnostics
 
