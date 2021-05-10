@@ -94,7 +94,7 @@ virsh <command> <domain>
 ==reboot== ==poweroff== ==shutdown==
 
 !!! note "Note"
-    `poweroff` If you get an unclean shutdown when issuing this command you need to adjust your timeout settings, 
+    `poweroff` If you get an unclean shutdown when issuing this command you need to adjust your timeout settings,
     see [https://forums.unraid.net/topic/69868-dealing-with-unclean-shutdowns](https://forums.unraid.net/topic/69868-dealing-with-unclean-shutdowns)
 
 ### Run diagnostics
