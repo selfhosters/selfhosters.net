@@ -17,7 +17,7 @@ docker <command> <containername>
 ```
 
 **Available commands:**
-==start== ==stop== ==restart== ==pasue== ==logs==
+==start== ==stop== ==restart== ==pause== ==logs==
 
 **Print all container names:**
 
