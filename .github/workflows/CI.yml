@@ -28,7 +28,7 @@ jobs:
       - uses: actions/checkout@v1
       - name: mkdocs
         run: |
-          docker run --name="patch" --entrypoint="" squidfunk/mkdocs-material pip install mkdocs-git-revision-date-localized-plugin git+git://github.com/g-provost/lightgallery-markdown#egg=lightgallery
+          docker run --name="patch" --entrypoint="" squidfunk/mkdocs-material pip install mkdocs-git-revision-date-localized-plugin mkdocs-glightbox
           docker commit --change 'ENTRYPOINT ["mkdocs"]' patch selfhosters/builder
           docker run --rm -v ${PWD}/site:/site -v ${PWD}:/docs selfhosters/builder build --verbose --clean --strict
           sudo cp ${PWD}/CNAME ${PWD}/site/
