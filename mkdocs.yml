@@ -1,11 +1,12 @@
-site_name: "Selfhosters.net"
-site_description: "Selfhosters.net is a documentation portal for the Unraid Discord. Here you will find short guides and walkthroughs made by the  Unraid community."
-site_author: "Selfhosters"
-site_url: "https://selfhosters.net"
+site_name: Selfhosters.net
+site_description: |
+  Selfhosters.net is a documentation portal for the Unraid Community Discord. Here you will find short guides and walkthroughs made by the  Unraid community.
+site_author: Selfhosters
+site_url: https://selfhosters.net
 
-repo_name: "selfhosters/selfhosters.net"
-repo_url: "https://github.com/selfhosters/selfhosters.net"
-edit_uri: "https://github.com/selfhosters/selfhosters.net/edit/master/docs/"
+repo_name: selfhosters/selfhosters.net
+repo_url: https://github.com/selfhosters/selfhosters.net
+edit_uri: https://github.com/selfhosters/selfhosters.net/edit/master/docs/
 
 # Configuration
 
@@ -44,25 +45,25 @@ markdown_extensions:
       permalink: true
 
 theme:
-  favicon: "assets/images/favicon.ico"
-  logo: "assets/images/logo.png"
+  favicon: assets/images/favicon.ico
+  logo: assets/images/logo.png
   features:
     - instant
-  name: "material"
-  language: "en"
-  custom_dir: "lightgallery/"
+  name: material
+  language: en
+  custom_dir: lightgallery/
   palette:
-    primary: "orange"
-    accent: "red"
+    primary: orange
+    accent: red
   font:
-    text: "Roboto"
-    code: "Fira Code"
+    text: Roboto
+    code: Fira Code
 extra:
   social:
-    - icon: "fontawesome/brands/github"
-      link: "https://github.com/selfhosters"
-    - icon: "fontawesome/brands/discord"
-      link: "https://discord.gg/qWPbc8R"
+    - icon: fontawesome/brands/github
+      link: https://github.com/selfhosters
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/qWPbc8R
 
 # Navigation
 nav:

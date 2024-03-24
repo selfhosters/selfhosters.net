@@ -1,6 +1,6 @@
-[![Unraid](https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/.github/ISSUE_TEMPLATE/discord_unraid_unraid.png )](https://discord.gg/qWPbc8R)
-
 # Welcome to selfhosters.net
+
+[![Unraid](https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/.github/ISSUE_TEMPLATE/discord_unraid_unraid.png )](https://discord.gg/qWPbc8R)
 
 Selfhosters.net is a documentation portal for the [Unraid Discord](https://discord.gg/qWPbc8R).
 

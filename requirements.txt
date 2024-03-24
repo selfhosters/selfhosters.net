@@ -1,5 +1,6 @@
 mkdocs
-mkdocs-material
-mkdocs-glightbox
-pymdown-extensions
 mkdocs-git-revision-date-localized-plugin
+mkdocs-glightbox
+mkdocs-material
+pymdown-extensions
+yamllint
