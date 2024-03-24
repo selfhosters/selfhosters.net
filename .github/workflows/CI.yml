@@ -19,6 +19,8 @@ jobs:
         run: yamllint .
       - name: Lint Markdown files
         uses: DavidAnson/markdownlint-cli2-action@v15
+        with:
+          globs: "**/*.md"
 
   build:
     needs: lint
