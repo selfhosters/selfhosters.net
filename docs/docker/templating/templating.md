@@ -17,7 +17,7 @@ with the service running.
 When the docker service is successfully shut down, enable advanced view.
 ![!docker-adv-view](tmpl-docker-adv-view.png)
 
-We can now enable authoring mode, you can also toggle the docker service back on.  
+We can now enable authoring mode, you can also toggle the docker service back on.
 ![!docker-author-mode](tmpl-docker-auth-mode.png)
 
 ## Auto-generating from Docker image
@@ -91,7 +91,7 @@ all going to make sense in the end.
 ??? example "Here are some screenshots on how I added the other required variables"
 
     ![!cont-add-var-menu-user](tmpl-cont-add-var-menu-user.png)
-    Here I set the Default value as root, since I know that's the default username on idrac  
+    Here I set the Default value as root, since I know that's the default username on idrac
 
     ![!cont-add-var-menu-password](tmpl-cont-add-var-menu-password.png)
     Here I set the Default value as calvin, since I know that's the default password on idrac, I also enabled Password Mask
@@ -439,8 +439,8 @@ Unless you know what shell the container uses, also remove `Shell`.
     ```
 
 !!! note "More spice"
-It's worth reading [Add a Config Entry](#3-add-a-config-entry) and [XML Field Explanations](#xml-field-explanations) to
-see if any of that applies to your template.
+    It's worth reading [Add a Config Entry](#3-add-a-config-entry) and [XML Field Explanations](#xml-field-explanations) to
+    see if any of that applies to your template.
 
 ## Manually writing a template
 
@@ -508,7 +508,7 @@ Filling the baseXML above is pretty straight forward, however the tags expect th
 - `ExtraParams` - Parameters sent with the `docker run` command. e.g. `--restart unless-stopped`
 
 - `PostArgs` - Command to run inside the container after start.
-  e.g. `/bin/sh -c 'apk update && apk add ipmitool && telegraf'`  
+  e.g. `/bin/sh -c 'apk update && apk add ipmitool && telegraf'`
   [See valid example](../../telegraf/ipmi#telegraf){target=_blank}
 
 - `DonateText` - Text to show with the donate button.
@@ -522,7 +522,7 @@ Filling the baseXML above is pretty straight forward, however the tags expect th
   replace `<container-name>` with the actual name of the container (again, in lowercase).
 
 !!! warning
-Has to be a raw link for GitHub.
+    Has to be a raw link for GitHub.
 
 - `DonateImg` URL to donation image.
 
@@ -593,7 +593,7 @@ This is *highly recommended* for boolean values.
 
 ### Categorization tool
 
-It's preferred to categorizes your template, and recommended to use the "Application Categorizer" plugin to generate the
+It's preferred to categorize your template, and recommended to use the "Application Categorizer" plugin to generate the
 appropriate tags.
 ![!templ-application-categorizer](tmpl-app-cat.png)
 
@@ -613,15 +613,13 @@ container.
   text `This application has been marked as being Beta. This does NOT neccessarily mean that there will be issues.`. Set
   to either `true` or `false`.
 
-- `BindTime` - ?
-
 - `Branch` - Offer different versions of the container to the user. This corresponds to different tags on the Docker
   image. For example, offer a `latest` branch and a `beta` branch, or a version of the container that uses different GPU
   drivers.
 
-??? info "Screenshot"
+    ??? info "Screenshot"
 
-      ![!templ-branches](tmpl-branches.png)
+        ![!templ-branches](tmpl-branches.png)
 
 - `Tag` - The tag of the Docker image to use. It is typical to include at least a `latest` tag, but other tags can be
   used as well.
@@ -637,14 +635,12 @@ container.
   This [only supports Markdown](https://forums.unraid.net/topic/38431-plug-in-application-template-categorizer/page/2/#comment-375520),
   not HTML.
 
-??? info "Screenshot"
+    ??? info "Screenshot"
 
-      ![!templ-changelog](tmpl-changelog.png)
+        ![!templ-changelog](tmpl-changelog.png)
 
 - `Config` - A configuration entry for the container. See the [Add a Config](#3-add-a-config-entry) section for more
   information.
-
-- `CPUset` - ?
 
 - `Date` - The date this container was last updated. This is used internally by Unraid and should not be modified. Do
   *NOT* include this in your template.
@@ -654,15 +650,13 @@ container.
 
 - `Description` - Deprecated. Use `Overview` instead.
 
-??? info "Screenshot"
+    ??? info "Screenshot"
 
-      ![!templ-overview](tmpl-overview.png)
+        ![!templ-overview](tmpl-overview.png)
 
 - `DonateText` - Deprecated. This should be included in your Community Applications profile configuration instead.
 
 - `DonateLink` - Deprecated. This should be included in your Community Applications profile configuration instead.
-
-- `Environment` - ?
 
 - `ExtraParams` - Additional parameters to pass to the `docker run` command when starting the container. This should
   only be used for advanced configurations.
@@ -679,7 +673,7 @@ container.
 - `Maintainer` - Information about the maintainer of the template (you). This is displayed in the Community Applications
   store entry.
 
-    - `WebPage` - A link to your personal website or contact page.
+- `WebPage` - A link to your personal website or contact page.
 
 - `Name` - The name of the container. This is what the template will be called in the Community Applications store (
   including search results).
@@ -690,12 +684,10 @@ container.
 - `Overview` - A description of the container. This is displayed in the Community Applications store entry and when the
   user is setting up the container. Include any important instructions or information here.
 
-??? info "Screenshot"
+    ??? info "Screenshot"
 
-      ![!templ-overview-2](tmpl-overview-2.png)
-      ![!templ-overview](tmpl-overview.png)
-
-- `PostArgs` - ?
+        ![!templ-overview-2](tmpl-overview-2.png)
+        ![!templ-overview](tmpl-overview.png)
 
 - `Privileged` - Whether the container should run in privileged mode. This can be a security risk and should be avoided
   if possible.
@@ -709,26 +701,26 @@ container.
   the image.
 
 - `Repository` - A link to the repository where the Docker image can be downloaded from, in the
-  pattern `hostname/author/app_name:tag_name`. For example, `author/app_name` (defaults to Docker Hub and `latest` tag),
+  pattern `registry/author/app_name:tag_name`. For example, `author/app_name` (defaults to Docker Hub and `latest` tag),
   or `ghcr.io/author/app_name:preview` (a `preview`-tagged image from the GitHub Container Registry).
 
 - `Requires` - A warning message informing users of any prerequisites or requirements. This will be displayed:
 
     - in the "Additional Requirements" section of the app's Community Applications store entry
 
-  ??? info "Screenshot"
+    ??? info "Screenshot"
 
         ![!templ-requires](tmpl-requires.png)
 
     - in a pop-up when the user clicks "Install" in the Community Applications store
 
-  ??? info "Screenshot"
+    ??? info "Screenshot"
 
         ![!templ-requires-2](tmpl-requires-2.png)
 
     - in "Additional Requirements" on the container's settings page in Unraid
 
-  ??? info "Screenshot"
+    ??? info "Screenshot"
 
         ![!templ-requires-3](tmpl-requires-3.png)
 
@@ -750,6 +742,6 @@ container.
   pattern `http://[IP]:[PORT:5000]`. When provided, a "WebUI" option will be available in the context menu (left-click
   on the container's icon) in the Docker tab.
 
-??? info "Screenshot"
+    ??? info "Screenshot"
 
-      ![!templ-webui](tmpl-webui.png)
+        ![!templ-webui](tmpl-webui.png)
