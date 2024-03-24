@@ -15,13 +15,13 @@ edit_uri: "https://github.com/selfhosters/selfhosters.net/edit/master/docs/"
 plugins:
   - search
   - git-revision-date-localized
+  - glightbox
 
 markdown_extensions:
   - admonition
   - attr_list
   - codehilite
   - footnotes
-  - lightgallery
   - pymdownx.arithmatex
   - pymdownx.betterem:
       smart_enable: all
@@ -67,7 +67,7 @@ extra:
 # Navigation
 nav:
   - Home: index.md
-  - Nice to know Unraid commands: commands.md
+  - Nice-to-know Unraid commands: commands.md
   - Unraid Tips:
       Adding Discord Notifications: tips/discord_notifications/discord_notifications.md
   - Docker:
@@ -77,4 +77,4 @@ nav:
         Routing Plex through Cloudflare: docker/plex/cloudflare.md
       VPN:
         Route a container trough a VPN with PfSense: docker/pfsense_vlan_vpn/pfsense_vlan_vpn.md
-      Writing a template compatible for unraid: docker/templating/templating.md
+      Writing a template compatible for Unraid: docker/templating/templating.md
