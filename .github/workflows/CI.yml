@@ -4,61 +4,75 @@ on: [push, pull_request]
 
 jobs:
 
-  markdownlint:
+  lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - name: markdownlint
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+      - name: Install linters
         run: |
-          echo '{"default": true,"line_length": false,"no-inline-html": false,"first-line-h1": false, "code-block-style": false, "ul-indent": false}' > .markdownlint.json
-          while IFS= read -r line; do echo "Linting ${line}"; docker run --rm -v "${PWD}:/markdown" -v "${PWD}:${PWD}" 06kellyjac/markdownlint-cli "${PWD}/${line}" || exit 1; done < <(git ls-files '*.md')
+          pip install $(grep yamllint requirements.txt)
+      - name: Lint YAML files
+        run: yamllint .
+      - name: Lint Markdown files
+        uses: DavidAnson/markdownlint-cli2-action@v15
 
-  yamllint:
+  build:
+    needs: lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - name: yamllint
-        run: |
-          while IFS= read -r line; do echo "Linting ${line}"; docker run --rm -v "${PWD}:${PWD}" sdesbure/yamllint yamllint -d '{extends: default, rules: {document-start: {present: false}, line-length: disable}}' "${PWD}/${line}" || exit 1; done < <(git ls-files '*.yaml' '*.yml')
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup python
+        uses: actions/setup-python@v5.0.0
+        with:
+          python-version: 3.x
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Build documentation
+        run: mkdocs build
 
   deploy:
-    needs: [markdownlint, yamllint]
+    if: github.event_name == 'push' && contains(fromJson('["refs/heads/master", "refs/heads/main"]'), github.ref)
+    needs: build
+    name: Deploy docs
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - name: mkdocs
-        run: |
-          docker run --name="patch" --entrypoint="" squidfunk/mkdocs-material pip install mkdocs-git-revision-date-localized-plugin mkdocs-glightbox
-          docker commit --change 'ENTRYPOINT ["mkdocs"]' patch selfhosters/builder
-          docker run --rm -v ${PWD}/site:/site -v ${PWD}:/docs selfhosters/builder build --verbose --clean --strict
-          sudo cp ${PWD}/CNAME ${PWD}/site/
-      - name: deploy
-        if: github.ref == 'refs/heads/master'
-        uses: peaceiris/actions-gh-pages@v2.5.0
-        env:
-          ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          # PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
-          # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: ./site
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
-          emptyCommits: "false"
+          fetch-depth: 0
+          sparse-checkout: |
+            docs
+      - name: Setup python
+        uses: actions/setup-python@v5.0.0
+        with:
+          python-version: 3.x
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Deploy to GitHub Pages
+        run: mkdocs gh-deploy --force
 
-  make_public:
-    needs: deploy
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
-    steps:
-      - name: clear CF cache
-        run: |
-          curl -X GET "https://api.cloudflare.com/client/v4/user/tokens/verify" \
-          -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_CLEAR_CACHE }}" \
-          -H "Content-Type:application/json"
-      - name: notify discord
-        uses: appleboy/discord-action@master
-        with:
-          webhook_id: ${{ secrets.WEBHOOK_ID }}
-          webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
-          username: "Selfhosters.net"
-          avatar_url: "https://avatars3.githubusercontent.com/u/52747488?s=200"
-          message: "New stuff has been added to the wiki"
+# make_public:
+#   needs: builds
+#   runs-on: ubuntu-latest
+#   if: github.ref == 'refs/heads/master'
+#   steps:
+#     - name: clear CF cache
+#       run: |
+#         curl -X GET "https://api.cloudflare.com/client/v4/user/tokens/verify" \
+#         -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_CLEAR_CACHE }}" \
+#         -H "Content-Type:application/json"
+#     - name: notify discord
+#       uses: appleboy/discord-action@master
+#       with:
+#         webhook_id: ${{ secrets.WEBHOOK_ID }}
+#         webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
+#         username: "Selfhosters.net"
+#         avatar_url: "https://avatars3.githubusercontent.com/u/52747488?s=200"
+#         message: "New stuff has been added to the wiki"
