@@ -1,5 +1,5 @@
 
-# Nice to know Unraid commands
+# Nice-to-know Unraid commands
 
 ## Docker service
 
