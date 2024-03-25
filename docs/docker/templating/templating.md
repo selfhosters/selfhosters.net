@@ -1,6 +1,7 @@
 # Writing a template compatible for Unraid
 
-This is an effort to collect information from [Squid's FAQ](https://forums.unraid.net/topic/57181-docker-faq/).
+This is an effort to collect information from
+[Squid's FAQ](https://forums.unraid.net/topic/57181-docker-faq/){target=_blank}.
 
 ## Prerequisites
 
