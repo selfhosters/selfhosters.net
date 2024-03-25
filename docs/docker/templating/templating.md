@@ -1,7 +1,6 @@
 # Writing a template compatible for Unraid
 
-This is an effort to collect information from [Squids FAQ](https://forums.unraid.net/topic/57181-docker-faq/){target=_
-blank}.
+This is an effort to collect information from [Squid's FAQ](https://forums.unraid.net/topic/57181-docker-faq/).
 
 ## Prerequisites
 
@@ -729,6 +728,10 @@ container.
   This should be a direct link to an image file, typically a PNG file. You can include multiple screenshots by adding
   multiple `<Screenshot>` tags.
 
+    ??? info "Screenshot"
+
+        ![!templ-video](tmpl-video.png)
+
 - `Shell` - The shell to use when running commands in the container. This is typically `sh` or `bash`. Do *NOT* include
   if you are unsure, as it can cause issues with the container.
 
@@ -745,3 +748,9 @@ container.
     ??? info "Screenshot"
 
         ![!templ-webui](tmpl-webui.png)
+
+- `Video` - A link to a video about the container. This will be displayed in the Community Applications store entry.
+
+    ??? info "Screenshot"
+
+        ![!templ-video](tmpl-video.png)

@@ -51,7 +51,6 @@ theme:
     - instant
   name: material
   language: en
-  custom_dir: lightgallery/
   palette:
     primary: orange
     accent: red
