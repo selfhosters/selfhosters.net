@@ -6,7 +6,8 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Selfhosters.net is a documentation portal for the Unraid Discord. Here you will find short guides and walkthroughs made by the  Unraid community.">
+        <meta name="description" content="Selfhosters.net is a documentation portal for the Unraid Community Discord. Here you will find short guides and walkthroughs made by the  Unraid community.
+">
       
       
         <meta name="author" content="Selfhosters">
@@ -14,8 +15,15 @@
       
         <link rel="canonical" href="https://selfhosters.net/docker/plex/cloudflare/">
       
+      
+        <link rel="prev" href="../../telegraf/ipmi/">
+      
+      
+        <link rel="next" href="../../pfsense_vlan_vpn/pfsense_vlan_vpn/">
+      
+      
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.2">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.15">
     
     
       
@@ -24,39 +32,50 @@
     
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.f7951f6f.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e359304.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.e6a45f82.min.css">
-        
-          
-          
-          <meta name="theme-color" content="#ffa724">
-        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
+      
+
+
     
     <link rel="stylesheet" href="../../../css/lightgallery.min.css">
 
     
+    
+      
     
     <script src="../../../js/lightgallery.min.js"></script>
 
     
       
         
+        
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CFira+Code&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Fira Code"}</style>
       
     
     
-    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
-  </head>
+    
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -64,9 +83,8 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="orange" data-md-color-accent="red">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="red">
   
-    
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -86,7 +104,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../../.." title="Selfhosters.net" class="md-header__button md-logo" aria-label="Selfhosters.net" data-md-component="logo">
       
@@ -94,7 +114,8 @@
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -113,10 +134,14 @@
       </div>
     </div>
     
+      
+    
+    
     
     
       <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
       </label>
       <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
@@ -124,13 +149,16 @@
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
       
@@ -141,7 +169,7 @@
           <div class="md-search-result__meta">
             Initializing search
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
@@ -150,10 +178,10 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/selfhosters/selfhosters.net/" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/selfhosters/selfhosters.net" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     selfhosters/selfhosters.net
@@ -183,6 +211,7 @@
                     
 
 
+
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="Selfhosters.net" class="md-nav__button md-logo" aria-label="Selfhosters.net" data-md-component="logo">
@@ -194,10 +223,10 @@
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/selfhosters/selfhosters.net/" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/selfhosters/selfhosters.net" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     selfhosters/selfhosters.net
@@ -209,14 +238,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../.." class="md-nav__link">
-        Home
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
       </a>
     </li>
   
@@ -224,14 +258,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../commands/" class="md-nav__link">
-        Nice to know Unraid commands
+        
+  
+  <span class="md-ellipsis">
+    Nice-to-know Unraid commands
+  </span>
+  
+
       </a>
     </li>
   
@@ -239,179 +278,240 @@
     
       
       
-      
-
+  
   
   
   
     
+    
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_3">
-          Unraid Tips
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Unraid Tips" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
-          <span class="md-nav__icon md-icon"></span>
-          Unraid Tips
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
           
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unraid Tips
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Unraid Tips
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../tips/discord_notifications/discord_notifications/" class="md-nav__link">
-        Adding Discord Notifications
+        
+  
+  <span class="md-ellipsis">
+    Adding Discord Notifications
+  </span>
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
     
       
       
-      
-
   
   
     
   
   
+  
+    
+    
+    
     
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_4">
-          Docker
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Docker" data-md-level="1">
-        <label class="md-nav__title" for="__nav_4">
-          <span class="md-nav__icon md-icon"></span>
-          Docker
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
           
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Docker
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     
+    
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_4_1">
-          Telegraf
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Telegraf" data-md-level="2">
-        <label class="md-nav__title" for="__nav_4_1">
-          <span class="md-nav__icon md-icon"></span>
-          Telegraf
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
           
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Telegraf
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Telegraf
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../telegraf/ipmi/" class="md-nav__link">
-        Adding IPMI stats to the Telegraf container
+        
+  
+  <span class="md-ellipsis">
+    Adding IPMI stats to the Telegraf container
+  </span>
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
-            
-          
+              
             
               
+                
   
   
     
   
   
+  
+    
+    
+    
     
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" checked>
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_4_2">
-          Plex
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Plex" data-md-level="2">
-        <label class="md-nav__title" for="__nav_4_2">
-          <span class="md-nav__icon md-icon"></span>
-          Plex
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+        
           
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Plex
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Plex
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
   
   
     
+  
   
   
     <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
         
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Routing Plex through Cloudflare
+          
+  
+  <span class="md-ellipsis">
+    Routing Plex through Cloudflare
+  </span>
+  
+
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Routing Plex through Cloudflare
+        
+  
+  <span class="md-ellipsis">
+    Routing Plex through Cloudflare
+  </span>
+  
+
       </a>
       
         
@@ -431,7 +531,9 @@
       
         <li class="md-nav__item">
   <a href="#why" class="md-nav__link">
-    Why
+    <span class="md-ellipsis">
+      Why
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Why">
@@ -439,14 +541,18 @@
         
           <li class="md-nav__item">
   <a href="#reverse-proxy" class="md-nav__link">
-    Reverse proxy
+    <span class="md-ellipsis">
+      Reverse proxy
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#cloudflare" class="md-nav__link">
-    Cloudflare
+    <span class="md-ellipsis">
+      Cloudflare
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Cloudflare">
@@ -454,14 +560,18 @@
         
           <li class="md-nav__item">
   <a href="#cache-rules" class="md-nav__link">
-    Cache rules
+    <span class="md-ellipsis">
+      Cache rules
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#disable-ipv6" class="md-nav__link">
-    Disable IPv6
+    <span class="md-ellipsis">
+      Disable IPv6
+    </span>
   </a>
   
 </li>
@@ -473,7 +583,9 @@
         
           <li class="md-nav__item">
   <a href="#plex" class="md-nav__link">
-    Plex
+    <span class="md-ellipsis">
+      Plex
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Plex">
@@ -481,7 +593,9 @@
         
           <li class="md-nav__item">
   <a href="#custom-server-access-urls" class="md-nav__link">
-    Custom server access URLs
+    <span class="md-ellipsis">
+      Custom server access URLs
+    </span>
   </a>
   
 </li>
@@ -503,78 +617,104 @@
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     
+    
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_4_3">
-          VPN
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="VPN" data-md-level="2">
-        <label class="md-nav__title" for="__nav_4_3">
-          <span class="md-nav__icon md-icon"></span>
-          VPN
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
           
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    VPN
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            VPN
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../pfsense_vlan_vpn/pfsense_vlan_vpn/" class="md-nav__link">
-        Route a container trough a VPN with PfSense
+        
+  
+  <span class="md-ellipsis">
+    Route a container trough a VPN with PfSense
+  </span>
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../templating/templating/" class="md-nav__link">
-        Writing a template compatible for unraid
+        
+  
+  <span class="md-ellipsis">
+    Writing a template compatible for Unraid
+  </span>
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -607,7 +747,9 @@
       
         <li class="md-nav__item">
   <a href="#why" class="md-nav__link">
-    Why
+    <span class="md-ellipsis">
+      Why
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Why">
@@ -615,14 +757,18 @@
         
           <li class="md-nav__item">
   <a href="#reverse-proxy" class="md-nav__link">
-    Reverse proxy
+    <span class="md-ellipsis">
+      Reverse proxy
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#cloudflare" class="md-nav__link">
-    Cloudflare
+    <span class="md-ellipsis">
+      Cloudflare
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Cloudflare">
@@ -630,14 +776,18 @@
         
           <li class="md-nav__item">
   <a href="#cache-rules" class="md-nav__link">
-    Cache rules
+    <span class="md-ellipsis">
+      Cache rules
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#disable-ipv6" class="md-nav__link">
-    Disable IPv6
+    <span class="md-ellipsis">
+      Disable IPv6
+    </span>
   </a>
   
 </li>
@@ -649,7 +799,9 @@
         
           <li class="md-nav__item">
   <a href="#plex" class="md-nav__link">
-    Plex
+    <span class="md-ellipsis">
+      Plex
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Plex">
@@ -657,7 +809,9 @@
         
           <li class="md-nav__item">
   <a href="#custom-server-access-urls" class="md-nav__link">
-    Custom server access URLs
+    <span class="md-ellipsis">
+      Custom server access URLs
+    </span>
   </a>
   
 </li>
@@ -680,13 +834,14 @@
               </div>
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
-<a href="https://github.com/selfhosters/selfhosters.net/edit/master/docs/docker/plex/cloudflare.md" title="Edit this page" class="md-content__button md-icon">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-</a>
+                  
+
+  
+  
 
 
 <h1 id="routing-plex-through-cloudflare">Routing Plex through Cloudflare<a class="headerlink" href="#routing-plex-through-cloudflare" title="Permanent link">&para;</a></h1>
@@ -707,42 +862,42 @@
 <h3 id="reverse-proxy">Reverse proxy<a class="headerlink" href="#reverse-proxy" title="Permanent link">&para;</a></h3>
 <p>To get this working you need to reverse proxy Plex. This guide won't go into detail on how to do this. But I highly recommend this guide as a starting point. <a href="https://blog.linuxserver.io/2019/04/25/letsencrypt-nginx-starter-guide/">Let's Encrypt, Nginx &amp; Reverse Proxy Starter Guide - 2019 Edition</a></p>
 <p>The <a href="https://hub.docker.com/r/linuxserver/letsencrypt/">linuxserver/letsencrypt</a> container comes with premade nginx configs that you can use.
-If you're stuck, just pop into the <mark>#reverse-proxy</mark> channel on our <a href="https://selfhosters.net/unraid">Discord</a> and someone will help you <img alt="🙂" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f642.svg" title=":slight_smile:" /></p>
+If you're stuck, just pop into the <mark>#reverse-proxy</mark> channel on our <a href="https://selfhosters.net/unraid">Discord</a> and someone will help you <img alt="🙂" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f642.svg" title=":slight_smile:" /></p>
 <details class="example">
 <summary>Nginx subdomain example</summary>
 <div class="tabbed-set" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">plex.conf</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>    <span class="k">server</span> <span class="p">{</span>
-    <span class="kn">listen</span> <span class="mi">443</span> <span class="s">ssl</span><span class="p">;</span>
-    <span class="kn">listen</span> <span class="s">[::]:443</span> <span class="s">ssl</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">server</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">443</span><span class="w"> </span><span class="s">ssl</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="s">[::]:443</span><span class="w"> </span><span class="s">ssl</span><span class="p">;</span>
 
-    <span class="kn">server_name</span> <span class="s">plex.*</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">server_name</span><span class="w"> </span><span class="s">plex.*</span><span class="p">;</span>
 
-    <span class="kn">include</span> <span class="s">/config/nginx/ssl.conf</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">include</span><span class="w"> </span><span class="s">/config/nginx/ssl.conf</span><span class="p">;</span>
 
-    <span class="kn">client_max_body_size</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="kn">proxy_redirect</span> <span class="no">off</span><span class="p">;</span>
-    <span class="kn">proxy_buffering</span> <span class="no">off</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">client_max_body_size</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">proxy_redirect</span><span class="w"> </span><span class="no">off</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">proxy_buffering</span><span class="w"> </span><span class="no">off</span><span class="p">;</span>
 
-    <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
-        <span class="kn">include</span> <span class="s">/config/nginx/proxy.conf</span><span class="p">;</span>
-        <span class="kn">proxy_pass</span> <span class="s">http://HOSTIP:32400/</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">include</span><span class="w"> </span><span class="s">/config/nginx/proxy.conf</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://HOSTIP:32400/</span><span class="p">;</span>
 
-        <span class="kn">proxy_set_header</span> <span class="s">Upgrade</span> <span class="nv">$http_upgrade</span><span class="p">;</span>
-        <span class="kn">proxy_set_header</span> <span class="s">Connection</span> <span class="s">&quot;upgrade&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Upgrade</span><span class="w"> </span><span class="nv">$http_upgrade</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Connection</span><span class="w"> </span><span class="s">&quot;upgrade&quot;</span><span class="p">;</span>
 
-        <span class="kn">proxy_set_header</span> <span class="s">X-Plex-Client-Identifier</span> <span class="nv">$http_x_plex_client_identifier</span><span class="p">;</span>
-        <span class="kn">proxy_set_header</span> <span class="s">X-Plex-Device</span> <span class="nv">$http_x_plex_device</span><span class="p">;</span>
-        <span class="kn">proxy_set_header</span> <span class="s">X-Plex-Device-Name</span> <span class="nv">$http_x_plex_device_name</span><span class="p">;</span>
-        <span class="kn">proxy_set_header</span> <span class="s">X-Plex-Platform</span> <span class="nv">$http_x_plex_platform</span><span class="p">;</span>
-        <span class="kn">proxy_set_header</span> <span class="s">X-Plex-Platform-Version</span> <span class="nv">$http_x_plex_platform_version</span><span class="p">;</span>
-        <span class="kn">proxy_set_header</span> <span class="s">X-Plex-Product</span> <span class="nv">$http_x_plex_product</span><span class="p">;</span>
-        <span class="kn">proxy_set_header</span> <span class="s">X-Plex-Token</span> <span class="nv">$http_x_plex_token</span><span class="p">;</span>
-        <span class="kn">proxy_set_header</span> <span class="s">X-Plex-Version</span> <span class="nv">$http_x_plex_version</span><span class="p">;</span>
-        <span class="kn">proxy_set_header</span> <span class="s">X-Plex-Nocache</span> <span class="nv">$http_x_plex_nocache</span><span class="p">;</span>
-        <span class="kn">proxy_set_header</span> <span class="s">X-Plex-Provides</span> <span class="nv">$http_x_plex_provides</span><span class="p">;</span>
-        <span class="kn">proxy_set_header</span> <span class="s">X-Plex-Device-Vendor</span> <span class="nv">$http_x_plex_device_vendor</span><span class="p">;</span>
-        <span class="kn">proxy_set_header</span> <span class="s">X-Plex-Model</span> <span class="nv">$http_x_plex_model</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Plex-Client-Identifier</span><span class="w"> </span><span class="nv">$http_x_plex_client_identifier</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Plex-Device</span><span class="w"> </span><span class="nv">$http_x_plex_device</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Plex-Device-Name</span><span class="w"> </span><span class="nv">$http_x_plex_device_name</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Plex-Platform</span><span class="w"> </span><span class="nv">$http_x_plex_platform</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Plex-Platform-Version</span><span class="w"> </span><span class="nv">$http_x_plex_platform_version</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Plex-Product</span><span class="w"> </span><span class="nv">$http_x_plex_product</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Plex-Token</span><span class="w"> </span><span class="nv">$http_x_plex_token</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Plex-Version</span><span class="w"> </span><span class="nv">$http_x_plex_version</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Plex-Nocache</span><span class="w"> </span><span class="nv">$http_x_plex_nocache</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Plex-Provides</span><span class="w"> </span><span class="nv">$http_x_plex_provides</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Plex-Device-Vendor</span><span class="w"> </span><span class="nv">$http_x_plex_device_vendor</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Plex-Model</span><span class="w"> </span><span class="nv">$http_x_plex_model</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div>
@@ -750,33 +905,33 @@ If you're stuck, just pop into the <mark>#reverse-proxy</mark> channel on our <a
 <div class="highlight"><pre><span></span><code><span class="c1">## Version 2020/01/07 - Changelog: https://github.com/linuxserver/docker-letsencrypt/commits/master/root/defaults/ssl.conf</span>
 
 <span class="c1"># session settings</span>
-<span class="k">ssl_session_timeout</span> <span class="s">1d</span><span class="p">;</span>
-<span class="k">ssl_session_cache</span> <span class="s">shared:SSL:50m</span><span class="p">;</span>
-<span class="k">ssl_session_tickets</span> <span class="no">off</span><span class="p">;</span>
+<span class="k">ssl_session_timeout</span><span class="w"> </span><span class="s">1d</span><span class="p">;</span>
+<span class="k">ssl_session_cache</span><span class="w"> </span><span class="s">shared:SSL:50m</span><span class="p">;</span>
+<span class="k">ssl_session_tickets</span><span class="w"> </span><span class="no">off</span><span class="p">;</span>
 
 <span class="c1"># Diffie-Hellman parameter for DHE cipher suites</span>
-<span class="k">ssl_dhparam</span> <span class="s">/config/nginx/dhparams.pem</span><span class="p">;</span>
+<span class="k">ssl_dhparam</span><span class="w"> </span><span class="s">/config/nginx/dhparams.pem</span><span class="p">;</span>
 
 <span class="c1"># ssl certs</span>
-<span class="k">ssl_certificate</span> <span class="s">/config/keys/letsencrypt/fullchain.pem</span><span class="p">;</span>
-<span class="k">ssl_certificate_key</span> <span class="s">/config/keys/letsencrypt/privkey.pem</span><span class="p">;</span>
+<span class="k">ssl_certificate</span><span class="w"> </span><span class="s">/config/keys/letsencrypt/fullchain.pem</span><span class="p">;</span>
+<span class="k">ssl_certificate_key</span><span class="w"> </span><span class="s">/config/keys/letsencrypt/privkey.pem</span><span class="p">;</span>
 
 <span class="c1"># protocols</span>
 <span class="c1"># using generated 2020-01-07, https://ssl-config.mozilla.org/#server=nginx&amp;server-version=1.16.1-r4&amp;config=intermediate&amp;openssl-version=1.1.1d-r3</span>
-<span class="k">ssl_protocols</span> <span class="s">TLSv1.2</span> <span class="s">TLSv1.3</span><span class="p">;</span>
-<span class="k">ssl_ciphers</span> <span class="s">ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384</span><span class="p">;</span>
-<span class="k">ssl_prefer_server_ciphers</span> <span class="no">off</span><span class="p">;</span>
+<span class="k">ssl_protocols</span><span class="w"> </span><span class="s">TLSv1.2</span><span class="w"> </span><span class="s">TLSv1.3</span><span class="p">;</span>
+<span class="k">ssl_ciphers</span><span class="w"> </span><span class="s">ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384</span><span class="p">;</span>
+<span class="k">ssl_prefer_server_ciphers</span><span class="w"> </span><span class="no">off</span><span class="p">;</span>
 
 <span class="c1"># HSTS, remove # from the line below to enable HSTS</span>
 <span class="c1">#add_header Strict-Transport-Security &quot;max-age=63072000; includeSubDomains; preload&quot; always;</span>
 
 <span class="c1"># OCSP Stapling</span>
-<span class="k">ssl_stapling</span> <span class="no">on</span><span class="p">;</span>
-<span class="k">ssl_stapling_verify</span> <span class="no">on</span><span class="p">;</span>
-<span class="k">resolver</span> <span class="mi">127</span><span class="s">.0.0.11</span> <span class="s">valid=30s</span><span class="p">;</span> <span class="c1"># Docker DNS Server</span>
+<span class="k">ssl_stapling</span><span class="w"> </span><span class="no">on</span><span class="p">;</span>
+<span class="k">ssl_stapling_verify</span><span class="w"> </span><span class="no">on</span><span class="p">;</span>
+<span class="k">resolver</span><span class="w"> </span><span class="mi">127</span><span class="s">.0.0.11</span><span class="w"> </span><span class="s">valid=30s</span><span class="p">;</span><span class="w"> </span><span class="c1"># Docker DNS Server</span>
 
 <span class="c1"># Enable TLS 1.3 early data</span>
-<span class="k">ssl_early_data</span> <span class="no">on</span><span class="p">;</span>
+<span class="k">ssl_early_data</span><span class="w"> </span><span class="no">on</span><span class="p">;</span>
 
 <span class="c1"># Optional additional headers</span>
 <span class="c1">#add_header Content-Security-Policy &quot;upgrade-insecure-requests&quot;;</span>
@@ -791,36 +946,36 @@ If you're stuck, just pop into the <mark>#reverse-proxy</mark> channel on our <a
 <input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">proxy.conf</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="c1">## Version 2019/10/23 - Changelog: https://github.com/linuxserver/docker-letsencrypt/commits/master/root/defaults/proxy.conf</span>
 
-<span class="k">client_body_buffer_size</span> <span class="mi">128k</span><span class="p">;</span>
+<span class="k">client_body_buffer_size</span><span class="w"> </span><span class="mi">128k</span><span class="p">;</span>
 
 <span class="c1">#Timeout if the real server is dead</span>
-<span class="k">proxy_next_upstream</span> <span class="s">error</span> <span class="s">timeout</span> <span class="s">invalid_header</span> <span class="s">http_500</span> <span class="s">http_502</span> <span class="s">http_503</span><span class="p">;</span>
+<span class="k">proxy_next_upstream</span><span class="w"> </span><span class="s">error</span><span class="w"> </span><span class="s">timeout</span><span class="w"> </span><span class="s">invalid_header</span><span class="w"> </span><span class="s">http_500</span><span class="w"> </span><span class="s">http_502</span><span class="w"> </span><span class="s">http_503</span><span class="p">;</span>
 
 <span class="c1"># Advanced Proxy Config</span>
-<span class="k">send_timeout</span> <span class="mi">5m</span><span class="p">;</span>
-<span class="k">proxy_read_timeout</span> <span class="mi">240</span><span class="p">;</span>
-<span class="k">proxy_send_timeout</span> <span class="mi">240</span><span class="p">;</span>
-<span class="k">proxy_connect_timeout</span> <span class="mi">240</span><span class="p">;</span>
+<span class="k">send_timeout</span><span class="w"> </span><span class="mi">5m</span><span class="p">;</span>
+<span class="k">proxy_read_timeout</span><span class="w"> </span><span class="mi">240</span><span class="p">;</span>
+<span class="k">proxy_send_timeout</span><span class="w"> </span><span class="mi">240</span><span class="p">;</span>
+<span class="k">proxy_connect_timeout</span><span class="w"> </span><span class="mi">240</span><span class="p">;</span>
 
 <span class="c1"># TLS 1.3 early data</span>
-<span class="k">proxy_set_header</span> <span class="s">Early-Data</span> <span class="nv">$ssl_early_data</span><span class="p">;</span>
+<span class="k">proxy_set_header</span><span class="w"> </span><span class="s">Early-Data</span><span class="w"> </span><span class="nv">$ssl_early_data</span><span class="p">;</span>
 
 <span class="c1"># Basic Proxy Config</span>
-<span class="k">proxy_set_header</span> <span class="s">Host</span> <span class="nv">$host</span><span class="p">;</span>
-<span class="k">proxy_set_header</span> <span class="s">X-Real-IP</span> <span class="nv">$remote_addr</span><span class="p">;</span>
-<span class="k">proxy_set_header</span> <span class="s">X-Forwarded-For</span> <span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
-<span class="k">proxy_set_header</span> <span class="s">X-Forwarded-Proto</span> <span class="s">https</span><span class="p">;</span>
-<span class="k">proxy_set_header</span> <span class="s">X-Forwarded-Host</span> <span class="nv">$host</span><span class="p">;</span>
-<span class="k">proxy_set_header</span> <span class="s">X-Forwarded-Ssl</span> <span class="no">on</span><span class="p">;</span>
-<span class="k">proxy_redirect</span>  <span class="s">http://</span>  <span class="nv">$scheme://</span><span class="p">;</span>
-<span class="k">proxy_http_version</span> <span class="mi">1</span><span class="s">.1</span><span class="p">;</span>
-<span class="k">proxy_set_header</span> <span class="s">Connection</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
+<span class="k">proxy_set_header</span><span class="w"> </span><span class="s">Host</span><span class="w"> </span><span class="nv">$host</span><span class="p">;</span>
+<span class="k">proxy_set_header</span><span class="w"> </span><span class="s">X-Real-IP</span><span class="w"> </span><span class="nv">$remote_addr</span><span class="p">;</span>
+<span class="k">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-For</span><span class="w"> </span><span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+<span class="k">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-Proto</span><span class="w"> </span><span class="s">https</span><span class="p">;</span>
+<span class="k">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-Host</span><span class="w"> </span><span class="nv">$host</span><span class="p">;</span>
+<span class="k">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-Ssl</span><span class="w"> </span><span class="no">on</span><span class="p">;</span>
+<span class="k">proxy_redirect</span><span class="w">  </span><span class="s">http://</span><span class="w">  </span><span class="nv">$scheme://</span><span class="p">;</span>
+<span class="k">proxy_http_version</span><span class="w"> </span><span class="mi">1</span><span class="s">.1</span><span class="p">;</span>
+<span class="k">proxy_set_header</span><span class="w"> </span><span class="s">Connection</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span>
 <span class="c1">#proxy_cookie_path / &quot;/; HTTPOnly; Secure&quot;; # enable at your own risk, may break certain apps</span>
-<span class="k">proxy_cache_bypass</span> <span class="nv">$cookie_session</span><span class="p">;</span>
-<span class="k">proxy_no_cache</span> <span class="nv">$cookie_session</span><span class="p">;</span>
-<span class="k">proxy_buffers</span> <span class="mi">32</span> <span class="mi">4k</span><span class="p">;</span>
-<span class="k">proxy_headers_hash_bucket_size</span> <span class="mi">128</span><span class="p">;</span>
-<span class="k">proxy_headers_hash_max_size</span> <span class="mi">1024</span><span class="p">;</span>
+<span class="k">proxy_cache_bypass</span><span class="w"> </span><span class="nv">$cookie_session</span><span class="p">;</span>
+<span class="k">proxy_no_cache</span><span class="w"> </span><span class="nv">$cookie_session</span><span class="p">;</span>
+<span class="k">proxy_buffers</span><span class="w"> </span><span class="mi">32</span><span class="w"> </span><span class="mi">4k</span><span class="p">;</span>
+<span class="k">proxy_headers_hash_bucket_size</span><span class="w"> </span><span class="mi">128</span><span class="p">;</span>
+<span class="k">proxy_headers_hash_max_size</span><span class="w"> </span><span class="mi">1024</span><span class="p">;</span>
 </code></pre></div>
 </div>
 </div>
@@ -830,7 +985,7 @@ If you're stuck, just pop into the <mark>#reverse-proxy</mark> channel on our <a
 <p>In short you need to change your nameservers on your DNS provides page to the ones Cloudflare says.
 This might take some time depending on the DNS provider. Last time I did it I was using Namecheap and it took less then 10 minutes to propagate, so have some patience.</p>
 <p>After it's been transfered make sure the orange cloud is enabled. This is what activates the Cloudflare CDN on the domain.</p>
-<p><div class="lightgallery"><a data-sub-html="cloud" href="../cloudflare_cloud.png"><img alt="cloud" src="../cloudflare_cloud.png" /></a></div></p>
+<p><a class="glightbox" href="../cloudflare_cloud.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="!cloud" src="../cloudflare_cloud.png" /></a></p>
 <h4 id="cache-rules">Cache rules<a class="headerlink" href="#cache-rules" title="Permanent link">&para;</a></h4>
 <p>This is very important that you do or else Cloudflare might ban your account for breaking the TOS on caching.</p>
 <div class="admonition info">
@@ -843,93 +998,82 @@ You can have 3 page rules per domain.</p>
 <p>If you want to add the rule on all subdomains you can do that so: <code>*.domain.com/</code></p>
 <p>Next select the <mark>Cache Level</mark> setting and set it to <mark>Bypass</mark>
 Then click <mark>Save and Deploy</mark></p>
-<p><div class="lightgallery"><a data-sub-html="Page Rules" href="../page_rules.png"><img alt="Page Rules" src="../page_rules.png" /></a></div></p>
+<p><a class="glightbox" href="../page_rules.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="!Page Rules" src="../page_rules.png" /></a></p>
 <h4 id="disable-ipv6">Disable IPv6<a class="headerlink" href="#disable-ipv6" title="Permanent link">&para;</a></h4>
 <p>There is currently a <a href="https://forums.plex.tv/t/plex-api-sessions-status-not-honoring-x-forwarded-for-x-real-ip-with-ipv6-clients/175705">bug</a> in Plex that it sees remote IPv6 adresses as local when reverse proxied. And as Cloudflare uses IPv6 we can disable that using the Cloudflare API. (It's not possible through the webUI)</p>
 <p>This bug won't affect performance, but any remote streams using IPv6 will show as local on the Plex dashboard and in Tautili. So this is more of an annoyance that we can easily fix.</p>
 <p>Below is the command you need to run for disabling IPv6.</p>
-<div class="highlight"><pre><span></span><code>    curl -X PATCH <span class="s2">&quot;https://api.cloudflare.com/client/v4/zones/xxxxxxxxxxxxxxxxx/settings/ipv6&quot;</span> <span class="se">\</span>
-    -H <span class="s2">&quot;X-Auth-Email: xxxxxxx@email.com&quot;</span> <span class="se">\</span>
-    -H <span class="s2">&quot;X-Auth-Key: xxxxxxxxxxxxxxxxxxxxx&quot;</span> <span class="se">\</span>
-    -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
-    --data <span class="s1">&#39;{&quot;value&quot;:&quot;off&quot;}&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>curl<span class="w"> </span>-X<span class="w"> </span>PATCH<span class="w"> </span><span class="s2">&quot;https://api.cloudflare.com/client/v4/zones/xxxxxxxxxxxxxxxxx/settings/ipv6&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;X-Auth-Email: xxxxxxx@email.com&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;X-Auth-Key: xxxxxxxxxxxxxxxxxxxxx&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--data<span class="w"> </span><span class="s1">&#39;{&quot;value&quot;:&quot;off&quot;}&#39;</span>
 </code></pre></div>
 <p>In the API URL replace the x's with you Zone ID for you domain. You can find the zone ID on the <mark>Overview</mark> page at the bottom.</p>
-<p><div class="lightgallery"><a data-sub-html="zone" href="../zone_id.png"><img alt="zone" src="../zone_id.png" /></a></div></p>
+<p><a class="glightbox" href="../zone_id.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="!zone" src="../zone_id.png" /></a></p>
 <p>On the second line add your email account you used for Cloudflare and on the third line add your <mark>Global API key</mark></p>
 <p>The Global API key can be found on your profile page and then API Tokens.</p>
 <p>Next just paste all the lines into the terminal and hit enter.</p>
 <p>If successful, the output will look like this:</p>
-<div class="highlight"><pre><span></span><code>    <span class="p">{</span><span class="nt">&quot;result&quot;</span><span class="p">:{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;ipv6&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;off&quot;</span><span class="p">,</span><span class="nt">&quot;modified_on&quot;</span><span class="p">:</span><span class="s2">&quot;2020-01-21T20:52:11.121560Z&quot;</span><span class="p">,</span><span class="nt">&quot;editable&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">},</span><span class="nt">&quot;success&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;errors&quot;</span><span class="p">:[],</span><span class="nt">&quot;messages&quot;</span><span class="p">:[]}</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="p">{</span><span class="nt">&quot;result&quot;</span><span class="p">:{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;ipv6&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;off&quot;</span><span class="p">,</span><span class="nt">&quot;modified_on&quot;</span><span class="p">:</span><span class="s2">&quot;2020-01-21T20:52:11.121560Z&quot;</span><span class="p">,</span><span class="nt">&quot;editable&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">},</span><span class="nt">&quot;success&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;errors&quot;</span><span class="p">:[],</span><span class="nt">&quot;messages&quot;</span><span class="p">:[]}</span>
 </code></pre></div>
 <p>In the webui it should now say that IPv6 Compatibility is off.
-<div class="lightgallery"><a data-sub-html="ipv6" href="../ipv6.png"><img alt="ipv6" src="../ipv6.png" /></a></div></p>
+<a class="glightbox" href="../ipv6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="!ipv6" src="../ipv6.png" /></a></p>
 <h3 id="plex">Plex<a class="headerlink" href="#plex" title="Permanent link">&para;</a></h3>
 <h4 id="custom-server-access-urls">Custom server access URLs<a class="headerlink" href="#custom-server-access-urls" title="Permanent link">&para;</a></h4>
 <p>After you've setup your reverse proxy for Plex and configured Cloudflare, go into your Plex settings and select <mark>Network</mark>.
 Then click on <mark>Show Advanced</mark> and scroll down to <mark>Custom server access URLs</mark></p>
 <p>Add your domain you setup for plex with the port 443 after like so: <code>https://plexdomain.com:443</code> or <code>https://plexdomain.com:443/plex</code>and hit save.</p>
-<p><div class="lightgallery"><a data-sub-html="domain" href="../custom_url.png"><img alt="domain" src="../custom_url.png" /></a></div></p>
+<p><a class="glightbox" href="../custom_url.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="!domain" src="../custom_url.png" /></a></p>
 <p>At this point you do not need to have <mark>Remote Access</mark> enabled anymore.</p>
 <p>To test you can disable your <mark>Remote Access</mark> and try and stream something remotely.</p>
 <p>After a little while you should see on the Cloudflare <mark>Overview</mark> page that the <mark>Total Data Served</mark> have increased.</p>
-<p><div class="lightgallery"><a data-sub-html="Overview" href="../cloudflare_overview.png"><img alt="Overview" src="../cloudflare_overview.png" /></a></div></p>
-<p>Happy streaming <img alt="😄" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f604.svg" title=":smile:" /></p>
+<p><a class="glightbox" href="../cloudflare_overview.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="!Overview" src="../cloudflare_overview.png" /></a></p>
+<p>Happy streaming <img alt="😄" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f604.svg" title=":smile:" /></p>
 
-  <hr>
-<div class="md-source-file">
-  <small>
+
+
+
+
+
+
+  
     
-      Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 16, 2020</span>
+  
+  
+
+
+  <aside class="md-source-file">
+    
       
-    
-  </small>
-</div>
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 16, 2020</span>
+  </span>
 
-              
-            </article>
-          </div>
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
       </main>
       
         <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        
-        <a href="../../telegraf/ipmi/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Adding IPMI stats to the Telegraf container" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Adding IPMI stats to the Telegraf container
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../../pfsense_vlan_vpn/pfsense_vlan_vpn/" class="md-footer__link md-footer__link--next" aria-label="Next: Route a container trough a VPN with PfSense" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Route a container trough a VPN with PfSense
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -947,20 +1091,24 @@ Then click on <mark>Show Advanced</mark> and scroll down to <mark>Custom server 
   
     
     
+    
+    
       
       
     
     <a href="https://github.com/selfhosters" target="_blank" rel="noopener" title="github.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
     </a>
   
+    
+    
     
     
       
       
     
     <a href="https://discord.gg/qWPbc8R" target="_blank" rel="noopener" title="discord.gg" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M524.531 69.836a1.5 1.5 0 0 0-.764-.7A485.065 485.065 0 0 0 404.081 32.03a1.816 1.816 0 0 0-1.923.91 337.461 337.461 0 0 0-14.9 30.6 447.848 447.848 0 0 0-134.426 0 309.541 309.541 0 0 0-15.135-30.6 1.89 1.89 0 0 0-1.924-.91 483.689 483.689 0 0 0-119.688 37.107 1.712 1.712 0 0 0-.788.676C39.068 183.651 18.186 294.69 28.43 404.354a2.016 2.016 0 0 0 .765 1.375 487.666 487.666 0 0 0 146.825 74.189 1.9 1.9 0 0 0 2.063-.676A348.2 348.2 0 0 0 208.12 430.4a1.86 1.86 0 0 0-1.019-2.588 321.173 321.173 0 0 1-45.868-21.853 1.885 1.885 0 0 1-.185-3.126 251.047 251.047 0 0 0 9.109-7.137 1.819 1.819 0 0 1 1.9-.256c96.229 43.917 200.41 43.917 295.5 0a1.812 1.812 0 0 1 1.924.233 234.533 234.533 0 0 0 9.132 7.16 1.884 1.884 0 0 1-.162 3.126 301.407 301.407 0 0 1-45.89 21.83 1.875 1.875 0 0 0-1 2.611 391.055 391.055 0 0 0 30.014 48.815 1.864 1.864 0 0 0 2.063.7A486.048 486.048 0 0 0 610.7 405.729a1.882 1.882 0 0 0 .765-1.352c12.264-126.783-20.532-236.912-86.934-334.541zM222.491 337.58c-28.972 0-52.844-26.587-52.844-59.239s23.409-59.241 52.844-59.241c29.665 0 53.306 26.82 52.843 59.239 0 32.654-23.41 59.241-52.843 59.241zm195.38 0c-28.971 0-52.843-26.587-52.843-59.239s23.409-59.241 52.843-59.241c29.667 0 53.307 26.82 52.844 59.239 0 32.654-23.177 59.241-52.844 59.241z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M524.531 69.836a1.5 1.5 0 0 0-.764-.7A485.065 485.065 0 0 0 404.081 32.03a1.816 1.816 0 0 0-1.923.91 337.461 337.461 0 0 0-14.9 30.6 447.848 447.848 0 0 0-134.426 0 309.541 309.541 0 0 0-15.135-30.6 1.89 1.89 0 0 0-1.924-.91 483.689 483.689 0 0 0-119.688 37.107 1.712 1.712 0 0 0-.788.676C39.068 183.651 18.186 294.69 28.43 404.354a2.016 2.016 0 0 0 .765 1.375 487.666 487.666 0 0 0 146.825 74.189 1.9 1.9 0 0 0 2.063-.676A348.2 348.2 0 0 0 208.12 430.4a1.86 1.86 0 0 0-1.019-2.588 321.173 321.173 0 0 1-45.868-21.853 1.885 1.885 0 0 1-.185-3.126 251.047 251.047 0 0 0 9.109-7.137 1.819 1.819 0 0 1 1.9-.256c96.229 43.917 200.41 43.917 295.5 0a1.812 1.812 0 0 1 1.924.233 234.533 234.533 0 0 0 9.132 7.16 1.884 1.884 0 0 1-.162 3.126 301.407 301.407 0 0 1-45.89 21.83 1.875 1.875 0 0 0-1 2.611 391.055 391.055 0 0 0 30.014 48.815 1.864 1.864 0 0 0 2.063.7A486.048 486.048 0 0 0 610.7 405.729a1.882 1.882 0 0 0 .765-1.352c12.264-126.783-20.532-236.912-86.934-334.541ZM222.491 337.58c-28.972 0-52.844-26.587-52.844-59.239s23.409-59.241 52.844-59.241c29.665 0 53.306 26.82 52.843 59.239 0 32.654-23.41 59.241-52.843 59.241Zm195.38 0c-28.971 0-52.843-26.587-52.843-59.239s23.409-59.241 52.843-59.241c29.667 0 53.307 26.82 52.844 59.239 0 32.654-23.177 59.241-52.844 59.241Z"/></svg>
     </a>
   
 </div>
@@ -973,11 +1121,13 @@ Then click on <mark>Show Advanced</mark> and scroll down to <mark>Custom server 
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.0bbba5b5.min.js"}</script>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["instant"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
     
-      <script src="../../../assets/javascripts/bundle.649a939e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.bd41221c.min.js"></script>
       
     
     <script>
@@ -987,5 +1137,5 @@ Then click on <mark>Show Advanced</mark> and scroll down to <mark>Custom server 
     }
     </script>
 
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>
