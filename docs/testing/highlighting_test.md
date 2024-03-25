@@ -49,7 +49,7 @@ server {
 ## python
 
 ```python
-print("unraid rulez")
+print("Unraid rulez")
 ```
 
 ## bash
