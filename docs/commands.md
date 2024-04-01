@@ -76,7 +76,7 @@ virsh <command> <domain>
 ## Samba
 
 ```bash
-/etc/rd.d/rc.samba <command>
+/etc/rc.d/rc.samba <command>
 ```
 
 **Available commands:**
