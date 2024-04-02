@@ -2,42 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://selfhosters.net/</loc>
-         <lastmod>2024-03-25</lastmod>
+         <lastmod>2024-04-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://selfhosters.net/commands/</loc>
-         <lastmod>2024-03-25</lastmod>
+         <lastmod>2024-04-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://selfhosters.net/docker/pfsense_vlan_vpn/pfsense_vlan_vpn/</loc>
-         <lastmod>2024-03-25</lastmod>
+         <lastmod>2024-04-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://selfhosters.net/docker/plex/cloudflare/</loc>
-         <lastmod>2024-03-25</lastmod>
+         <lastmod>2024-04-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://selfhosters.net/docker/telegraf/ipmi/</loc>
-         <lastmod>2024-03-25</lastmod>
+         <lastmod>2024-04-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://selfhosters.net/docker/templating/templating/</loc>
-         <lastmod>2024-03-25</lastmod>
+         <lastmod>2024-04-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://selfhosters.net/testing/highlighting_test/</loc>
-         <lastmod>2024-03-25</lastmod>
+         <lastmod>2024-04-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://selfhosters.net/tips/discord_notifications/discord_notifications/</loc>
-         <lastmod>2024-03-25</lastmod>
+         <lastmod>2024-04-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
