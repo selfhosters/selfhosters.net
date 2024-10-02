@@ -78,3 +78,8 @@ nav:
       - VPN:
           - Route a container trough a VPN with PfSense: docker/pfsense_vlan_vpn/pfsense_vlan_vpn.md
       - Writing a template compatible for Unraid: docker/templating/templating.md
+  - Remote Access:
+      - Tailscale:
+          - Basic Setup: remote/tailscale/basic.md
+          - Advanced Settings: remote/tailscale/advanced.md
+          - Docker Containers: remote/tailscale/docker.md
