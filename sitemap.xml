@@ -2,42 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://selfhosters.net/</loc>
-         <lastmod>2024-04-02</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-10-02</lastmod>
     </url>
     <url>
          <loc>https://selfhosters.net/commands/</loc>
-         <lastmod>2024-04-02</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-10-02</lastmod>
     </url>
     <url>
          <loc>https://selfhosters.net/docker/pfsense_vlan_vpn/pfsense_vlan_vpn/</loc>
-         <lastmod>2024-04-02</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-10-02</lastmod>
     </url>
     <url>
          <loc>https://selfhosters.net/docker/plex/cloudflare/</loc>
-         <lastmod>2024-04-02</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-10-02</lastmod>
     </url>
     <url>
          <loc>https://selfhosters.net/docker/telegraf/ipmi/</loc>
-         <lastmod>2024-04-02</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-10-02</lastmod>
     </url>
     <url>
          <loc>https://selfhosters.net/docker/templating/templating/</loc>
-         <lastmod>2024-04-02</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-10-02</lastmod>
+    </url>
+    <url>
+         <loc>https://selfhosters.net/remote/tailscale/advanced/</loc>
+         <lastmod>2024-10-02</lastmod>
+    </url>
+    <url>
+         <loc>https://selfhosters.net/remote/tailscale/basic/</loc>
+         <lastmod>2024-10-02</lastmod>
+    </url>
+    <url>
+         <loc>https://selfhosters.net/remote/tailscale/docker/</loc>
+         <lastmod>2024-10-02</lastmod>
     </url>
     <url>
          <loc>https://selfhosters.net/testing/highlighting_test/</loc>
-         <lastmod>2024-04-02</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-10-02</lastmod>
     </url>
     <url>
          <loc>https://selfhosters.net/tips/discord_notifications/discord_notifications/</loc>
-         <lastmod>2024-04-02</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-10-02</lastmod>
     </url>
 </urlset>

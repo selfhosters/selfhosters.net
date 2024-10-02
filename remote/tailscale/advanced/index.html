@@ -13,22 +13,28 @@
         <meta name="author" content="Selfhosters">
       
       
+        <link rel="canonical" href="https://selfhosters.net/remote/tailscale/advanced/">
       
       
+        <link rel="prev" href="../basic/">
       
-      <link rel="icon" href="/assets/images/favicon.ico">
+      
+        <link rel="next" href="../docker/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
     
     
       
-        <title>Selfhosters.net</title>
+        <title>Advanced Settings - Selfhosters.net</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.8c3ca2c6.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.8c3ca2c6.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -47,14 +53,23 @@
       
     
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -70,6 +85,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#advanced-tailscale-settings" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -82,9 +102,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="Selfhosters.net" class="md-header__button md-logo" aria-label="Selfhosters.net" data-md-component="logo">
+    <a href="../../.." title="Selfhosters.net" class="md-header__button md-logo" aria-label="Selfhosters.net" data-md-component="logo">
       
-  <img src="/assets/images/logo.png" alt="logo">
+  <img src="../../../assets/images/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -101,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Advanced Settings
             
           </span>
         </div>
@@ -188,9 +208,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="Selfhosters.net" class="md-nav__button md-logo" aria-label="Selfhosters.net" data-md-component="logo">
+    <a href="../../.." title="Selfhosters.net" class="md-nav__button md-logo" aria-label="Selfhosters.net" data-md-component="logo">
       
-  <img src="/assets/images/logo.png" alt="logo">
+  <img src="../../../assets/images/logo.png" alt="logo">
 
     </a>
     Selfhosters.net
@@ -217,7 +237,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -237,7 +257,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/commands/" class="md-nav__link">
+      <a href="../../../commands/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -292,7 +312,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/tips/discord_notifications/discord_notifications/" class="md-nav__link">
+      <a href="../../../tips/discord_notifications/discord_notifications/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -390,7 +410,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/docker/telegraf/ipmi/" class="md-nav__link">
+      <a href="../../../docker/telegraf/ipmi/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -454,7 +474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/docker/plex/cloudflare/" class="md-nav__link">
+      <a href="../../../docker/plex/cloudflare/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -518,7 +538,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/docker/pfsense_vlan_vpn/pfsense_vlan_vpn/" class="md-nav__link">
+      <a href="../../../docker/pfsense_vlan_vpn/pfsense_vlan_vpn/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -547,7 +567,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/docker/templating/templating/" class="md-nav__link">
+      <a href="../../../docker/templating/templating/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -572,17 +592,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -596,7 +618,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Remote Access
@@ -607,17 +629,19 @@
                 
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" checked>
         
           
           <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
@@ -631,7 +655,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_1">
             <span class="md-nav__icon md-icon"></span>
             Tailscale
@@ -645,7 +669,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/remote/tailscale/basic/" class="md-nav__link">
+      <a href="../basic/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -663,10 +687,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/remote/tailscale/advanced/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Advanced Settings
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -675,6 +719,53 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#log-in-to-tailscale-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Log in to Tailscale Settings
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subnet-router" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subnet Router
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exit-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exit Node
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -687,7 +778,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/remote/tailscale/docker/" class="md-nav__link">
+      <a href="../docker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -733,6 +824,43 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#log-in-to-tailscale-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Log in to Tailscale Settings
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subnet-router" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subnet Router
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exit-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exit Node
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -744,8 +872,128 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+  
+  
+
+
+<h1 id="advanced-tailscale-settings">Advanced Tailscale Settings<a class="headerlink" href="#advanced-tailscale-settings" title="Permanent link">&para;</a></h1>
+<h2 id="log-in-to-tailscale-settings">Log in to Tailscale Settings<a class="headerlink" href="#log-in-to-tailscale-settings" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Log in to the Unraid server and switch to the <strong>Settings</strong> tab.</li>
+<li>
+<p>Click on <strong>Tailscale</strong>.</p>
+<p><a class="glightbox" href="../settings-menu.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="!settings-menu" src="../settings-menu.png" /></a></p>
+</li>
+<li>
+<p>On the <strong>Tailscale</strong> tab, click the <strong>Viewing</strong> button.</p>
+<p><a class="glightbox" href="../settings-viewing.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="!settings-viewing" src="../settings-viewing.png" /></a></p>
+</li>
+<li>
+<p>Click <strong>Sign in to confirm identity</strong></p>
+<p><a class="glightbox" href="../confirm-identity.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="!confirm-identity" src="../confirm-identity.png" /></a></p>
+</li>
+<li>
+<p>A new window will open. Click <strong>Viewing</strong> in this window, then <strong>Sign in to confirm identity</strong>.</p>
+</li>
+<li>Log in to Tailscale. Click <strong>Close window</strong> to return to the Tailscale settings once you have logged in.</li>
+</ol>
+<h2 id="subnet-router">Subnet Router<a class="headerlink" href="#subnet-router" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Click <strong>Subnet router</strong>.</p>
+<p><a class="glightbox" href="../subnet-router.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="!subnet-router" src="../subnet-router.png" /></a></p>
+</li>
+<li>
+<p>Enter the desired routes and click <strong>Advertise routes</strong>.</p>
+<p><a class="glightbox" href="../subnet-advertise.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="!subnet-advertise" src="../subnet-advertise.png" /></a></p>
+</li>
+<li>
+<p>The routes will be displayed with a <strong>Pending approval</strong> message. The routes must be approved in the Tailscale
+    admin console before they can be used.</p>
+<p><a class="glightbox" href="../subnet-pending.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="!subnet-pending" src="../subnet-pending.png" /></a></p>
+</li>
+<li>
+<p>Open the <a href="https://login.tailscale.com/admin/machines">Tailscale admin console</a>.</p>
+</li>
+<li>
+<p>Locate the server in the machine list. It will have a blue <strong>Subnets</strong> badge with an exclamation point indicating
+    that the server has routes that have not yet been approved.</p>
+<p><a class="glightbox" href="../subnet-approve.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="!subnet-approve" src="../subnet-approve.png" /></a></p>
+</li>
+<li>
+<p>Click the three dots at the end of the row, then <strong>Edit route settings...</strong>.</p>
+<p><a class="glightbox" href="../exit-menu.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="!exit-menu" src="../exit-menu.png" /></a></p>
+</li>
+<li>
+<p>Check the routes to approve and save.</p>
+<p><a class="glightbox" href="../subnet-routes.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="!subnet-routes" src="../subnet-routes.png" /></a></p>
+</li>
+</ol>
+<h2 id="exit-node">Exit Node<a class="headerlink" href="#exit-node" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Click the down arrow under <strong>EXIT NODE</strong>.</li>
+<li>
+<p>Select <strong>Run as exit node</strong>.</p>
+<p><a class="glightbox" href="../exit-select.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="!exit-select" src="../exit-select.png" /></a></p>
+</li>
+<li>
+<p>The server will now advertise itself as an exit node. This must be approved in the Tailscale admin console before
+    it can be used.</p>
+<p><a class="glightbox" href="../exit-pending.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="!exit-pending" src="../exit-pending.png" /></a></p>
+</li>
+<li>
+<p>Open the <a href="https://login.tailscale.com/admin/machines">Tailscale admin console</a>.</p>
+</li>
+<li>
+<p>Locate the server in the machine list. It will have a blue <strong>Exit Node</strong> badge with an exclamation point indicating
+    that the server has not yet been approved as an exit node.</p>
+<p><a class="glightbox" href="../exit-approve.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="!exit-approve" src="../exit-approve.png" /></a></p>
+</li>
+<li>
+<p>Click the three dots at the end of the row, then <strong>Edit route settings...</strong>.</p>
+<p><a class="glightbox" href="../exit-menu.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="!exit-menu" src="../exit-menu.png" /></a></p>
+</li>
+<li>
+<p>Check <strong>Use as exit node</strong> and save.</p>
+<p><a class="glightbox" href="../exit-routes.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="!exit-routes" src="../exit-routes.png" /></a></p>
+</li>
+</ol>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 1, 2024</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -805,11 +1053,13 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "/", "features": ["instant"], "search": "/assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["instant"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="/assets/javascripts/bundle.525ec568.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.525ec568.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>

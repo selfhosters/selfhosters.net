@@ -13,22 +13,28 @@
         <meta name="author" content="Selfhosters">
       
       
+        <link rel="canonical" href="https://selfhosters.net/remote/tailscale/basic/">
       
       
+        <link rel="prev" href="../../../docker/templating/templating/">
       
-      <link rel="icon" href="/assets/images/favicon.ico">
+      
+        <link rel="next" href="../advanced/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
     
     
       
-        <title>Selfhosters.net</title>
+        <title>Basic Setup - Selfhosters.net</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.8c3ca2c6.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.8c3ca2c6.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -47,14 +53,23 @@
       
     
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -70,6 +85,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#basic-tailscale-setup" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -82,9 +102,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="Selfhosters.net" class="md-header__button md-logo" aria-label="Selfhosters.net" data-md-component="logo">
+    <a href="../../.." title="Selfhosters.net" class="md-header__button md-logo" aria-label="Selfhosters.net" data-md-component="logo">
       
-  <img src="/assets/images/logo.png" alt="logo">
+  <img src="../../../assets/images/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -101,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Basic Setup
             
           </span>
         </div>
@@ -188,9 +208,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="Selfhosters.net" class="md-nav__button md-logo" aria-label="Selfhosters.net" data-md-component="logo">
+    <a href="../../.." title="Selfhosters.net" class="md-nav__button md-logo" aria-label="Selfhosters.net" data-md-component="logo">
       
-  <img src="/assets/images/logo.png" alt="logo">
+  <img src="../../../assets/images/logo.png" alt="logo">
 
     </a>
     Selfhosters.net
@@ -217,7 +237,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -237,7 +257,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/commands/" class="md-nav__link">
+      <a href="../../../commands/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -292,7 +312,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/tips/discord_notifications/discord_notifications/" class="md-nav__link">
+      <a href="../../../tips/discord_notifications/discord_notifications/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -390,7 +410,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/docker/telegraf/ipmi/" class="md-nav__link">
+      <a href="../../../docker/telegraf/ipmi/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -454,7 +474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/docker/plex/cloudflare/" class="md-nav__link">
+      <a href="../../../docker/plex/cloudflare/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -518,7 +538,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/docker/pfsense_vlan_vpn/pfsense_vlan_vpn/" class="md-nav__link">
+      <a href="../../../docker/pfsense_vlan_vpn/pfsense_vlan_vpn/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -547,7 +567,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/docker/templating/templating/" class="md-nav__link">
+      <a href="../../../docker/templating/templating/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -572,17 +592,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -596,7 +618,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Remote Access
@@ -607,17 +629,19 @@
                 
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" checked>
         
           
           <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
@@ -631,7 +655,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_1">
             <span class="md-nav__icon md-icon"></span>
             Tailscale
@@ -642,10 +666,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/remote/tailscale/basic/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Basic Setup
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -654,6 +698,53 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-tailnet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a Tailnet
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-the-unraid-tailscale-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install the Unraid Tailscale Plugin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finish-tailscale-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Finish Tailscale Setup
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -666,7 +757,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/remote/tailscale/advanced/" class="md-nav__link">
+      <a href="../advanced/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -687,7 +778,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/remote/tailscale/docker/" class="md-nav__link">
+      <a href="../docker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -733,6 +824,43 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-tailnet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a Tailnet
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-the-unraid-tailscale-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install the Unraid Tailscale Plugin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finish-tailscale-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Finish Tailscale Setup
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -744,8 +872,136 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+  
+  
+
+
+<h1 id="basic-tailscale-setup">Basic Tailscale Setup<a class="headerlink" href="#basic-tailscale-setup" title="Permanent link">&para;</a></h1>
+<p>These instructions will help you create a Tailnet and connect an Unraid server. Once finished, you should be able to
+connect to the following services via the Tailscale IP / MagicDNS name of the Unraid server:</p>
+<ul>
+<li>WebGUI</li>
+<li>File shares (SMB/NFS)</li>
+<li>SSH</li>
+<li>Bridge mode Docker containers (default or custom bridge networks)</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Docker containers running on ipvlan/macvlan networks (e.g., br0) cannot be accessed via the Tailscale IP for the
+Unraid server. To connect to these containers, you should either <a href="../advanced/">configure a subnet router</a> or
+<a href="../docker/">add Tailscale to the container</a>.</p>
+</div>
+<h2 id="create-a-tailnet">Create a Tailnet<a class="headerlink" href="#create-a-tailnet" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Go to <a href="https://www.tailscale.com">Tailscale</a> and click the <strong>Get Started</strong> button.</p>
+<p><a class="glightbox" href="../get-started.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="!get-started" src="../get-started.png" /></a></p>
+</li>
+<li>
+<p>Select an identity provider and log in.</p>
+<p><a class="glightbox" href="../identity-provider.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="!identity-provider" src="../identity-provider.png" /></a></p>
+</li>
+<li>
+<p>Select either <strong>Business use</strong> or <strong>Personal use</strong>.</p>
+<p><a class="glightbox" href="../personal-use.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="!personal-use" src="../personal-use.png" /></a></p>
+</li>
+<li>
+<p>Follow the provided instructions to install Tailscale on a client device (phone/laptop/etc.).</p>
+<p><a class="glightbox" href="../first-device.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="!first-device" src="../first-device.png" /></a></p>
+</li>
+<li>
+<p>Once you have installed Tailscale on the device, it will appear on the screen.</p>
+<p><a class="glightbox" href="../second-device.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="!second-device" src="../second-device.png" /></a></p>
+</li>
+</ol>
+<h2 id="install-the-unraid-tailscale-plugin">Install the Unraid Tailscale Plugin<a class="headerlink" href="#install-the-unraid-tailscale-plugin" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Log in to the Unraid server and switch to the <strong>Apps</strong> tab.</li>
+<li>Search for <strong>Tailscale</strong>.</li>
+<li>
+<p>Install <strong>Tailscale (Plugin)</strong>.</p>
+<p><a class="glightbox" href="../install-plugin.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="!install-plugin" src="../install-plugin.png" /></a></p>
+</li>
+<li>
+<p>Click <strong>Done</strong> once the window shows that Tailscale has been installed.</p>
+<p><a class="glightbox" href="../install-complete.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="!install-complete" src="../install-complete.png" /></a></p>
+</li>
+<li>
+<p>Switch to the <strong>Settings</strong> tab, then click on <strong>Tailscale</strong>.</p>
+<p><a class="glightbox" href="../settings-menu.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="!settings-menu.png" src="../settings-menu.png" /></a></p>
+</li>
+<li>
+<p>Click <strong>Reauthenticate</strong>.</p>
+<p><a class="glightbox" href="../reauthenticate.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="!reauthenticate" src="../reauthenticate.png" /></a></p>
+</li>
+<li>
+<p>Click <strong>Connect</strong>.</p>
+<p><a class="glightbox" href="../connect-device.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="!connect-device" src="../connect-device.png" /></a></p>
+</li>
+<li>
+<p>After the connection is complete, the browser will redirect to the Tailscale admin console, which should show both
+    devices are connected.</p>
+<p><a class="glightbox" href="../tailscale-console.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="!tailscale-console" src="../tailscale-console.png" /></a></p>
+</li>
+</ol>
+<h2 id="finish-tailscale-setup">Finish Tailscale Setup<a class="headerlink" href="#finish-tailscale-setup" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Open the <a href="https://login.tailscale.com/admin/dns">Tailscale DNS Settings</a>.</p>
+</li>
+<li>
+<p>(Optional) Click <strong>Rename tailnet...</strong> . This will allow you to select a more friendly .ts.net domain name for your
+    devices.</p>
+<p><a class="glightbox" href="../rename-tailnet.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="!rename-tailnet" src="../rename-tailnet.png" /></a></p>
+</li>
+<li>
+<p>At the bottom of the DNS page, click <strong>Enable HTTPS</strong>. This will allow Tailscale to generate SSL certificates for
+    your devices (e.g., to avoid certificate warnings when accessing the Unraid WebGUI.)</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Machine names are published in a public certificate ledger when HTTPS is enabled. The public ledger only provides
+information about the names of the TLS certificates; access to your devices is still restricted by Tailscale.</p>
+<p>For more information, see the <a href="https://tailscale.com/kb/1153/enabling-https#machine-names-in-the-public-ledger">Tailscale HTTPS documentation</a>.</p>
+</div>
+<p><a class="glightbox" href="../enable-https.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="!enable-https" src="../enable-https.png" /></a></p>
+</li>
+</ol>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 2, 2024</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -805,11 +1061,13 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "/", "features": ["instant"], "search": "/assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["instant"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="/assets/javascripts/bundle.525ec568.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.525ec568.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>
