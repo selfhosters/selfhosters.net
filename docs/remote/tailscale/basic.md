@@ -82,5 +82,4 @@ connect to the following services via the Tailscale IP / MagicDNS name of the Un
 
         For more information, see the [Tailscale HTTPS documentation](https://tailscale.com/kb/1153/enabling-https#machine-names-in-the-public-ledger).
 
-
     ![!enable-https](enable-https.png)
