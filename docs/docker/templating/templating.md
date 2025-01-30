@@ -665,7 +665,7 @@ container.
 
 - `Icon` - A URL to an icon for the container. This should be a direct link to an image file, typically a PNG file.
 
-  - Different icons can be used for different themes to avoid, e.g. a black icon on a black background. Specify different icons based on the Unraid theme: `Icon-black`, `Icon-white`, `Icon-azure`, and `Icon-gray`
+    - Different icons can be used for different themes to avoid, e.g. a black icon on a black background. Specify different icons based on the Unraid theme: `Icon-black`, `Icon-white`, `Icon-azure`, and `Icon-gray`
 
 - `License` - Information about the [license for the container](http://lime-technology.com/forum/index.php?topic=40262.msg444243#msg444243).
 
