@@ -661,14 +661,13 @@ container.
 - `ExtraParams` - Additional parameters to pass to the `docker run` command when starting the container. This should
   only be used for advanced configurations.
 
-- `ExtraSearchTerms` - A space-delimited list of
-  additional [search terms](https://forums.unraid.net/topic/38619-docker-template-xml-schema/page/3/?tab=comments#comment-941891)
-  for the container. This can be used to help users find the container in the Community Applications store.
+- `ExtraSearchTerms` - A space-delimited list of additional [search terms](https://forums.unraid.net/topic/38619-docker-template-xml-schema/page/3/?tab=comments#comment-941891) for the container. This can be used to help users find the container in the Community Applications store.
 
 - `Icon` - A URL to an icon for the container. This should be a direct link to an image file, typically a PNG file.
 
-- `License` - Information about
-  the [license for the container](http://lime-technology.com/forum/index.php?topic=40262.msg444243#msg444243).
+  - Different icons can be used for different themes to avoid, e.g. a black icon on a black background. Specify different icons based on the Unraid theme: `Icon-black`, `Icon-white`, `Icon-azure`, and `Icon-gray`
+
+- `License` - Information about the [license for the container](http://lime-technology.com/forum/index.php?topic=40262.msg444243#msg444243).
 
 - `Maintainer` - Information about the maintainer of the template (you). This is displayed in the Community Applications
   store entry.
